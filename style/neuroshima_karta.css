@@ -1,0 +1,137 @@
+#karta
+{
+	background-image: url("img/karta-postaci.jpg");
+	width: 2480px;
+	height: 3508px;
+	margin-top: 5px;
+	text-align: center;
+
+}
+.karta_text1
+{
+	font-size: 70px;
+	color: black;
+	margin-top: 50px;
+	float: left;
+	width: 650px;
+}
+#karta_imie
+{
+	margin-left: 150px;
+}
+#karta_ksywa
+{
+	margin-left: 115px;
+}
+#karta_nazwisko
+{
+	margin-left: 115px;
+}
+#karta_poch
+{
+	margin-left: 150px;
+	margin-top: 80px;
+}
+#karta_spec
+{
+	margin-left: 115px;
+	margin-top: 80px;
+}
+#karta_prof
+{
+	margin-left: 115px;
+	margin-top: 80px;
+}
+#karta_poch_cecha
+{
+
+	font-size: 50px;
+	margin-top: 100px;
+}
+#karta_prof_cecha
+{
+	margin-left: 115px;
+	margin-top: 100px;
+	font-size: 50px;
+}
+#karta_sztuczki
+{
+	margin-left: 55px;
+	margin-top: 100px;
+	font-size: 50px;
+	float: left;
+	width: 700px;
+	height: 950px;
+}
+#karta_sztuczka_1
+{
+	margin-top: 20px;
+}
+.karta_sztuczki_elem
+{
+	height: 50px;
+	margin-top: 35px;
+	font-size: 50px;
+	color: black;
+}
+#karta_podzial1
+{
+	margin-left: 150px;
+	float: left;
+	width: 1450px;
+	height: 1050px;
+}
+#karta_choroba
+{
+
+	margin-top: 110px;
+	font-size: 50px;
+}
+#karta_lek
+{
+	margin-left: 100px;
+	margin-top: 110px;
+	font-size: 50px;
+	width: 680px;
+}
+#karta_podzial_staty
+{
+	
+	height: 530px;
+	width: 990px;
+	margin-top: 490px;
+	margin-left: 400px;
+}
+.karta_podzial_kolumny
+{
+	
+	height: 520px;
+	width: 130px;
+	margin-left: 10px;
+	float: left;
+}
+.karta_staty
+{
+	font-size: 82px;
+	color: black;
+}
+#karta_skills
+{
+	float: left;
+	width: 1400px;
+	height: 1850px;
+	margin: 20px;
+	margin-left: 150px;
+	color: black;
+	padding: 25px;
+}
+.karta_skill
+{
+	float: left;
+	width: 245px;
+	padding: 8px;
+	margin: 5px;
+	margin-left: 135px;
+	margin-top: 6px;
+	font-size: 40px;
+}

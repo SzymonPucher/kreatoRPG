@@ -1,0 +1,70 @@
+body
+{
+	color: white;
+	font-size: 15px;
+	text-align: center;
+	font-family: 'Karla', sans-serif;
+	background-image: url("img/triangles.png"); /* Background pattern from subtlepatterns.com */
+}
+#container
+{
+	width: 1000px;
+	/*background-color: #222;
+	border-color: #888;
+	border-style: ridge;
+	border-width: 4px; */
+	margin: auto;
+	padding: 25px;
+	padding-top: 5px;
+
+}
+#title
+{
+	font-size: 60px;
+	font-family: 'Mirza', cursive;
+	margin-bottom: 20px;
+}
+#description
+{
+	width: 930px;
+	padding: 20px;
+	background-color: #111;
+	color: white;
+	margin: 10px;
+	border-color: #888;
+	border-style: ridge;
+	border-width: 5px;
+	font-family: 'Mirza', cursive;
+}
+a { text-decoration: none; }
+.system
+{ 
+	font-size: 55px;
+	margin: 10px;
+	height: 160px;
+	width: 950px;
+	padding: 10px;
+	background-color: #666;
+	letter-spacing: 10px;
+	border-width: 5px;
+	border-color: #888;
+	border-style: solid;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	
+}
+.system:hover
+{
+	background-color: #888;
+	color: black;
+	border-color: #444;
+	cursor:pointer; 
+}
+#neuro
+{
+	background-image: url("img_index/neuro.jpg");
+}
+#neuro:hover
+{
+	background-image: url("img_index/neuro_hover.jpg");
+}

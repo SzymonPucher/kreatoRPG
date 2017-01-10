@@ -1,0 +1,1219 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title> Neuroshima 1.5 - KPG </title>
+	<meta name="description" content="Character sheet creator for TableTop RPG" />
+	<meta name="keywords" content="RPG, TableTop, Creator, Character, Hero, Kreator, Postaci, Gracza, Neuroshima" />
+	
+	<link rel="stylesheet" href="style/neuroshima.css" type="text/css" />
+	<link rel="stylesheet" href="style/neuroshima_karta.css" type="text/css" />
+	
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/general.js"></script>
+	<script type="text/javascript" src="js/jspdf.min.js"></script>
+	<script type="text/javascript" src="js/html2canvas.js"></script>
+	
+	
+	
+</head>
+<body>
+<div id="container"> 
+	<div id="title">
+	Kreator Postaci Gracza <br /> Neuroshima 1.5
+	</div>
+	
+	<div class="subtitle">POCHODZENIE</div>
+	<div id="pochmenu">
+		<button id="poch_no" class="poch_tile1">Nie twój zasrany interes</button>
+		<button id="poch_det" class="poch_tile1">Detroit</button>
+		<button id="poch_fa" class="poch_tile1">Federacja Appalachów</button>
+		<button id="poch_cp" class="poch_tile1">Człowiek pustyni</button>
+		<button id="poch_mia" class="poch_tile1">Miami</button>
+		<button id="poch_mis" class="poch_tile1">Missisipi</button>
+		<div style="clear:both;"></div>
+		<button id="poch_ny" class="poch_tile1">Nowy Jork</button>
+		<button id="poch_ph" class="poch_tile1">Południowa Hegemonia</button>
+		<button id="poch_po" class="poch_tile1">Posterunek</button>
+		<button id="poch_slc" class="poch_tile1">Salt Lake City</button>
+		<button id="poch_tex" class="poch_tile1">Texas</button>
+		<button id="poch_veg" class="poch_tile1">Vegas</button>
+		<div style="clear:both;"></div>
+	</div>
+	<div id="poch_descrip">
+		<div id="poch_no_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_no_c1" class="poch_cecha"><h1>Wszechstronność</h1>Zwiedziłeś kawał świata, a co za tym idzie dużo się nauczyłeś, tyle że wszystkie umiejętności oparte na twoim największym współczynniku wynoszą 1.</div>
+			<div id="poch_no_stat">
+				<div class="poch_no_stat_choice" id="poch_no_stat_zr">Zręczność</div>
+				<div class="poch_no_stat_choice" id="poch_no_stat_pc">Percepcja</div>
+				<div class="poch_no_stat_choice" id="poch_no_stat_ch">Character</div>
+				<div class="poch_no_stat_choice" id="poch_no_stat_sp">Spryt</div>
+				<div class="poch_no_stat_choice" id="poch_no_stat_bd">Budowa</div>
+			</div>
+			<div id="poch_no_c2" class="poch_cecha"><h1>Wszechstronność do kwadratu</h1>Jako, że tylko ty wiesz z kąd jesteś, to możesz sobie wybrać dowolną cechę innej nacji.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_det_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_det_c1" class="poch_cecha"><h1>Jeśli ma silnik to ruszy</h1>Jeśli pojazd z silnikiem spalinowym może jeździć, to znaczy że jesteś go w stanie odpalić w 30 sek</div>
+			<div id="poch_det_c2" class="poch_cecha"><h1>Sióde poty</h1>Jeśli prowadzisz pojazd z silnikiem spalinowym, jesteś z niego 25% ponad maxymalna prędkość, jednak gdy zatrzymasz ten pojazd nie ruszy on aż do naprawienia uszkodzeń (bardzo trudny test mechaniki).</div>
+			<div id="poch_det_c3" class="poch_cecha"><h1>Ale jazda</h1>Strzelając będąc w ruchu, nie doliczasz sobie żadnych utrudnień za strzał w ruchu.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_fa_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_fa_c1" class="poch_cecha"><h1>Szlachetnie urodzony</h1>Lubisz rządzić. Wiesz jak pokierować ludźmi. Wybierz jeden z poniższych zestawów umiejetności, będzie on na 2 poziomie.</div>
+			<div id="poch_fa_c2" class="poch_cecha"><h1>Pojedynkowicz</h1>Wiesz, że każdego można pokonać, dlatego podczas walki ignorujesz pierwszą zadaną lekką ranę lub draśnięcie.</div>
+			<div id="poch_fa_c3" class="poch_cecha"><h1>Wychuchana spluwa</h1>Masz tą jedną, ulubioną spluwę o którą dbasz, a podczas walki możesz powtórzyc rzut na efekt zacięcia broni.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_cp_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_cp_c1" class="poch_cecha"><h1>Towarzysz</h1>Posiadasz zwierzęcego kompana, co do gatunku pogadaj z Mistrzem Gry. Możesz mu wydawać proste polecenia, jak bierz go, cicho czy zostań.</div>
+			<div id="poch_cp_c2" class="poch_cecha"><h1>Jestem duchem pustyni</h1>Możesz pograżyć się w katalepsji na okres do 3 miesięcy, czekając aż nastaną lepsze czasy.</div>
+			<div id="poch_cp_c3" class="poch_cecha"><h1>Polegam tylko na sobie</h1>Umiesz robić własną broń? Super. Łatwiej Ci jej używać, bo w za każdym razem możesz odjąć 2 oczka od wyrzuconego wyniku na jednej z kości.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_mia_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_mia_c1" class="poch_cecha"><h1>Człowiek-aligator</h1>Prawdziwy człowiek z tropików, chowając się w bagnie lub innym zbiorniku wodnym maskuje Cie on 2 poziomy lepiej i podczas ataku z zaskoczenia przeciwnicy są automatycznie zaskoczeni.</div>
+			<div id="poch_mia_c2" class="poch_cecha"><h1>Ja już swoje odchorowałem</h1>Masz większą odporność na jady i trucizny, dzięki temu możesz powtórzyć każdy rzut odpornościowy przeciwko chorobom i truciznom pochodzenia organicznego.</div>
+			<div id="poch_mia_c3" class="poch_cecha"><h1>Walkabout</h1>Możesz powtórzyć każdy test kondycji, ale musisz wybrać sztuczkę "Dom na plecach"</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_mis_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_mis_c1" class="poch_cecha"><h1>Coś mi tu śmierdzi</h1>Rozpoznasz mutka na kilometr, więc w obliczu osoby dotkniętej niewidoczną mutacją, MG powinien wykonać sekretny trudny tast na precepcję, i w razie powodzenia poinformować Cię, że czujesz się nieswojo.</div>
+			<div id="poch_mis_c2" class="poch_cecha"><h1>Chodźmy na pewno już utonął</h1>Jesteś w stanie wytrzymać pod wodą wyjątkowo długo, właściwie to pół minuty za każde 4 punkty budowy.</div>
+			<div id="poch_mis_c3" class="poch_cecha"><h1>Kwas w żyłach, chlor w płucach</h1>Mozesz powtórzyć każdy żut odpornościowy przeciko trującym chemikaliom i substancjom żrącym.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_ny_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_ny_c1" class="poch_cecha"><h1>Zalety klasycznego wykształcenia</h1>Nie ma to jak dobra szkoła, nie? Wybierz na późniejszym etapie specjalizacje technika, a dostaniesz dodatkowe 10 pkt do rozdania na umiejętności ze specjalizacji.</div>
+			<div id="poch_ny_c2" class="poch_cecha"><h1>Wizja</h1>Tam gdzie inni widzą ruiny, ty widzisz możliwości odbudowy. MG jest zobowiązany podpowiedzieć Ci jak najlepiej odbudować/przebudować daną lokację.</div>
+			<div id="poch_ny_c3" class="poch_cecha"><h1>Czas pratiotów</h1>Od czasu do czasu a właściwie raz na sesję, możesz dodać wartość swojego charakteru do testowanej umiejętności. Czyli praktycznie zdajesz automatycznie, bang!</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_ph_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_ph_c1" class="poch_cecha"><h1>Urodzony morderca</h1>Szczególnie okrutny z ciebie typ. Wybierz jedną paczkę umiejętności poniżej, a dostaniesz po 2 punkty do wszystkich umiejętności w wybranej paczce.</div>
+			<div id="poch_ph_c2" class="poch_cecha"><h1>Wiesz, zjadłem własnego psa</h1>Jak kogoś zastraszysz, to atakujesz pierwszy.</div>
+			<div id="poch_ph_c3" class="poch_cecha"><h1>Zawzięty sukinkot</h1>Jesteś twardym, upartym sukinkotem. Więc raz podczas sesji możesz użyć swojego charakteru zamiast dowolnego innego współczynnika.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_po_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_po_c1" class="poch_cecha"><h1>Na symulatorze to działo</h1>Możesz przerzucić jedną kostkę w testach wozów bojowych, maszyn ciężkich i komputerów.</div>
+			<div id="poch_po_c2" class="poch_cecha"><h1>Hi-Tech</h1>W każdy teście związanym z obsługa elektroniki możesz przerzucić jedną kostkę.</div>
+			<div id="poch_po_c3" class="poch_cecha"><h1>Moloch? Coś o nim słyszałem</h1>Każdy test zwiazany z maszynami molocha może być dla ciebie co najwyżej trudny.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_slc_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_slc_c1" class="poch_cecha"><h1>Cholerny kaznodzieja</h1>Jeżeli próbujesz przekonać kogoś do swoich racji, używając perswacji odzucasz najniższą wartość i zastępujesz ją wartością z jednej z 2 pozostałych kości.</div>
+			<div id="poch_slc_c2" class="poch_cecha"><h1>Wierzę</h1>Raz podczas sesji w sytuacji zagrożenia, możesz powiedzieć "Wierzę", a MG powinnien dać ci szansę wykaraskania się z sytuacji. Oczywiście ostateczna decyzja należey do MG.</div>
+			<div id="poch_slc_c3" class="poch_cecha"><h1>Przed wojną wszystko było lepsze</h1>Wiesz dużo o czasach przed wojną dzięki opowieściom starców. Wszystkie testy dotyczące wiedzy o czasach przed wojną moga być co najwyżej Trudne.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_tex_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_tex_c1" class="poch_cecha"><h1>Człowiek zwany koniem</h1>Silny, sprawny, potężny. Tak o tobie mówią. Wybierz sprawność lub jeździectwo, a wszystkie umiejętności z zestawu przychodzą ci o jeden poziom trudności łatwiej.</div>
+			<div id="poch_tex_c2" class="poch_cecha"><h1>Doktor Quinn</h1>Jeśli jesteś kobietą, to wszystkie umiejętności z zestawu medycyna są na 4 poziomie.</div>
+			<div id="poch_tex_c3" class="poch_cecha"><h1>Zdrowa okolica</h1>Wooo. Nie posiadasz choroby! Ty czyścioszku.</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div id="poch_veg_descrip" class="poch_descrip">
+			<div style="height: 54px;"></div>
+			<div id="poch_veg_c1" class="poch_cecha"><h1>Fart</h1>Trzykrotnie podczas sesji możesz powtórzyć jeden nieudany rzut na dowlnej kości.</div>
+			<div id="poch_veg_c2" class="poch_cecha"><h1>Hazardzista</h1>Och, ty mały oszuście, tak się składa, że podczas pobytu w vegas tak wyszkoliłeś swoje zdolności manualne, że teraz cały zestaw masz na 2 poziomie.</div>
+			<div id="poch_veg_c3" class="poch_cecha"><h1>Telepata</h1>Charakterek to ty masz, i do tego ciężko na ciebie wpłynąć. Podczas wszystkich testów blefu, preswazji i zastraszania przeciwnik ma zwiększony poziom o jeden w górę.</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+
+	<div class="subtitle">PROFESJA</div>
+	<div class="profmenu">
+		<button id="prof_chemik" class="prof_tile1">Chemik</button>
+		<button id="prof_ganger" class="prof_tile1">Ganger</button>
+		<button id="prof_gladiator" class="prof_tile1">Gladiator</button>
+		<button id="prof_handlarz" class="prof_tile1">Handlarz</button>
+		<button id="prof_kaznodzieja" class="prof_tile1">Kaznodzieja Nowej Ery</button>
+		<button id="prof_kowboj" class="prof_tile1">Kowboj</button>
+		<div class="clear:both;"></div>
+		<button id="prof_kurier" class="prof_tile1">Kurier</button>
+		<div class="prof_tile1_blank"></div>
+		<button id="prof_lowca" class="prof_tile1">Łowca</button>
+		<button id="prof_lowcamutantow" class="prof_tile1">Łowca mutantów</button>
+		<div class="prof_tile1_blank"></div>
+		<button id="prof_mafiozo" class="prof_tile1">Mafiozo</button>
+		<div class="clear:both;"></div>
+		<button id="prof_medyk" class="prof_tile1">Medyk</button>
+		<button id="prof_monter" class="prof_tile1">Monter</button>
+		<button id="prof_najemnik" class="prof_tile1">Najemnik</button>
+		<button id="prof_ochroniarz" class="prof_tile1">Ochroniarz</button>
+		<button id="prof_sedzia" class="prof_tile1">Sędzia</button>
+		<button id="prof_spec" class="prof_tile1">Spec</button>
+		<div class="clear:both;"></div>
+		<button id="prof_szaman" class="prof_tile1">Szaman</button>
+		<button id="prof_szczur" class="prof_tile1">Szczur</button>
+		<div class="prof_tile1_blank"></div>
+		<div class="prof_tile1_blank"></div>
+		<button id="prof_treserbestii" class="prof_tile1">Treser bestii</button>
+		<button id="prof_tropiciel" class="prof_tile1">Tropiciel</button>
+		<div class="clear:both;"></div>
+		<button id="prof_wojownikautostrady" class="prof_tile1">Wojownik autostrady</button>
+		<button id="prof_wojownikklanu" class="prof_tile1">Wojownik klanu</button>
+		<button id="prof_zabojca" class="prof_tile1">Zabójca</button>
+		<button id="prof_zabojcamaszyn" class="prof_tile1">Zabójca maszyn</button>
+		<button id="prof_zlodziej" class="prof_tile1">Złodziej</button>
+		<button id="prof_zolnierz" class="prof_tile1">Żołnierz</button>
+		<div class="clear:both;"></div>
+		
+		
+	</div>
+	<div id="prof_descrip">
+		<div class="prof_descrip" id="prof_descrip_chemik">
+			<div style="height: 52px;"></div>
+			<div id="prof_chemik_c1" class="subprof"><h2>Smakuje jak arszenik</h2>Tutaj będzie text opisujący całą cechę w kilku słowach. Ciągnący się przez kilka linijek i wycentrowany w kafelce.</div>
+			<div id="prof_chemik_c2" class="subprof"><h2>Farmaceuta</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_ganger">
+			<div style="height: 52px;"></div>
+			<div id="prof_ganger_c1" class="subprof"><h2>Jeden z nich</h2></div>
+			<div id="prof_ganger_c2" class="subprof"><h2>Odważny czy głupi</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_gladiator">
+			<div style="height: 52px;"></div>
+			<div id="prof_gladiator_c1" class="subprof"><h2>Nie do zdarcia</h2></div>
+			<div id="prof_gladiator_c2" class="subprof"><h2>Łyżeczka</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_handlarz">
+			<div style="height: 52px;"></div>
+			<div id="prof_handlarz_c1" class="subprof"><h2>Trakt handlowy</h2></div>
+			<div id="prof_handlarz_c2" class="subprof"><h2>Szklarz</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_kaznodzieja">
+			<div style="height: 52px;"></div>
+			<div id="prof_kaznodzieja_c1" class="subprof"><h2>Spójrz mi w oczy</h2></div>
+			<div id="prof_kaznodzieja_c2" class="subprof"><h2>Amen</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_kowboj">
+			<div style="height: 52px;"></div>
+			<div id="prof_kowboj_c1" class="subprof"><h2>Rewolwerowiec</h2></div>
+			<div id="prof_kowboj_c2" class="subprof"><h2>Ostatnia kula</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_kurier">
+			<div style="height: 52px;"></div>
+			<div id="prof_kurier_c1" class="subprof"><h2>Znajomości</h2></div>
+			<div id="prof_kurier_c2" class="subprof"><h2>Skrytka</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_lowca">
+			<div style="height: 52px;"></div>
+			<div id="prof_lowca_c1" class="subprof"><h2>Fotograficzna pamięć</h2></div>
+			<div id="prof_lowca_c2" class="subprof"><h2>Nieugięty</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_lowcamutantow">
+			<div style="height: 52px;"></div>
+			<div id="prof_lowcamutantow_c1" class="subprof"><h2>Bez tajemnic</h2></div>
+			<div id="prof_lowcamutantow_c2" class="subprof"><h2>Mutant na śniadanie</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_mafiozo">
+			<div style="height: 52px;"></div>
+			<div id="prof_mafiozo_c1" class="subprof"><h2>Bezlitosny</h2></div>
+			<div id="prof_mafiozo_c2" class="subprof"><h2>Klasa</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_medyk">
+			<div style="height: 52px;"></div>
+			<div id="prof_medyk_c1" class="subprof"><h2>Reputacja</h2></div>
+			<div id="prof_medyk_c2" class="subprof"><h2>Sanitariusz polowy</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_monter">
+			<div style="height: 52px;"></div>
+			<div id="prof_monter_c1" class="subprof"><h2>Zapałki i agrafka</h2></div>
+			<div id="prof_monter_c2" class="subprof"><h2>Kłopotliwy nadmiar</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_najemnik">
+			<div style="height: 52px;"></div>
+			<div id="prof_najemnik_c1" class="subprof"><h2>Reputacja</h2></div>
+			<div id="prof_najemnik_c2" class="subprof"><h2>Maszyna do zabijania</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_ochroniarz">
+			<div style="height: 52px;"></div>
+			<div id="prof_ochroniarz_c1" class="subprof"><h2>Wyciszenie</h2></div>
+			<div id="prof_ochroniarz_c2" class="subprof"><h2>Zanim on</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_sedzia">
+			<div style="height: 52px;"></div>
+			<div id="prof_sedzia_c1" class="subprof"><h2>Mundur i odznaka</h2></div>
+			<div id="prof_sedzia_c2" class="subprof"><h2>Jeden z nas</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_spec">
+			<div style="height: 52px;"></div>
+			<div id="prof_spec_c1" class="subprof"><h2>Wykształcenie</h2></div>
+			<div id="prof_spec_c2" class="subprof"><h2>Skupienie</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_szaman">
+			<div style="height: 52px;"></div>
+			<div id="prof_szaman_c1" class="subprof"><h2>Duchy przemówkiły</h2></div>
+			<div id="prof_szaman_c2" class="subprof"><h2>Totem</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_szczur">
+			<div style="height: 52px;"></div>
+			<div id="prof_szczur_c1" class="subprof"><h2>A co mi tam</h2></div>
+			<div id="prof_szczur_c2" class="subprof"><h2>Szary</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_treserbestii">
+			<div style="height: 52px;"></div>
+			<div id="prof_treserbestii_c1" class="subprof"><h2>Bestia</h2></div>
+			<div id="prof_treserbestii_c2" class="subprof"><h2>Wilczy kieł</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_tropiciel">
+			<div style="height: 52px;"></div>
+			<div id="prof_tropiciel_c1" class="subprof"><h2>Wyczulone zmysły</h2></div>
+			<div id="prof_tropiciel_c2" class="subprof"><h2>Rozpoznawanie stworzeń</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_wojownikautostrady">
+			<div style="height: 52px;"></div>
+			<div id="prof_wojownikautostrady_c1" class="subprof"><h2>Dzwi w dzwi</h2></div>
+			<div id="prof_wojownikautostrady_c2" class="subprof"><h2>Osłona samochodu</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_wojownikklanu">
+			<div style="height: 52px;"></div>
+			<div id="prof_wojownikklanu_c1" class="subprof"><h2>My i oni</h2></div>
+			<div id="prof_wojownikklanu_c2" class="subprof"><h2>To mój dom</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_zabojca">
+			<div style="height: 52px;"></div>
+			<div id="prof_zabojca_c1" class="subprof"><h2>Koniec zlecenia</h2></div>
+			<div id="prof_zabojca_c2" class="subprof"><h2>Jeden strzał</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_zabojcamaszyn">
+			<div style="height: 52px;"></div>
+			<div id="prof_zabojcamaszyn_c1" class="subprof"><h2>Słaby punkt</h2></div>
+			<div id="prof_zabojcamaszyn_c2" class="subprof"><h2>Empiryk</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_zlodziej">
+			<div style="height: 52px;"></div>
+			<div id="prof_zlodziej_c1" class="subprof"><h2>Elektronik</h2></div>
+			<div id="prof_zlodziej_c2" class="subprof"><h2>Kot</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="prof_descrip" id="prof_descrip_zolnierz">
+			<div style="height: 52px;"></div>
+			<div id="prof_zolnierz_c1" class="subprof"><h2>Wyszkolenie</h2></div>
+			<div id="prof_zolnierz_c2" class="subprof"><h2>Rutyna</h2></div>
+			<div class="clear:both;"></div>
+		</div>
+	</div>
+	
+	<div class="subtitle">SPECJALIZACJA</div>
+	<div class="specmenu">
+		<button class="spectile" id="spec_tech">Technik</button>
+		<button class="spectile" id="spec_woj">Wojownik</button>
+		<button class="spectile" id="spec_rang">Ranger</button>
+		<button class="spectile" id="spec_cwa">Cwaniak</button>
+		<div class="clear:both;"></div>
+	</div>
+	<div id="spec_descrip">
+		<div id="spec_tech_descrip" class="spec_pic">Mechanik - Informatyk - Operator</div>
+		<div id="spec_woj_descrip" class="spec_pic">Mięśniak - Strzelec - Pirotechnik</div>
+		<div id="spec_rang_descrip" class="spec_pic">Łowca - Tropiciel - Samowystarczalny</div>
+		<div id="spec_cwa_descrip" class="spec_pic">Dyplomata - Złodziej - Kanciarz</div>
+	</div>
+	
+	<div class="subtitle">RZUĆ KOŚĆMI</div>	
+	
+	<div id="dice_way_pick">
+		<div id="dice_way_pick_random" class="dice_way_pick_tile">losuj statystyki</div>
+		<div id="dice_way_pick_distribution" class="dice_way_pick_tile">rozdaj punkty do statystyk</div>
+		<div id="dice_way_pick_userInput" class="dice_way_pick_tile">rzuć własnymi kośćmi</div>
+		<div class="clear:both;"></div>
+	</div>
+	
+	<div id="r_final">
+		<div class="r_final_stat">
+			<div class="r_final_name">Zręczność</div>
+			<div class="r_final_value" id="r_final_zr">?</div>
+		</div>
+		<div class="r_final_stat">
+			<div class="r_final_name">Percepcja</div>
+			<div class="r_final_value" id="r_final_pc">?</div>
+		</div>
+		<div class="r_final_stat">
+			<div class="r_final_name">Charakter</div>
+			<div class="r_final_value" id="r_final_ch">?</div>
+		</div>
+		<div class="r_final_stat">
+			<div class="r_final_name">Spryt</div>
+			<div class="r_final_value" id="r_final_sp">?</div>
+		</div>
+			<div class="r_final_stat">
+			<div class="r_final_name">Budowa</div>
+			<div class="r_final_value" id="r_final_bd">?</div>
+		</div>
+		<div class="clear:both;"></div>
+	</div>
+	
+	<div id="dice_random">
+		<div></div>
+		<div class="dice_random_stat_container" id="r_cont_1">
+			<div class="dice_random_stat_name">Zręczność</div>
+			<div class="dice_tostat_pick" id="r_zr_1"></div>
+			<div class="dice_tostat_pick" id="r_zr_2"></div>
+			<div class="dice_tostat_pick" id="r_zr_3"></div>
+			<div class="dice_tostat_pick" id="r_zr_4"></div>
+			<div class="dice_tostat_pick" id="r_zr_5"></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="dice_random_stat_container" id="r_cont_2">
+			<div class="dice_random_stat_name">Percepcja</div>
+			<div class="dice_tostat_pick" id="r_pc_1"></div>
+			<div class="dice_tostat_pick" id="r_pc_2"></div>
+			<div class="dice_tostat_pick" id="r_pc_3"></div>
+			<div class="dice_tostat_pick" id="r_pc_4"></div>
+			<div class="dice_tostat_pick" id="r_pc_5"></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="dice_random_stat_container" id="r_cont_3">
+			<div class="dice_random_stat_name">Charakter</div>
+			<div class="dice_tostat_pick" id="r_ch_1"></div>
+			<div class="dice_tostat_pick" id="r_ch_2"></div>
+			<div class="dice_tostat_pick" id="r_ch_3"></div>
+			<div class="dice_tostat_pick" id="r_ch_4"></div>
+			<div class="dice_tostat_pick" id="r_ch_5"></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="dice_random_stat_container" id="r_cont_4">
+			<div class="dice_random_stat_name">Spryt</div>
+			<div class="dice_tostat_pick" id="r_sp_1"></div>
+			<div class="dice_tostat_pick" id="r_sp_2"></div>
+			<div class="dice_tostat_pick" id="r_sp_3"></div>
+			<div class="dice_tostat_pick" id="r_sp_4"></div>
+			<div class="dice_tostat_pick" id="r_sp_5"></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="dice_random_stat_container" id="r_cont_5">
+			<div class="dice_random_stat_name">Budowa</div>
+			<div class="dice_tostat_pick" id="r_bd_1"></div>
+			<div class="dice_tostat_pick" id="r_bd_2"></div>
+			<div class="dice_tostat_pick" id="r_bd_3"></div>
+			<div class="dice_tostat_pick" id="r_bd_4"></div>
+			<div class="dice_tostat_pick" id="r_bd_5"></div>
+			<div class="clear:both;"></div>
+		</div>
+		<div id="r_reset_but">RESET</div>
+	</div>
+		
+	
+	<div id="dice_distribution">
+		<div id="dice_distribution_description">Rozdaj punkty współczynników. Współczynnik może posiadać od 4 do 19 punktów. Po kliknięciu na nazwę współczynnika pokaże Ci się jego opis.<br />Pozostało <p id="dice_distribution_points_left">40</p> punktów.</div>
+		<div class="dice_distribution_stat_container">
+			<div class="dice_distribution_stat_name">Zręczność</div>
+			<button class="dice_distribution_button" id="minus_zr">-</button>
+			<div class="dice_distribution_points" id="dice_distribution_points_zr">4</div>
+			<button class="dice_distribution_button" id="plus_zr">+</button>
+		</div>
+		<div class="dice_distribution_stat_container">
+			<div class="dice_distribution_stat_name">Percepcja</div>
+			<button class="dice_distribution_button" id="minus_pc">-</button>
+			<div class="dice_distribution_points" id="dice_distribution_points_pc">4</div>
+			<button class="dice_distribution_button" id="plus_pc">+</button>
+		</div>
+		<div class="dice_distribution_stat_container">
+			<div class="dice_distribution_stat_name">Charakter</div>
+			<button class="dice_distribution_button" id="minus_ch">-</button>
+			<div class="dice_distribution_points" id="dice_distribution_points_ch">4</div>
+			<button class="dice_distribution_button" id="plus_ch">+</button>
+		</div>
+		<div class="dice_distribution_stat_container">
+			<div class="dice_distribution_stat_name">Spryt</div>
+			<button class="dice_distribution_button" id="minus_sp">-</button>
+			<div class="dice_distribution_points" id="dice_distribution_points_sp">4</div>
+			<button class="dice_distribution_button" id="plus_sp">+</button>
+		</div>
+		<div class="dice_distribution_stat_container">
+			<div class="dice_distribution_stat_name" >Budowa</div>
+			<button class="dice_distribution_button" id="minus_bd">-</button>
+			<div class="dice_distribution_points" id="dice_distribution_points_bd">4</div>
+			<button class="dice_distribution_button" id="plus_bd">+</button>
+		</div>
+		<div class="clear:both;"></div>
+	
+	</div>
+	
+	<div id="dice_userInput">
+		<div id="dice_userInput_description"> Wybrałeś opcję rzucenia statystyk samodzielnie. Weź kość k20 (najlepiej 3 sztuki) i postępuje zgodnie z instrukcjami: 1. Rzuć trzema kośćmi k20, policz średnią wyników, zapisz na kartce/wpisz w programie. 2. Powtórz krok 1 sześć razy i najmniejszy wynik odrzuć. 3. Przyporządkuj otrzymane wyniki do statystyk według własnych preferencji.
+		</div>
+		<div class="dice_userInput_stat_container">
+			<div class="dice_userInput_stat_name">Zręczność</div>
+			<input type="number" id="userInput_zr" min="6" max="20"/>
+		</div>
+		<div class="dice_userInput_stat_container">
+			<div class="dice_userInput_stat_name">Percepcja</div>
+			<input type="number" id="userInput_pc" min="6" max="20"/>
+		</div>
+		<div class="dice_userInput_stat_container">
+			<div class="dice_userInput_stat_name">Charakter</div>
+			<input type="number" id="userInput_ch" min="6" max="20"/>
+		</div>
+		<div class="dice_userInput_stat_container">
+			<div class="dice_userInput_stat_name">Spryt</div>
+			<input type="number" id="userInput_sp" min="6" max="20"/>
+		</div>
+		<div class="dice_userInput_stat_container">
+			<div class="dice_userInput_stat_name">Budowa</div>
+			<input type="number" id="userInput_bd" min="6" max="20"/>
+		</div>
+	</div>
+	
+	<div class="subtitle">UMIEJĘTNOŚCI</div>
+	<div class="skills">
+		<div class="skills_type" id="ww1">
+			Walka wręcz<br />
+			<div class="skills_tile">
+				<div>Bijatyka</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ww1">-</button></div>
+				<div class="skills_value" id="skill_value_ww1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ww1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Broń ręczna</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ww2">-</button></div>
+				<div class="skills_value" id="skill_value_ww2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ww2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Rzucanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ww3">-</button></div>
+				<div class="skills_value" id="skill_value_ww3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ww3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>
+		<div class="skills_type" id="bs1">
+			Broń strzelecka<br />
+			<div class="skills_tile">
+				<div>Pistolety</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bs1">-</button></div>
+				<div class="skills_value" id="skill_value_bs1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bs1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Karabiny</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bs2">-</button></div>
+				<div class="skills_value" id="skill_value_bs2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bs2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Broń maszynowa</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bs3">-</button></div>
+				<div class="skills_value" id="skill_value_bs3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bs3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="bd1">
+			Broń dystansowa<br />
+			<div class="skills_tile">
+				<div>Łuk</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bd1">-</button></div>
+				<div class="skills_value" id="skill_value_bd1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bd1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Kusza</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bd2">-</button></div>
+				<div class="skills_value" id="skill_value_bd2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bd2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Proca</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_bd3">-</button></div>
+				<div class="skills_value" id="skill_value_bd3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bd3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="pp1">
+			Prow. pojazdów<br />
+			<div class="skills_tile">
+				<div>Samochód</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pp1">-</button></div>
+				<div class="skills_value" id="skill_value_pp1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pp1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Cieżarówka</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pp2">-</button></div>
+				<div class="skills_value" id="skill_value_pp2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pp2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Motocykl</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pp3">-</button></div>
+				<div class="skills_value" id="skill_value_pp3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pp3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="zm1">
+			Zdol. manualne<br />
+			<div class="skills_tile">
+				<div>Kradzież kiesz.</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_zm1">-</button></div>
+				<div class="skills_value" id="skill_value_zm1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_zm1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Zwinne dłonie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_zm2">-</button></div>
+				<div class="skills_value" id="skill_value_zm2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_zm2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Otwieranie zamków</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_zm3">-</button></div>
+				<div class="skills_value" id="skill_value_zm3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_zm3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="ot1">
+			Orient. w terenie<br />
+			<div class="skills_tile">
+				<div>Wyczucie kierunku</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ot1">-</button></div>
+				<div class="skills_value" id="skill_value_ot1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ot1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Tropienie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ot2">-</button></div>
+				<div class="skills_value" id="skill_value_ot2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ot2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Przyg. pułapki</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ot3">-</button></div>
+				<div class="skills_value" id="skill_value_ot3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ot3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="sg1">
+			Spostrzegawczość<br />
+			<div class="skills_tile">
+				<div>Nasłuchiwanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sg1">-</button></div>
+				<div class="skills_value" id="skill_value_sg1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sg1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Wypatrywanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sg2">-</button></div>
+				<div class="skills_value" id="skill_value_sg2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sg2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Czujność</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sg3">-</button></div>
+				<div class="skills_value" id="skill_value_sg3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sg3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="ka1">
+			Kamuflaż<br />
+			<div class="skills_tile">
+				<div>Skradanie się</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ka1">-</button></div>
+				<div class="skills_value" id="skill_value_ka1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ka1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Ukrywanie się</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ka2">-</button></div>
+				<div class="skills_value" id="skill_value_ka2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ka2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Maskowanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ka3">-</button></div>
+				<div class="skills_value" id="skill_value_ka3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ka3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="pr1">
+			Przetrwanie<br />
+			<div class="skills_tile">
+				<div>Łowiectwo</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pr1">-</button></div>
+				<div class="skills_value" id="skill_value_pr1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pr1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Zdobywanie wody</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pr2">-</button></div>
+				<div class="skills_value" id="skill_value_pr2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pr2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Znajomość terenu</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pr3">-</button></div>
+				<div class="skills_value" id="skill_value_pr3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pr3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="ng1">
+			Negocjacje<br />
+			<div class="skills_tile">
+				<div>Perswazja</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ng1">-</button></div>
+				<div class="skills_value" id="skill_value_ng1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ng1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Zastraszanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ng2">-</button></div>
+				<div class="skills_value" id="skill_value_ng2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ng2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Zdol. przywódcze</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_ng3">-</button></div>
+				<div class="skills_value" id="skill_value_ng3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ng3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>
+		<div class="skills_type" id="em1">
+			Empatia<br />
+			<div class="skills_tile">
+				<div>Postrzeganie emocji</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_em1">-</button></div>
+				<div class="skills_value" id="skill_value_em1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_em1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Blef</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_em2">-</button></div>
+				<div class="skills_value" id="skill_value_em2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_em2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Opieka nad zwierz.</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_em3">-</button></div>
+				<div class="skills_value" id="skill_value_em3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_em3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="sw1">
+			Siła woli<br />
+			<div class="skills_tile">
+				<div>Odporność na ból</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sw1">-</button></div>
+				<div class="skills_value" id="skill_value_sw1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sw1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Niezłomność</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sw2">-</button></div>
+				<div class="skills_value" id="skill_value_sw2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sw2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Morale</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sw3">-</button></div>
+				<div class="skills_value" id="skill_value_sw3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sw3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		 
+		<div id="skills_inner_container">
+			<div class="skills_inner_container_text"> ALL </div>
+			<div id="skills_points" class="skills_inner_container_number">30</div>
+			<div class="clear:both;"></div>
+			<div class="skills_inner_container_text" id="skills_inner_container_text_spec"> SPEC </div> 
+			<div id="skills_points_spec" class="skills_inner_container_number">35</div>
+			<div class="clear:both;"></div>
+		</div>
+		<div class="skills_type" id="me1">
+			Medycyna<br />
+			<div class="skills_tile">
+				<div>Leczenie ran</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_me1">-</button></div>
+				<div class="skills_value" id="skill_value_me1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_me1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Leczenie chorób</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_me2">-</button></div>
+				<div class="skills_value" id="skill_value_me2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_me2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Pierwsza pomoc</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_me3">-</button></div>
+				<div class="skills_value" id="skill_value_me3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_me3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="te1">
+			Technika<br />
+			<div class="skills_tile">
+				<div>Mechanika</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_te1">-</button></div>
+				<div class="skills_value" id="skill_value_te1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_te1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Elektronika</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_te2">-</button></div>
+				<div class="skills_value" id="skill_value_te2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_te2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Komputery</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_te3">-</button></div>
+				<div class="skills_value" id="skill_value_te3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_te3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="wo1">
+			Wiedza ogólna<br />
+			<div class="skills_tile">
+				<div>Biologia</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_wo1">-</button></div>
+				<div class="skills_value" id="skill_value_wo1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_wo1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Chemia</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_wo2">-</button></div>
+				<div class="skills_value" id="skill_value_wo2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_wo2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Informatyka</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_wo3">-</button></div>
+				<div class="skills_value" id="skill_value_wo3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_wo3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="sp1">
+			Sprzęt<br />
+			<div class="skills_tile">
+				<div>Maszyny ciężkie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sp1">-</button></div>
+				<div class="skills_value" id="skill_value_sp1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sp1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Wozy bojowe</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sp2">-</button></div>
+				<div class="skills_value" id="skill_value_sp2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sp2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Kutry</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sp3">-</button></div>
+				<div class="skills_value" id="skill_value_sp3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sp3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="pt1">
+			Pirotechnika<br />
+			<div class="skills_tile">
+				<div>Rusznikarstwo</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pt1">-</button></div>
+				<div class="skills_value" id="skill_value_pt1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pt1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Wyrzutnie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pt2">-</button></div>
+				<div class="skills_value" id="skill_value_pt2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pt2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Mat. wybuchowe</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_pt3">-</button></div>
+				<div class="skills_value" id="skill_value_pt3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pt3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="sn1">
+			Sprawność<br />
+			<div class="skills_tile">
+				<div>Pływanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sn1">-</button></div>
+				<div class="skills_value" id="skill_value_sn1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sn1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Wspinaczka</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sn2">-</button></div>
+				<div class="skills_value" id="skill_value_sn2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sn2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Kondycja</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_sn3">-</button></div>
+				<div class="skills_value" id="skill_value_sn3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sn3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		<div class="skills_type" id="jd1">
+			Jeździectwo<br />
+			<div class="skills_tile">
+				<div>Jazda konna</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_jd1">-</button></div>
+				<div class="skills_value" id="skill_value_jd1">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_jd1">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Powożenie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_jd2">-</button></div>
+				<div class="skills_value" id="skill_value_jd2">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_jd2">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+			<div class="skills_tile">
+			<div>Ujeżdżanie</div>
+				<div class="float_for_buttons"><button class="skills_button_minus" id="minus_jd3">-</button></div>
+				<div class="skills_value" id="skill_value_jd3">0</div>
+				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_jd3">+</button></div>
+				<div class="clear:both;"></div>
+			</div>
+		</div>		
+		
+	</div>	
+	
+	<div class="subtitle">SZTUCZKI</div>
+	<div class="sztuczki">
+		<button id="s_bum" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bum</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_aramis" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Aramis</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_asekuracja" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Asekuracja</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_aspiryna" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Aspiryna i Tik-taki</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_barbarka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Barbarka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_berserker" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Berserker</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_bezoddechu" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bez oddechu</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_bezsprzetu" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bez sprzętu, bez zabezpieczenia</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_bezsznurków" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bez sznurków</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_bieg" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bieg w ciszy</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_bierzgo" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bierz go!</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_boa" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Boa</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_casanova" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Casanova/Mata Hari</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_chlodnymokiem" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Chłodnym okiem</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_ciszej" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ciszej niż cień</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_czlowiek" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Człowiek, który kulom się nie kłaniał</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_czterejpancerni" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Czterej pancerni</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_czuly" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Czuły spust</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dalszy" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dalszy zasięg</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dawid" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dawid</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dluzszystrzal" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dłuższy strzał</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dobryizlyglina" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dobry i zły glina</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dobywanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dobywanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_domnaplecach" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Doma na plecach</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_doswiadczony" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Doświadczony</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dystans" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dystans</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_dziswszystko" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Dzis wszystko, jutro nic</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_flash" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Flash</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_garda" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Garda</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_glaz" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Głaz</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_golareka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Goła ręka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_granienanerwach" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Granie na nerwach</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_gunfight" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Gun fight</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_hokuspokus" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Hokus Pokus</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_immunitet" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Immunitet</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_inspiracja" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Inspiracja</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_jestzajebiscie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Jest zajebiście</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_kanaly" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Kanały</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_komandos" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Komandos</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_kopzobrotu" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Kop z obrotu</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_kot" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Kot</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_kradziezwtlumie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Kradzież w tłumie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_lesnydiabel" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Leśny diabeł</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_ladowaniekuszy" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ładowanie kuszy</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_lawnik" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ławnik</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_magazynek" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Magazynek</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_meczbojowy" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Mecz bojowy</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_miotaczkul" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Miotacz kul</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_mistrzopaskiuciskowej" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Mistrz opaski uciskowej</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_mistrzwloczni" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Mistrz włóczni</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_myslecjakmaszyna" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Myśleć jak maszyna</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_napewnodzialal" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Na pewno działał</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_naprawde" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Naprawdę, to nie moja wina</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_nauczyciel" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Nauczyciel</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_niewrazliwosc" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Niewrażliwość na lekkie rany</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_nostrzelaj" class="sztuczki_exmpl"><div class="sztuczki_name"><b>No strzelaj, złomie!</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_nozownik" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Nożownik</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_obezwladnienie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Obezwładnienie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_odnajdowanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Odnajdowanie właściwej osoby</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_odpornosc" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Odporność na pogodę</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_odtrucie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Odtrucie żarcia</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_odwrocenie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Odwrócenie uwagi</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_origami" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Origami</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_osmiornica" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ośmiornica</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_otwieraniezamkowelektronicznych" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Otwieranie zamków elektronicznych</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_padnij" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Padnij/powstań</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_pajak" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Pająk</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_panplaster" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Pan plaster</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_pewnareka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Pewna ręka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_pierwotny" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Pierwotny instykt</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_pitbull" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Pitbull</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_plugplay" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Plug and Play</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_poschodach" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Po schodach</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_podrasowanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Podrasowanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_polozeniemotocykla" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Położenie motocykla</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_prowizorka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Prowizorka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_rappeling" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Rappeling</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_rodeo" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Rodeo</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_rozroba" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Rozróba</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_roar" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Rrrroooaaarrr</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_ruchomegniazdo" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ruchome gniazdo CKM</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_ruchomycel" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Ruchomy cel</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_rzutoka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Rzut oka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_samuraj" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Samuraj</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_sherlock" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Sherlock Holmes</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_sleklerezada" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Sleklerezada</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_slup" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Slup dup</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_skladamunicji" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Skład amunicji</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_skok" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Skok</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_sluchabsolutny" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Słuch absolutny</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_snajper" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Snajper</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_spacnawodzie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Spać na wodzie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_strzeleckieszonkowy" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Strzelec kieszonkowy</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_szachista" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Szachista</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_szostyzmysl" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Szósty zmysł</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_sztuczkikarciane" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Sztuczki karciane</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_sztuka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Sztuka jest sztuka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_szybkibill" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Szybki Bill</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_szybkirzut" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Szybki rzut</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_szybkiestrzelanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Szybkie strzelanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_srubobranie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Śrutobranie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_taran" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Taran</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_taranowanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Taranowanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_targowaniesie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Targowanie się</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_tosierobitak" class="sztuczki_exmpl"><div class="sztuczki_name"><b>To się robi tak</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wmgnieniuoka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>W mgnieniu oka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_walkadwiemabronmi" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Walka dwiema brońmi</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wiatraki" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wiatraki</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wilkmorski" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wilk morski</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wlasciwatwarz" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Właściwa twarz</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wracajacybumerang" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wracający bumerang</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wyczekanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wyczekanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wyczucieemocjizwierzat" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wyczucie emocji zwierząt</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wyczuciepromieniowania" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wyczucie promieniowania</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wyczuciezmianpogody" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wyczucie zmian pogody</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wyrabianiestrzalibeltow" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wyrabianie strzał lub bełtów</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_wytrych" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Wytrych</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zagadanie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zagadanie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zaslona" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zasłona</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zgranie" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zgranie</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zielonybalonik" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zielony balonik</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zly" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zły</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zmylka" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Zmyłka</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<button id="s_zelazneracje" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Żelazne racje</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
+		<div class="clear:both;"></div>
+	</div>
+	
+	<div class="UserInp">
+	<form>
+		<div class="inptile">
+			Podaj imię postaci<br />
+			<input id="inp_imie" type="text" name="Imie"/><br />
+		</div>
+		<div class="inptile">
+			Podaj nazwisko postaci<br />
+			<input id="inp_nazwisko" type="text" name="Nazwisko"/><br />
+		</div>
+		<div class="inptile">
+			Podaj ksywę postaci<br />
+			<input id="inp_ksywa" type="text" name="Ksywa"/><br />
+		</div>
+		<div class="clear:both;"></div>
+	</form>
+	</div>	
+	<div id="create_button">STWÓRZ KARTĘ POSTACI</div>
+	<br />
+	<div id="footer">
+		Created by Szymon Pucher
+	</div>
+	
+	
+</div>
+
+<div id="karta">
+	<div style="height: 100px;"></div>
+	
+	<div id="karta_imie" class="karta_text1">Nie wybrano imienia</div>
+	<div id="karta_ksywa" class="karta_text1">Nie wybrano ksywy</div>
+	<div id="karta_nazwisko" class="karta_text1">Nie wybrano nazwiska</div>
+	<div class="clear:both;"></div>
+	
+	<div id="karta_poch" class="karta_text1">Nie wybrano pochodzenia</div>
+	<div id="karta_prof" class="karta_text1">Nie wybrano profesji</div>
+	<div id="karta_spec" class="karta_text1">Nie wybrano specjalizacji</div>
+	<div class="clear:both;"></div>
+	
+	<div id="karta_podzial1">
+		<div id="karta_poch_cecha" class="karta_text1">Nie wybrano cechy z pochodzenia</div>
+		<div id="karta_prof_cecha" class="karta_text1">Nie wybrano cechy z profesji</div>
+		
+		<div id="karta_choroba" class="karta_text1"></div>
+		<div id="karta_lek" class="karta_text1"></div>
+		<div id="karta_podzial_staty">
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1l">?</div>
+				<div class="karta_staty" id="karta_staty2l">?</div>
+				<div class="karta_staty" id="karta_staty3l">?</div>
+				<div class="karta_staty" id="karta_staty4l">?</div>
+				<div class="karta_staty" id="karta_staty5l">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1">?</div>
+				<div class="karta_staty" id="karta_staty2">?</div>
+				<div class="karta_staty" id="karta_staty3">?</div>
+				<div class="karta_staty" id="karta_staty4">?</div>
+				<div class="karta_staty" id="karta_staty5">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1p">?</div>
+				<div class="karta_staty" id="karta_staty2p">?</div>
+				<div class="karta_staty" id="karta_staty3p">?</div>
+				<div class="karta_staty" id="karta_staty4p">?</div>
+				<div class="karta_staty" id="karta_staty5p">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1t">?</div>
+				<div class="karta_staty" id="karta_staty2t">?</div>
+				<div class="karta_staty" id="karta_staty3t">?</div>
+				<div class="karta_staty" id="karta_staty4t">?</div>
+				<div class="karta_staty" id="karta_staty5t">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1b">?</div>
+				<div class="karta_staty" id="karta_staty2b">?</div>
+				<div class="karta_staty" id="karta_staty3b">?</div>
+				<div class="karta_staty" id="karta_staty4b">?</div>
+				<div class="karta_staty" id="karta_staty5b">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1c">?</div>
+				<div class="karta_staty" id="karta_staty2c">?</div>
+				<div class="karta_staty" id="karta_staty3c">?</div>
+				<div class="karta_staty" id="karta_staty4c">?</div>
+				<div class="karta_staty" id="karta_staty5c">?</div>
+			</div>
+			<div class="karta_podzial_kolumny">
+				<div class="karta_staty" id="karta_staty1f">?</div>
+				<div class="karta_staty" id="karta_staty2f">?</div>
+				<div class="karta_staty" id="karta_staty3f">?</div>
+				<div class="karta_staty" id="karta_staty4f">?</div>
+				<div class="karta_staty" id="karta_staty5f">?</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="karta_sztuczki">
+		<div id="karta_sztuczka_1" class="karta_sztuczki_elem">Nie wybrano sztuczki</div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		<div class="karta_sztuczki_elem"></div>
+		
+	</div>
+	<div class="clear:both;"></div>
+	<div style="float: left; width: 205px; height: 1850px;;"></div>
+	<div id="karta_skills">
+		<div style="height: 106px;"></div>
+		 <div class="karta_skill" id="karta_ww1">0</div><div class="karta_skill" id="karta_ww2">0</div><div class="karta_skill" id="karta_ww3">0</div><div class="karta_skill" id="karta_bs1">0</div><div class="karta_skill" id="karta_bs2">0</div><div class="karta_skill" id="karta_bs3">0</div><div class="karta_skill" id="karta_bd1">0</div><div class="karta_skill" id="karta_bd2">0</div><div class="karta_skill" id="karta_bd3">0</div><div class="karta_skill" id="karta_pp1">0</div><div class="karta_skill" id="karta_pp2">0</div><div class="karta_skill" id="karta_pp3">0</div><div class="karta_skill" id="karta_zm1">0</div><div class="karta_skill" id="karta_zm2">0</div><div class="karta_skill" id="karta_zm3">0</div><div class="karta_skill" id="karta_ot1">0</div><div class="karta_skill" id="karta_ot2">0</div><div class="karta_skill" id="karta_ot3">0</div><div class="karta_skill" id="karta_sg1">0</div><div class="karta_skill" id="karta_sg2">0</div><div class="karta_skill" id="karta_sg3">0</div><div class="karta_skill" id="karta_ka1">0</div><div class="karta_skill" id="karta_ka2">0</div><div class="karta_skill" id="karta_ka3">0</div><div class="karta_skill" id="karta_pr1">0</div><div class="karta_skill" id="karta_pr2">0</div><div class="karta_skill" id="karta_pr3">0</div><div class="karta_skill" id="karta_ng1">0</div><div class="karta_skill" id="karta_ng2">0</div><div class="karta_skill" id="karta_ng3">0</div><div class="karta_skill" id="karta_em1">0</div><div class="karta_skill" id="karta_em2">0</div><div class="karta_skill" id="karta_em3">0</div><div class="karta_skill" id="karta_sw1">0</div><div class="karta_skill" id="karta_sw2">0</div><div class="karta_skill" id="karta_sw3">0</div><div class="karta_skill" id="karta_me1">0</div><div class="karta_skill" id="karta_me2">0</div><div class="karta_skill" id="karta_me3">0</div><div class="karta_skill" id="karta_te1">0</div><div class="karta_skill" id="karta_te2">0</div><div class="karta_skill" id="karta_te3">0</div><div class="karta_skill" id="karta_wo1">0</div><div class="karta_skill" id="karta_wo2">0</div><div class="karta_skill" id="karta_wo3">0</div><div class="karta_skill" id="karta_sp1">0</div><div class="karta_skill" id="karta_sp2">0</div><div class="karta_skill" id="karta_sp3">0</div><div class="karta_skill" id="karta_pt1">0</div><div class="karta_skill" id="karta_pt2">0</div><div class="karta_skill" id="karta_pt3">0</div><div class="karta_skill" id="karta_sn1">0</div><div class="karta_skill" id="karta_sn2">0</div><div class="karta_skill" id="karta_sn3">0</div><div class="karta_skill" id="karta_jd1">0</div><div class="karta_skill" id="karta_jd2">0</div><div class="karta_skill" id="karta_jd3">0</div>
+		
+	</div>
+	
+</div>
+</body>
+</html>
