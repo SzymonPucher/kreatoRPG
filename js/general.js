@@ -2,7 +2,7 @@ $(function(){
 	var bohater = {
 		imie:"Nie wpisano imienia", nazwisko:"Nie wpisano nazwiska", ksywa:"Nie wpisano ksywy",
 		pochodzenie:"Nie wybrano pochodzenia", pochodzenie_cecha:"Nie wybrano cechy z pochodzenia",
-		profesja:"Nie wybran????o profesji", profesja_cecha:"Nie wybrano cechy z profesji",
+		profesja:"Nie wybrano profesji", profesja_cecha:"Nie wybrano cechy z profesji",
 		specjalizacja:"Nie wybrano specjalizacji",
 		sztuczka:"Nie wybrano sztuczki",
 		choroba:"Nie wylosowano choroby", lek:"Nie wylosowano leku",
@@ -39,103 +39,104 @@ $(function(){
 		bohater.d_zr = 0; bohater.d_pc = 0; bohater.d_ch = 0; bohater.d_sp = 0; bohater.d_bd = 0;
 	}
 	function poch_reset(){ 
-		$("#poch_descrip").slideDown(); // shows box with cechy z pochodzenia
+		//if(bohahter.pochodzenie == 'Nie wybrano pochodzenia')
+			$("#poch_descrip").slideDown(); // shows box with cechy z pochodzenia
 		$(".poch_descrip").hide(); // hides all cechy z pochodzenia
 		$(".poch_tile1").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // resets color on green tiles
 		reset_additional_stat(); // resets additional points from pochodzenie
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Nie wybrano cechy z pochodzenia");
+		bohater.pochodzenie_cecha = "Nie wybrano cechy z pochodzenia"; // asingning value
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 	};
 	$("#poch_no").click(function(){
 		poch_reset(); // function above
-		$("#karta_poch").html(bohater.pochodzenie = "Nie twój zasrany interes"); // changes value of pochodznie and inputs it into card
+		bohater.pochodzenie = "Nie twój zasrany interes"; // changes value of pochodzenie
 		$("#poch_no").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of green tile to clicked 
 		$("#poch_no_descrip").show(); // shows cechy z pochodzenia for given pochodzenie
 		bohater.d_zr++; 
 	});
 	$("#poch_det").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Detroit");
+		bohater.pochodzenie = "Detroit";
 		$("#poch_det").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_det_descrip").fadeIn();
 		bohater.d_zr++;
 	});
 	$("#poch_fa").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Federacja Appalachów");
+		bohater.pochodzenie = "Federacja Appalachów";
 		$("#poch_fa").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_fa_descrip").fadeIn();
 		bohater.d_ch++;
 	});
 	$("#poch_cp").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Człowiek pustyni");
+		bohater.pochodzenie = "Człowiek pustyni";
 		$("#poch_cp").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_cp_descrip").fadeIn();
 		bohater.d_pc++;
 	});
 	$("#poch_mia").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Miami");
+		bohater.pochodzenie = "Miami";
 		$("#poch_mia").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_mia_descrip").fadeIn();
 		bohater.d_bd++;
 	});
 	$("#poch_mis").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Missisipi");
+		bohater.pochodzenie = "Missisipi";
 		$("#poch_mis").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_mis_descrip").fadeIn();
 		bohater.d_pc++;
 	});
 	$("#poch_ny").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Nowy Jork");
+		bohater.pochodzenie = "Nowy Jork";
 		$("#poch_ny").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_ny_descrip").fadeIn();
 		bohater.d_ch++;
 	});
 	$("#poch_ph").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Południowa Hegemonia");
+		bohater.pochodzenie = "Południowa Hegemonia";
 		$("#poch_ph").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_ph_descrip").fadeIn();
 		bohater.d_bd++;//?
 	});
 	$("#poch_po").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Posterunek");
+		bohater.pochodzenie = "Posterunek";
 		$("#poch_po").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_po_descrip").fadeIn();
 		bohater.d_sp++;
 	});
 	$("#poch_slc").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Salt Lake City");
+		bohater.pochodzenie = "Salt Lake City";
 		$("#poch_slc").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_slc_descrip").fadeIn();
 		bohater.d_sp++;
 	});
 	$("#poch_tex").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Texas");
+		bohater.pochodzenie = "Texas";
 		$("#poch_tex").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_tex_descrip").fadeIn();
 		bohater.d_bd++;
 	});
 	$("#poch_veg").click(function(){
 		poch_reset();
-		$("#karta_poch").html(bohater.pochodzenie = "Vegas");
+		bohater.pochodzenie = "Vegas";
 		$("#poch_veg").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#poch_veg_descrip").fadeIn();
 		bohater.d_zr++;
 	});
 
-	// CECHA Z POCHODZENIA ----------------------------------------------------------------------------------
+	// CECHA Z POCHODZENIA ------------------------------------------------------------------------------
 	
 	// NIE TWÓJ ZASRANY INTERES -------------------------------------------------------------------------
 	$("#poch_no_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wszechstronność");
+		bohater.pochodzenie_cecha = "Wszechstronność";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_no_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
@@ -170,183 +171,183 @@ $(function(){
 		$(this).css({'background-color': '#222'});
 	});
 	$("#poch_no_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wszechstronność do kwadratu");
+		bohater.pochodzenie_cecha = "Wszechstronność do kwadratu";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_no_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// DETROIT -------------------------------------------------------------------------
 	$("#poch_det_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Jeśli ma silnik to ruszy");
+		bohater.pochodzenie_cecha = "Jeśli ma silnik to ruszy";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_det_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_det_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Siódme poty");
+		bohater.pochodzenie_cecha = "Siódme poty";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_det_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_det_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Ale jazda!");
+		bohater.pochodzenie_cecha = "Ale jazda!";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_det_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// FEDERACJA APPALACHÓW -------------------------------------------------------------------------
 	$("#poch_fa_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Szlachetnie urodzony");
+		bohater.pochodzenie_cecha = "Szlachetnie urodzony";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_fa_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_fa_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Pojedynkowicz");
+		bohater.pochodzenie_cecha = "Pojedynkowicz";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_fa_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_fa_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wychuchana spluwa");
+		bohater.pochodzenie_cecha = "Wychuchana spluwa";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_fa_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// CZŁOWIEK PUSTYNI -------------------------------------------------------------------------
 	$("#poch_cp_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Towarzysz");
+		bohater.pochodzenie_cecha = "Towarzysz";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_cp_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_cp_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Jestem duchem pustyni");
+		bohater.pochodzenie_cecha = "Jestem duchem pustyni";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_cp_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_cp_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Polegam tylko na sobie");
+		bohater.pochodzenie_cecha = "Polegam tylko na sobie";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_cp_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// MIAMI -------------------------------------------------------------------------
 	$("#poch_mia_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Człowiek aligator");
+		bohater.pochodzenie_cecha = "Człowiek aligator";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mia_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_mia_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Ja już swoje odchorowałem");
+		bohater.pochodzenie_cecha = "Ja już swoje odchorowałem";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mia_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_mia_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Walkabout");
+		bohater.pochodzenie_cecha = "Walkabout";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mia_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// MISSISIPI -------------------------------------------------------------------------
 	$("#poch_mis_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Coś mi tu śmierdzi");
+		bohater.pochodzenie_cecha = "Coś mi tu śmierdzi";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mis_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_mis_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Chodźmy, na pewno już utonął");
+		bohater.pochodzenie_cecha = "Chodźmy, na pewno już utonął";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mis_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_mis_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Kwas w żyłach, chlor w płucach");
+		bohater.pochodzenie_cecha = "Kwas w żyłach, chlor w płucach";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_mis_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// NEW YORK -------------------------------------------------------------------------
 	$("#poch_ny_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Zalety klasycznego wykształcenia");
+		bohater.pochodzenie_cecha = "Zalety klasycznego wykształcenia";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ny_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_ny_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wizja");
+		bohater.pochodzenie_cecha = "Wizja";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ny_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_ny_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Czas patriotów");
+		bohater.pochodzenie_cecha = "Czas patriotów";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ny_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// POŁUDZNIOWA HEGEMONIA -------------------------------------------------------------------------
 	$("#poch_ph_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Urodzony morderca");
+		bohater.pochodzenie_cecha = "Urodzony morderca";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ph_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_ph_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wiesz, zjadłem własnego psa");
+		bohater.pochodzenie_cecha = "Wiesz, zjadłem własnego psa";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ph_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_ph_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Zawzięty sukinkot");
+		bohater.pochodzenie_cecha = "Zawzięty sukinkot";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_ph_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// POSTERUNEK -------------------------------------------------------------------------
 	$("#poch_po_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Na symulatorze to działało");
+		bohater.pochodzenie_cecha = "Na symulatorze to działało";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_po_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_po_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Hi-Tech");
+		bohater.pochodzenie_cecha = "Hi-Tech";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_po_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_po_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Moloch? Coś o nim słyszałem");
+		bohater.pochodzenie_cecha = "Moloch? Coś o nim słyszałem";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_po_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// SALT LAKE CITY -------------------------------------------------------------------------
 	$("#poch_slc_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Cholerny kaznodzieja");
+		bohater.pochodzenie_cecha = "Cholerny kaznodzieja";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_slc_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_slc_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Wierzę");
+		bohater.pochodzenie_cecha = "Wierzę";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_slc_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_slc_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Przed wojną wszystko było lepsze");
+		bohater.pochodzenie_cecha = "Przed wojną wszystko było lepsze";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_slc_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// TEXAS -------------------------------------------------------------------------
 	$("#poch_tex_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Człowiek zwany koniem");
+		bohater.pochodzenie_cecha = "Człowiek zwany koniem";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_tex_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_tex_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Doktor Quinn");
+		bohater.pochodzenie_cecha = "Doktor Quinn";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_tex_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_tex_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Zdrowa okolica");
+		bohater.pochodzenie_cecha = "Zdrowa okolica";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_tex_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	// VEGAS -------------------------------------------------------------------------
 	$("#poch_veg_c1").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Fart");
+		bohater.pochodzenie_cecha = "Fart";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_veg_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_veg_c2").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Hazardzista");
+		bohater.pochodzenie_cecha = "Hazardzista";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_veg_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
 	$("#poch_veg_c3").click(function(){
-		$("#karta_poch_cecha").html(bohater.pochodzenie_cecha = "Telepata");
+		bohater.pochodzenie_cecha = "Telepata";
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 		$("#poch_veg_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
 	});
@@ -358,163 +359,163 @@ $(function(){
 		$("#prof_descrip").slideDown(); // shows box with cechy z profesji
 		$(".prof_descrip").hide(); //  hides all cechy z profesji
 		$(".prof_tile1").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // resets color of green tile
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Nie wybrano cechy z profesji");
+		bohater.profesja_cecha = "Nie wybrano cechy z profesji";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 	};
 
 	$("#prof_chemik").click(function(){
-		$("#karta_prof").html(bohater.profesja = "Chemik");	// sets value of profesja and inputs it into card
+		bohater.profesja = "Chemik";	// sets value of profesja and inputs it into card
 		prof_reset(); // function above
 		$("#prof_chemik").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of chosen green tile
 		$("#prof_descrip_chemik").fadeIn(); // shows cechy z profesji for choosen profesja
 	});
 	$("#prof_ganger").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Ganger");
+		bohater.profesja = "Ganger";
 		$("#prof_ganger").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_ganger").fadeIn();
 	});
 	$("#prof_gladiator").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Gladiator");
+		bohater.profesja = "Gladiator";
 		$("#prof_gladiator").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_gladiator").fadeIn();
 	});
 	$("#prof_handlarz").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Handlarz");
+		bohater.profesja = "Handlarz";
 		$("#prof_handlarz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_handlarz").fadeIn();
 	});
 	$("#prof_kaznodzieja").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Kaznodzieja Nowej Ery");
+		bohater.profesja = "Kaznodzieja Nowej Ery";
 		$("#prof_kaznodzieja").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_kaznodzieja").fadeIn();
 	});
 	$("#prof_kowboj").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Kowboj");
+		bohater.profesja = "Kowboj";
 		$("#prof_kowboj").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_kowboj").fadeIn();
 	});
 	$("#prof_kurier").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Kurier");
+		bohater.profesja = "Kurier";
 		$("#prof_kurier").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_kurier").fadeIn();
 	});
 	$("#prof_lowca").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Łowca");
+		bohater.profesja = "Łowca";
 		$("#prof_lowca").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_lowca").fadeIn();
 	});
 	$("#prof_lowcamutantow").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Łowca mutantów");
+		bohater.profesja = "Łowca mutantów";
 		$("#prof_lowcamutantow").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_lowcamutantow").fadeIn();
 	});
 	$("#prof_mafiozo").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Mafiozo");
+		bohater.profesja = "Mafiozo";
 		$("#prof_mafiozo").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_mafiozo").fadeIn();
 	});
 	$("#prof_medyk").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Medyk");
+		bohater.profesja = "Medyk";
 		$("#prof_medyk").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_medyk").fadeIn();
 	});
 	$("#prof_monter").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Monter");
+		bohater.profesja = "Monter";
 		$("#prof_monter").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_monter").fadeIn();
 	});
 	$("#prof_najemnik").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Najemnik");
+		bohater.profesja = "Najemnik";
 		$("#prof_najemnik").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_najemnik").fadeIn();
 	});
 	$("#prof_ochroniarz").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Ochroniarz");
+		bohater.profesja = "Ochroniarz";
 		$("#prof_ochroniarz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_ochroniarz").fadeIn();
 	});
 	$("#prof_sedzia").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Sędzia");
+		bohater.profesja = "Sędzia";
 		$("#prof_sedzia").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_sedzia").fadeIn();
 	});
 	$("#prof_spec").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Spec");
+		bohater.profesja = "Spec";
 		$("#prof_spec").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_spec").fadeIn();
 	});
 	$("#prof_szaman").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Szaman");
+		bohater.profesja = "Szaman";
 		$("#prof_szaman").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_szaman").fadeIn();
 	});
 	$("#prof_szczur").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Szczur");
+		bohater.profesja = "Szczur";
 		$("#prof_szczur").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_szczur").fadeIn();
 	});
 	$("#prof_treserbestii").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Treser bestii");
+		bohater.profesja = "Treser bestii";
 		$("#prof_treserbestii").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_treserbestii").fadeIn();
 	});
 	$("#prof_tropiciel").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Tropiciel");
+		bohater.profesja = "Tropiciel";
 		$("#prof_tropiciel").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_tropiciel").fadeIn();
 	});
 	$("#prof_wojownikautostrady").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Wojownik autostrady");
+		bohater.profesja = "Wojownik autostrady";
 		$("#prof_wojownikautostrady").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_wojownikautostrady").fadeIn();
 	});
 	$("#prof_wojownikklanu").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Wojownik klanu");
+		bohater.profesja = "Wojownik klanu";
 		$("#prof_wojownikklanu").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_wojownikklanu").fadeIn();
 	});
 	$("#prof_zabojca").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Zabójca");
+		bohater.profesja = "Zabójca";
 		$("#prof_zabojca").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_zabojca").fadeIn();
 	});
 	$("#prof_zabojcamaszyn").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Zabójca maszyn");
+		bohater.profesja = "Zabójca maszyn";
 		$("#prof_zabojcamaszyn").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_zabojcamaszyn").fadeIn();
 	});
 	$("#prof_zlodziej").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Złodziej");
+		bohater.profesja = "Złodziej";
 		$("#prof_zlodziej").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_zlodziej").fadeIn();
 	});
 	$("#prof_zolnierz").click(function(){
 		prof_reset();
-		$("#karta_prof").html(bohater.profesja = "Żołnierz");
+		bohater.profesja = "Żołnierz";
 		$("#prof_zolnierz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 		$("#prof_descrip_zolnierz").fadeIn();
 	});
@@ -524,287 +525,287 @@ $(function(){
 	
 	// CHEMIK -------------------------------------------------------------------------------------------
 	$("#prof_chemik_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Smakuje jak arszenik");
+		bohater.profesja_cecha = "Smakuje jak arszenik";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_chemik_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_chemik_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Farmaceuta");
+		bohater.profesja_cecha = "Farmaceuta";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_chemik_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// GANGER -------------------------------------------------------------------------------------------
 	$("#prof_ganger_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Jeden z nich");
+		bohater.profesja_cecha = "Jeden z nich";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_ganger_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_ganger_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Odważny czy głupi?");
+		bohater.profesja_cecha = "Odważny czy głupi?";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_ganger_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// GLADIATOR ----------------------------------------------------------------------------------------
 	$("#prof_gladiator_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Nie do zdarcia");
+		bohater.profesja_cecha = "Nie do zdarcia";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_gladiator_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_gladiator_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Łyżeczka");
+		bohater.profesja_cecha = "Łyżeczka";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_gladiator_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// HANDLARZ ----------------------------------------------------------------------------------------
 	$("#prof_handlarz_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Trakt handlowy");
+		bohater.profesja_cecha = "Trakt handlowy";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_handlarz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_handlarz_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Szklarz");
+		bohater.profesja_cecha = "Szklarz";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_handlarz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// KAZNODZIEJA NOWEJ ERY ---------------------------------------------------------------------------
 	$("#prof_kaznodzieja_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Spójrz mi w oczy");
+		bohater.profesja_cecha = "Spójrz mi w oczy";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kaznodzieja_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_kaznodzieja_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Amen");
+		bohater.profesja_cecha = "Amen";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kaznodzieja_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// KOWBOJ ------------------------------------------------------------------------------------------
 	$("#prof_kowboj_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Rewolwerowiec");
+		bohater.profesja_cecha = "Rewolwerowiec";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kowboj_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_kowboj_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Ostatnia kula");
+		bohater.profesja_cecha = "Ostatnia kula";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kowboj_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// KURIER ------------------------------------------------------------------------------------------
 	$("#prof_kurier_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Znajomości");
+		bohater.profesja_cecha = "Znajomości";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kurier_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_kurier_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Skrytka");
+		bohater.profesja_cecha = "Skrytka";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_kurier_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ŁOWCA -------------------------------------------------------------------------------------------
 	$("#prof_lowca_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Fotograficzna pamięć");
+		bohater.profesja_cecha = "Fotograficzna pamięć";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_lowca_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_lowca_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Nieugięty");
+		bohater.profesja_cecha = "Nieugięty";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_lowca_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ŁOWCA MUTANTÓW ----------------------------------------------------------------------------------
 	$("#prof_lowcamutantow_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Bez tajemnic");
+		bohater.profesja_cecha = "Bez tajemnic";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_lowcamutantow_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_lowcamutantow_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Mutant na śniadanie");
+		bohater.profesja_cecha = "Mutant na śniadanie";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_lowcamutantow_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// MAFIOZO -----------------------------------------------------------------------------------------
 	$("#prof_mafiozo_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Bezlitosny");
+		bohater.profesja_cecha = "Bezlitosny";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_mafiozo_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_mafiozo_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Klasa");
+		bohater.profesja_cecha = "Klasa";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_mafiozo_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// MEDYK -------------------------------------------------------------------------------------------
 	$("#prof_medyk_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Reputacja");
+		bohater.profesja_cecha = "Reputacja";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_medyk_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_medyk_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Sanitariusz polowy");
+		bohater.profesja_cecha = "Sanitariusz polowy";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_medyk_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// MONTER ------------------------------------------------------------------------------------------
 	$("#prof_monter_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Zapałki i agrafka");
+		bohater.profesja_cecha = "Zapałki i agrafka";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_monter_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_monter_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Kłopotliwy nadmiar");
+		bohater.profesja_cecha = "Kłopotliwy nadmiar";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_monter_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// NAJEMNIK ----------------------------------------------------------------------------------------
 	$("#prof_najemnik_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Reputacja");
+		bohater.profesja_cecha = "Reputacja";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_najemnik_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_najemnik_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Maszyna do zabijania");
+		bohater.profesja_cecha = "Maszyna do zabijania";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_najemnik_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// OCHRONIARZ --------------------------------------------------------------------------------------
 	$("#prof_ochroniarz_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Wyciszenie");
+		bohater.profesja_cecha = "Wyciszenie";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_ochroniarz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_ochroniarz_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Zanim on");
+		bohater.profesja_cecha = "Zanim on";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_ochroniarz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// SĘDZIA ------------------------------------------------------------------------------------------
 	$("#prof_sedzia_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Mundur i odznaka");
+		bohater.profesja_cecha = "Mundur i odznaka";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_sedzia_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_sedzia_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Jeden z nas");
+		bohater.profesja_cecha = "Jeden z nas";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_sedzia_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// SPEC --------------------------------------------------------------------------------------------
 	$("#prof_spec_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Wykształcenie");
+		bohater.profesja_cecha = "Wykształcenie";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_spec_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_spec_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Skupienie");
+		bohater.profesja_cecha = "Skupienie";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_spec_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// SZAMAN ------------------------------------------------------------------------------------------
 	$("#prof_szaman_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Duchy przemówiły");
+		bohater.profesja_cecha = "Duchy przemówiły";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_szaman_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_szaman_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Totem");
+		bohater.profesja_cecha = "Totem";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_szaman_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// SZCZUR ------------------------------------------------------------------------------------------
 	$("#prof_szczur_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "A co mi tam");
+		bohater.profesja_cecha = "A co mi tam";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_szczur_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_szczur_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Szary");
+		bohater.profesja_cecha = "Szary";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_szczur_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// TRESER BESTII -----------------------------------------------------------------------------------
 	$("#prof_treserbestii_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Bestia");
+		bohater.profesja_cecha = "Bestia";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_treserbestii_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_treserbestii_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Wilczy kieł");
+		bohater.profesja_cecha = "Wilczy kieł";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_treserbestii_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// TROPICIEL ---------------------------------------------------------------------------------------
 	$("#prof_tropiciel_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Wyuczone zmysły");
+		bohater.profesja_cecha = "Wyuczone zmysły";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_tropiciel_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_tropiciel_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Rozpoznawanie stworzeń");
+		bohater.profesja_cecha = "Rozpoznawanie stworzeń";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_tropiciel_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// WOJOWNIK AUTOSTRADY -----------------------------------------------------------------------------
 	$("#prof_wojownikautostrady_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Drzwi w drzwi");
+		bohater.profesja_cecha = "Drzwi w drzwi";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_wojownikautostrady_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_wojownikautostrady_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Osłona samochodu");
+		bohater.profesja_cecha = "Osłona samochodu";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_wojownikautostrady_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// WOJOWNIK KLANU ----------------------------------------------------------------------------------
 	$("#prof_wojownikklanu_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "My i oni");
+		bohater.profesja_cecha = "My i oni";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_wojownikklanu_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_wojownikklanu_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "To mój dom");
+		bohater.profesja_cecha = "To mój dom";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_wojownikklanu_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ZABÓJCA ---------------------------------------------------------------------------------------
 	$("#prof_zabojca_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Koniec zlecenia");
+		bohater.profesja_cecha = "Koniec zlecenia";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zabojca_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_zabojca_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Jeden strzał");
+		bohater.profesja_cecha = "Jeden strzał";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zabojca_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ZABÓJCA MASZYN ----------------------------------------------------------------------------------
 	$("#prof_zabojcamaszyn_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Słaby punkt");
+		bohater.profesja_cecha = "Słaby punkt";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zabojcamaszyn_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_zabojcamaszyn_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Empiryk");
+		bohater.profesja_cecha = "Empiryk";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zabojcamaszyn_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ZŁODZIEJ ---------------------------------------------------------------------------------------
 	$("#prof_zlodziej_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Elektronik");
+		bohater.profesja_cecha = "Elektronik";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zlodziej_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_zlodziej_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Kot");
+		bohater.profesja_cecha = "Kot";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zlodziej_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	// ŻOŁNIERZ ---------------------------------------------------------------------------------------
 	$("#prof_zolnierz_c1").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Wyszkolenie");
+		bohater.profesja_cecha = "Wyszkolenie";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zolnierz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
 	$("#prof_zolnierz_c2").click(function(){
-		$("#karta_prof_cecha").html(bohater.profesja_cecha = "Rutyna");
+		bohater.profesja_cecha = "Rutyna";
 		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 		$("#prof_zolnierz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
 	});
@@ -855,25 +856,25 @@ $(function(){
 	};
 	
 	$("#spec_tech").click(function(){
-		$("#karta_spec").html(bohater.specjalizacja = "Technik"); // sets value of specjalizacja and inputs it into card
+		bohater.specjalizacja = "Technik"; // sets value of specjalizacja and inputs it into card
 		spec_tech_skill_pick(); // functions described above
 		$("#spec_tech_descrip").fadeIn(); // shows description of choosen specjalizacja
 		$("#spec_tech").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of clicked tile
 	});
 	$("#spec_woj").click(function(){
-		$("#karta_spec").html(bohater.specjalizacja = "Wojownik");
+		bohater.specjalizacja = "Wojownik";
 		spec_woj_skill_pick();
 		$("#spec_woj_descrip").fadeIn();
 		$("#spec_woj").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 	});
 	$("#spec_rang").click(function(){
-		$("#karta_spec").html(bohater.specjalizacja = "Ranger");
+		bohater.specjalizacja = "Ranger";
 		spec_rang_skill_pick();
 		$("#spec_rang_descrip").fadeIn();
 		$("#spec_rang").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 	});
 	$("#spec_cwa").click(function(){
-		$("#karta_spec").html(bohater.specjalizacja = "Cwaniak");
+		bohater.specjalizacja = "Cwaniak";
 		spec_cwa_skill_pick();
 		$("#spec_cwa_descrip").fadeIn();
 		$("#spec_cwa").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
@@ -1328,7 +1329,7 @@ $(function(){
 	// ------------------ WIEDZA OGÓLNA ----------------------
 	$("#plus_wo1").click(function(){ $("#karta_wo1, #skill_value_wo1").html(wo[0] = add_point(wo[0],wo[1],wo[2],wo[3],wo[4])); });
 	$("#minus_wo1").click(function(){ $("#karta_wo1, #skill_value_wo1").html(wo[0] = substract_point(wo[0],wo[1],wo[2],wo[3],wo[4])); });
-	$("#plus_wo2").click(function(){ $("#karta_wo2, #skill_value_wo2").html(wo[1] = add_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
+	$("#plus_wo2").click(function(){ $("#karta_wo2, #_wo2").html(wo[1] = add_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
 	$("#minus_wo2").click(function(){ $("#karta_wo2, #skill_value_wo2").html(wo[1] = substract_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
 	$("#plus_wo3").click(function(){ $("#karta_wo3, #skill_value_wo3").html(wo[2] = add_point(wo[2],wo[0],wo[1],wo[3],wo[4])); });
 	$("#minus_wo3").click(function(){ $("#karta_wo3, #skill_value_wo3").html(wo[2] = substract_point(wo[2],wo[0],wo[1],wo[3],wo[4])); });
@@ -1619,6 +1620,33 @@ $(function(){
 	$("#s_zmylka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zmyłka"); });
 	$("#s_zelazneracje").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Żelazne racje"); });
 		
+		/* * /
+		
+	$("#container").click(function(){ 
+		temp = bohater.zrecznosc;
+		x = 1;
+		if(bohater.pochodzenie_cecha == "Wszechstronność"){
+			if(temp < bohater.percepcja) {
+				x = 2;
+				temp = bohater.percepcja;
+			}
+			if(temp < bohater.charakter) {
+				x = 3;
+				temp = bohater.charakter;
+			}
+			if(temp < bohater.spryt) {
+				x = 4;
+				temp = bohater.spryt;
+			}
+			if(temp < bohater.budowa){
+				x = 5;
+			}
+			if(x==1){
+				
+			}
+		}
+	});
+	/* */
 	// TWORZENIE KARTY --------------------------------------------------------------------------------------
 	general_test = true;
 	function before_generate_check(){
@@ -1678,7 +1706,7 @@ $(function(){
 		fill_card();
 		before_generate_check();
 		
-		if(general_test){
+		//if(general_test){
 			html2canvas(document.getElementById("karta"),{
 				onrendered: function (canvas){
 					var img = canvas.toDataURL("image/png");
@@ -1690,8 +1718,8 @@ $(function(){
 			});	
 			general_test = false;
 			setTimeout(function(){ $("#karta").hide(); }, 2000);
-		}
-		else { alert("Error general check."); $("#karta").hide(); }
+		//}
+		//else { alert("Error general check."); $("#karta").hide(); }
 	}
 	$("#create_button").click(function(){ genPDF(); });
 	
