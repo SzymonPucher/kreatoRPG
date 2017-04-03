@@ -892,22 +892,7 @@ $(function(){
 	$("#dice_way_pick_distribution").click(function(){ spl = 40; $("#dice_way_pick").slideUp(); $("#dice_distribution").slideDown(); bohater.zrecznosc = 4; bohater.percepcja = 4; bohater.charakter = 4; bohater.spryt = 4; bohater.budowa = 4; });
 	$("#dice_way_pick_userInput").click(function(){ u_inp_test = true; $("#dice_way_pick").slideUp(); $("#dice_userInput").slideDown(); });
 
-	// ----------------------------------- PRZYDATNE FUNKCJE - UZUPEŁNIANIE STATYSTYK ----------------------------
-	function stat_check(x){ if (x<0) return 0; else return x; };
 	
-	function fill_zr(x){ $("#karta_staty1").html(x); $("#karta_staty1l").html(x-(-2)); $("#karta_staty1p").html(x-2); $("#karta_staty1t").html(stat_check(x-5)); $("#karta_staty1b").html(stat_check(x-8)); $("#karta_staty1c").html(stat_check(x-11)); $("#karta_staty1f").html(stat_check(x-15)); }
-	function fill_pc(x){ $("#karta_staty2").html(x); $("#karta_staty2l").html(x-(-2)); $("#karta_staty2p").html(x-2); $("#karta_staty2t").html(stat_check(x-5)); $("#karta_staty2b").html(stat_check(x-8)); $("#karta_staty2c").html(stat_check(x-11)); $("#karta_staty2f").html(stat_check(x-15)); }
-	function fill_ch(x){ $("#karta_staty3").html(x); $("#karta_staty3l").html(x-(-2)); $("#karta_staty3p").html(x-2); $("#karta_staty3t").html(stat_check(x-5)); $("#karta_staty3b").html(stat_check(x-8)); $("#karta_staty3c").html(stat_check(x-11)); $("#karta_staty3f").html(stat_check(x-15)); }
-	function fill_sp(x){ $("#karta_staty4").html(x); $("#karta_staty4l").html(x-(-2)); $("#karta_staty4p").html(x-2); $("#karta_staty4t").html(stat_check(x-5)); $("#karta_staty4b").html(stat_check(x-8)); $("#karta_staty4c").html(stat_check(x-11)); $("#karta_staty4f").html(stat_check(x-15)); }
-	function fill_bd(x){ $("#karta_staty5").html(x); $("#karta_staty5l").html(x-(-2)); $("#karta_staty5p").html(x-2); $("#karta_staty5t").html(stat_check(x-5)); $("#karta_staty5b").html(stat_check(x-8)); $("#karta_staty5c").html(stat_check(x-11));  $("#karta_staty5f").html(stat_check(x-15)); }
-	
-	function fill_all_stats(){
-		fill_zr(bohater.zrecznosc*1 + bohater.d_zr*1);
-		fill_pc(bohater.percepcja*1 + bohater.d_pc*1);
-		fill_ch(bohater.charakter*1 + bohater.d_ch*1);
-		fill_sp(bohater.spryt*1 + bohater.d_sp*1);
-		fill_bd(bohater.budowa*1 + bohater.d_bd*1);
-	}
 	
 // ----------------------------------- WSPÓŁCZYNNIKI RZUCONE --------------------------------
 	
@@ -941,7 +926,6 @@ $(function(){
 	
 	$("#minus_bd").click(function(){ if (bohater.budowa > 4){ $("#dice_distribution_points_bd").html(--bohater.budowa); $("#dice_distribution_points_left").html(++spl); } });
 	
-	$(".dice_distribution_button").click(function(){fill_all_stats();});
 	
 	// ---------------------------------- WSPÓŁCZYNNIKI - WYLOSOWANE --------------------------------------------
 	$("#r_submit_but").hide();
@@ -1620,8 +1604,7 @@ $(function(){
 	$("#s_zmylka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zmyłka"); });
 	$("#s_zelazneracje").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Żelazne racje"); });
 		
-		/* * /
-		
+	/* * /	
 	$("#container").click(function(){ 
 		temp = bohater.zrecznosc;
 		x = 1;
@@ -1665,6 +1648,23 @@ $(function(){
 		if( bohater.zrecznosc == 0 || bohater.percepcja == 0 || bohater.charakter == 0 || bohater.spryt == 0 || bohater.budowa == 0 ) general_test = false;
 	}
 	
+	// ----------------------------------- UZUPEŁNIANIE STATYSTYK ----------------------------
+	function stat_check(x){ if (x<0) return 0; else return x; };
+	
+	function fill_zr(x){ $("#karta_staty1").html(x); $("#karta_staty1l").html(x-(-2)); $("#karta_staty1p").html(x-2); $("#karta_staty1t").html(stat_check(x-5)); $("#karta_staty1b").html(stat_check(x-8)); $("#karta_staty1c").html(stat_check(x-11)); $("#karta_staty1f").html(stat_check(x-15)); }
+	function fill_pc(x){ $("#karta_staty2").html(x); $("#karta_staty2l").html(x-(-2)); $("#karta_staty2p").html(x-2); $("#karta_staty2t").html(stat_check(x-5)); $("#karta_staty2b").html(stat_check(x-8)); $("#karta_staty2c").html(stat_check(x-11)); $("#karta_staty2f").html(stat_check(x-15)); }
+	function fill_ch(x){ $("#karta_staty3").html(x); $("#karta_staty3l").html(x-(-2)); $("#karta_staty3p").html(x-2); $("#karta_staty3t").html(stat_check(x-5)); $("#karta_staty3b").html(stat_check(x-8)); $("#karta_staty3c").html(stat_check(x-11)); $("#karta_staty3f").html(stat_check(x-15)); }
+	function fill_sp(x){ $("#karta_staty4").html(x); $("#karta_staty4l").html(x-(-2)); $("#karta_staty4p").html(x-2); $("#karta_staty4t").html(stat_check(x-5)); $("#karta_staty4b").html(stat_check(x-8)); $("#karta_staty4c").html(stat_check(x-11)); $("#karta_staty4f").html(stat_check(x-15)); }
+	function fill_bd(x){ $("#karta_staty5").html(x); $("#karta_staty5l").html(x-(-2)); $("#karta_staty5p").html(x-2); $("#karta_staty5t").html(stat_check(x-5)); $("#karta_staty5b").html(stat_check(x-8)); $("#karta_staty5c").html(stat_check(x-11));  $("#karta_staty5f").html(stat_check(x-15)); }
+	
+	function fill_all_stats(){
+		fill_zr(bohater.zrecznosc*1 + bohater.d_zr*1);
+		fill_pc(bohater.percepcja*1 + bohater.d_pc*1);
+		fill_ch(bohater.charakter*1 + bohater.d_ch*1);
+		fill_sp(bohater.spryt*1 + bohater.d_sp*1);
+		fill_bd(bohater.budowa*1 + bohater.d_bd*1);
+	}
+	
 	function fill_card(){
 		
 		if (u_inp_test) wsp_rzuc();
@@ -1698,15 +1698,19 @@ $(function(){
 			bohater.jd[i] = jd[i];
 		}
 	}
-	
-	
-	
+	/* * /
+	$("#plus_ww1").click(function(){ 
+		if(ww[0] > 3)
+			$("#karta_ww1, #skill_value_ww1").html(ww[0] = substract_point(ww[0],ww[1],ww[2],ww[3],ww[4]));
+	});
+	/* */
+	// ----------------------------- GRENEROWANIE PLIKU PDF ------------------------------
 	function genPDF() {
 		$("#karta").show();
 		fill_card();
 		before_generate_check();
 		
-		//if(general_test){
+		if(general_test){
 			html2canvas(document.getElementById("karta"),{
 				onrendered: function (canvas){
 					var img = canvas.toDataURL("image/png");
@@ -1714,15 +1718,13 @@ $(function(){
 					doc.addImage(img, "PNG",0,0,210, 297);
 					doc.save("karta_postaci.pdf");
 				}
-		
 			});	
 			general_test = false;
 			setTimeout(function(){ $("#karta").hide(); }, 2000);
-		//}
-		//else { alert("Error general check."); $("#karta").hide(); }
+		}
+		else { alert("Error general check."); $("#karta").hide(); }
 	}
 	$("#create_button").click(function(){ genPDF(); });
 	
 	$("#container").click(function(){ if(general_test) $("#karta").hide(); });
-
 });

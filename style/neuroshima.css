@@ -29,10 +29,11 @@ h2
 }
 #title
 {
-	font-size: 50px;	
+	font-size: 38px;	
 	padding: 10px;
 	background-image: url("img/test2.jpg");
 	height: 120px;
+	letter-spacing: 7px;
 }
 .subtitle /*new section titles*/
 {
