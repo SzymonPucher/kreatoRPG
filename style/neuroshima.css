@@ -158,6 +158,25 @@ h2
 #poch_tex_c1 { margin-left:18px; }
 #poch_veg_c1 { margin-left:18px; }
 
+.poch_ph_choice_tile {
+	background-color: #555;
+	margin: 1px;
+	color: #EEE;
+}
+.poch_ph_choice_tile:hover {
+	background-color: #777 !important;
+	margin: 1px;
+	color: black;
+}
+.poch_fa_choice_tile {
+	background-color: #555;
+	margin: 5px;
+	color: #EEE;
+}
+.poch_fa_choice_tile:hover {
+	background-color: #777 !important;
+	color: black;
+}
 /* --------------------------------------- PROFESJA --------------------------------------- */
 .profmenu
 {
