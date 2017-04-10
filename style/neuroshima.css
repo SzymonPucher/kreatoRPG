@@ -160,8 +160,10 @@ h2
 
 .poch_ph_choice_tile {
 	background-color: #555;
-	margin: 1px;
-	color: #EEE;
+	margin-top: 1px;
+	opacity: 0.9;
+	color: rgba(0,0,0,1);
+	border-radius: 5px;
 }
 .poch_ph_choice_tile:hover {
 	background-color: #777 !important;
@@ -171,7 +173,9 @@ h2
 .poch_fa_choice_tile {
 	background-color: #555;
 	margin: 5px;
-	color: #EEE;
+	opacity: 0.9;
+	color: rgba(0,0,0,1);
+	border-radius: 5px;
 }
 .poch_fa_choice_tile:hover {
 	background-color: #777 !important;
