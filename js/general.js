@@ -52,7 +52,7 @@ $(function(){
 	var ph_choice = "none";
 	var fa_choice = "none";
 	
-	function um_reset(){
+	function only_um_reset(){
 		$("#karta_ww1, #skill_value_ww1").html(ww[0]=0);
 		$("#karta_ww2, #skill_value_ww2").html(ww[1]=0);
 		$("#karta_ww3, #skill_value_ww3").html(ww[2]=0);	
@@ -131,6 +131,12 @@ $(function(){
 		
 		$("#skills_points").html(y = 30);
 		$("#skills_points_spec").html(y_spec = 35);
+	}
+	
+	function um_reset(){
+		
+		only_um_reset();
+		
 		
 		$("#karta_choroba").html(bohater.choroba);
 		$("#karta_lek").html(bohater.lek);
@@ -1053,6 +1059,53 @@ $(function(){
 	
 	// SPECJALIZACJA ----------------------------------------------------------------------------------------
 	$("#spec_descrip").hide();
+	
+	$(".spectile").click(function(){
+			only_um_reset();
+			if(ph_choice == "ww"){
+				$("#karta_ww1, #skill_value_ww1").html(ww[0]=2);
+				$("#karta_ww2, #skill_value_ww2").html(ww[1]=2);
+				$("#karta_ww3, #skill_value_ww3").html(ww[2]=2);		
+			}
+			if(ph_choice == "bs"){
+				$("#karta_bs1, #skill_value_bs1").html(bs[0]=2);
+				$("#karta_bs2, #skill_value_bs2").html(bs[1]=2);
+				$("#karta_bs3, #skill_value_bs3").html(bs[2]=2);		
+			}
+			if(ph_choice == "bd"){
+				$("#karta_bd1, #skill_value_bd1").html(bd[0]=2);
+				$("#karta_bd2, #skill_value_bd2").html(bd[1]=2);
+				$("#karta_bd3, #skill_value_bd3").html(bd[2]=2);		
+			}
+			if(ph_choice == "sw" || fa_choice == "sw"){
+				$("#karta_sw1, #skill_value_sw1").html(sw[0]=2);
+				$("#karta_sw2, #skill_value_sw2").html(sw[1]=2);
+				$("#karta_sw3, #skill_value_sw3").html(sw[2]=2);		
+			}
+			if(ph_choice == "pt"){
+				$("#karta_pt1, #skill_value_pt1").html(pt[0]=2);
+				$("#karta_pt2, #skill_value_pt2").html(pt[1]=2);
+				$("#karta_pt3, #skill_value_pt3").html(pt[2]=2);		
+			}
+			if(fa_choice == "ng"){
+				$("#karta_ng1, #skill_value_ng1").html(ng[0]=2);
+				$("#karta_ng2, #skill_value_ng2").html(ng[1]=2);
+				$("#karta_ng3, #skill_value_ng3").html(ng[2]=2);		
+			}
+			if(fa_choice == "em"){
+				$("#karta_em1, #skill_value_em1").html(em[0]=2);
+				$("#karta_em2, #skill_value_em2").html(em[1]=2);
+				$("#karta_em3, #skill_value_em3").html(em[2]=2);		
+			}
+			if(bohater.pochodzenie_cecha == "Zalety klasycznego wykształcenia") $("#skills_points_spec").html(y_spec = 45);
+			if(bohater.pochodzenie_cecha == "Doktor Quinn") {
+				$("#karta_me1, #skill_value_me1").html(me[0] = 4);
+				$("#karta_me2, #skill_value_me2").html(me[1] = 4);
+				$("#karta_me3, #skill_value_me3").html(me[2] = 4);	
+			}
+			
+		});
+	
 	function spec_reset(){ 
 		$("#spec_descrip").slideDown(); // shows box for description of specjalizacja
 		$(".spec_pic").hide(); // hides all descriptions of specjalizacja
