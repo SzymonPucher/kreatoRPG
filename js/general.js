@@ -170,102 +170,193 @@ $(function(){
 		bohater.pochodzenie_cecha = "Nie wybrano cechy z pochodzenia"; // asingning value
 		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
 	};
-	$("#poch_no").click(function(){
-		poch_reset(); // function above
-		bohater.pochodzenie = "Nie twój zasrany interes"; // changes value of pochodzenie
-		$("#poch_no").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of green tile to clicked 
-		$("#poch_no_descrip").show(); // shows cechy z pochodzenia for given pochodzenie
-		bohater.d_zr++; 
-	});
-	$("#poch_det").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Detroit";
-		$("#poch_det").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_det_descrip").fadeIn();
-		bohater.d_zr++;
-	});
-	$("#poch_fa").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Federacja Appalachów";
-		$("#poch_fa").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_fa_descrip").fadeIn();
-		bohater.d_ch++;
-	});
-	$("#poch_cp").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Człowiek pustyni";
-		$("#poch_cp").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_cp_descrip").fadeIn();
-		bohater.d_pc++;
-	});
-	$("#poch_mia").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Miami";
-		$("#poch_mia").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_mia_descrip").fadeIn();
-		bohater.d_bd++;
-	});
-	$("#poch_mis").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Missisipi";
-		$("#poch_mis").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_mis_descrip").fadeIn();
-		bohater.d_pc++;
-	});
-	$("#poch_ny").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Nowy Jork";
-		$("#poch_ny").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_ny_descrip").fadeIn();
-		bohater.d_ch++;
-	});
-	$("#poch_ph").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Południowa Hegemonia";
-		$("#poch_ph").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_ph_descrip").fadeIn();
-		bohater.d_bd++;//?
-	});
-	$("#poch_po").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Posterunek";
-		$("#poch_po").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_po_descrip").fadeIn();
-		bohater.d_sp++;
-	});
-	$("#poch_slc").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Salt Lake City";
-		$("#poch_slc").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_slc_descrip").fadeIn();
-		bohater.d_sp++;
-	});
-	$("#poch_tex").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Texas";
-		$("#poch_tex").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_tex_descrip").fadeIn();
-		bohater.d_bd++;
-	});
-	$("#poch_veg").click(function(){
-		poch_reset();
-		bohater.pochodzenie = "Vegas";
-		$("#poch_veg").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#poch_veg_descrip").fadeIn();
-		bohater.d_zr++;
-	});
-
+	function official_poch_nazwa(nazwa){
+		if(nazwa == "no"){
+			bohater.d_zr++;
+			return "Nie twój zasrany interes";
+		}
+		if(nazwa == "det"){
+			bohater.d_zr++;
+			return "Detroit";
+		}
+		if(nazwa == "fa"){
+			bohater.d_ch++;
+			return "Federacja Appalachów";
+		}
+		if(nazwa == "cp"){
+			bohater.d_pc++;
+			return "Człowiek Pustyni";
+		}
+		if(nazwa == "mia"){
+			bohater.d_bd++;
+			return "Miami";
+		}
+		if(nazwa == "mis"){
+			bohater.d_pc++;
+			return "Missisipi";
+		}
+		if(nazwa == "ny"){
+			bohater.d_ch++;
+			return "Nowy Jork";
+		}
+		if(nazwa == "ph"){
+			bohater.d_bd++;
+			return "Południowa Hegemonia";
+		}
+		if(nazwa == "po"){
+			bohater.d_sp++;
+			return "Posterunek";
+		}
+		if(nazwa == "slc"){
+			bohater.d_sp++;
+			return "Salt Lake City";
+		}
+		if(nazwa == "tex"){
+			bohater.d_bd++;
+			return "Texas";
+		}
+		if(nazwa == "veg"){
+			bohater.d_zr++;
+			return "Vegas";
+		}
+	}
+	function auto_pochodzenie(nazwa){ // nazwa pochodzenia, współczynnik bohatera
+		$("#poch_" + nazwa).click(function(){
+			poch_reset();
+			$("#poch_" + nazwa).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of green tile to clicked 
+			$("#poch_" + nazwa + "_descrip").show(); // shows cechy z pochodzenia for given pochodzenie
+			bohater.pochodzenie = official_poch_nazwa(nazwa); // changes value of pochodzenie
+		});
+	}
+	var poch_names = ["no","det","fa","cp","mia","mis","ny","ph","po","slc","tex","veg"];
+		
+	for (i in poch_names){
+		auto_pochodzenie(poch_names[i]);
+	}
+	
+	/* */
 	// CECHA Z POCHODZENIA ------------------------------------------------------------------------------
+	function official_poch_cecha_nazwa(nazwa,num){
+		if (nazwa == "no"){
+			if (num == 1)
+				return "Wszechstronność";
+			if (num == 2)
+				return "Wszechstronność do kwadratu";
+		}
+		if (nazwa == "det"){
+			if (num == 1)
+				return "Jeśli ma silnik to ruszy";
+			if (num == 2)
+				return "Siódme poty";
+			if (num == 3)
+				return "Ale jazda!";
+		}
+		if (nazwa == "fa"){
+			if (num == 1){
+				$("#poch_fa_text").hide();
+				$("#poch_fa_choice").show();
+				return "Szlachetnie urodzony";
+			}
+			if (num == 2)
+				return "Pojedynkowicz";
+			if (num == 3)
+				return "Wychuchana spluwa";
+		}
+		if (nazwa == "cp"){
+			if (num == 1)
+				return "Towarzysz";
+			if (num == 2)
+				return "Jestem duchem pustyni";
+			if (num == 3)
+				return "Polegam tylko na sobie";
+		}
+		if (nazwa == "mia"){
+			if (num == 1)
+				return "Człowiek aligator";
+			if (num == 2)
+				return "Ja już swoje odchorowałem";
+			if (num == 3)
+				return "Walkabout";
+		}
+		if (nazwa == "mis"){
+			if (num == 1)
+				return "Coś mi tu śmierdzi";
+			if (num == 2)
+				return "Chodźmy, na pewno już utonął";
+			if (num == 3)
+				return "Kwas w żyłach, chlor w płucach";
+		}
+		if (nazwa == "ny"){
+			if (num == 1){
+				$("#skills_points_spec").html(y_spec = 45);
+				return "Zalety klasycznego wykształcenia";
+			}
+			if (num == 2)
+				return "Wizja";
+			if (num == 3)
+				return "Czas patriotów";
+		}
+		if (nazwa == "ph"){
+			if (num == 1)
+				return "Urodzony morderca";
+			if (num == 2)
+				return "Wiesz, zjadłem własnego psa";
+			if (num == 3)
+				return "Zawzięty sukinkot";
+		}
+		if (nazwa == "po"){
+			if (num == 1)
+				return "Na symulatorze to działało";
+			if (num == 2)
+				return "Hi-Tech";
+			if (num == 3)
+				return "Moloch? Coś o nim słyszałem";
+		}
+		if (nazwa == "slc"){
+			if (num == 1)
+				return "Cholerny kaznodzieja";
+			if (num == 2)
+				return "Wierzę";
+			if (num == 3)
+				return "Przed wojną wszystko było lepsze";
+		}
+		if (nazwa == "tex"){
+			if (num == 1)
+				return "Człowiek zwany koniem";
+			if (num == 2){
+				$("#karta_me1, #skill_value_me1").html(me[0] = 4);
+				$("#karta_me2, #skill_value_me2").html(me[1] = 4);
+				$("#karta_me3, #skill_value_me3").html(me[2] = 4);
+				return "Doktor Quinn";
+			}
+			if (num == 3)
+				return "Zdrowa okolica";
+		}
+		if (nazwa == "veg"){
+			if (num == 1)
+				return "Fart";
+			if (num == 2)
+				return "Hazardzista";
+			if (num == 3)
+				return "Telepata";
+		}
+	}
 	
+	function auto_pochodzenie_cecha(nazwa,num){
+		$("#poch_" + nazwa + "_c" + num).click(function(){
+			um_reset();
+			$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
+			$("#poch_" + nazwa + "_c" + num).css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
+			bohater.pochodzenie_cecha = official_poch_cecha_nazwa(nazwa,num);
+		});
+	}
 	
+	for (i in poch_names){
+		for (a = 1; a < 4; a++){
+			auto_pochodzenie_cecha(poch_names[i],a)
+		}
+	}
 	
-	// NIE TWÓJ ZASRANY INTERES -------------------------------------------------------------------------
-	$("#poch_no_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wszechstronność";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_no_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
 	$("#poch_no_stat_zr").click(function(){
 		reset_additional_stat();
 		bohater.d_zr++;
@@ -296,40 +387,7 @@ $(function(){
 		$(".poch_no_stat_choice").css({'background-color': '#333'});
 		$(this).css({'background-color': '#222'});
 	});
-	$("#poch_no_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wszechstronność do kwadratu";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_no_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// DETROIT -------------------------------------------------------------------------
-	$("#poch_det_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Jeśli ma silnik to ruszy";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_det_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_det_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Siódme poty";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_det_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_det_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Ale jazda!";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_det_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// FEDERACJA APPALACHÓW -------------------------------------------------------------------------
-	$("#poch_fa_c1").click(function(){
-		bohater.pochodzenie_cecha = "Szlachetnie urodzony";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_fa_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-		$("#poch_fa_text").hide();
-		$("#poch_fa_choice").show();
-	});
-	
+
 	$("#poch_fa_choice_ng").click(function(){
 		um_reset();
 		fa_choice = "ng";
@@ -358,96 +416,6 @@ $(function(){
 		$("#poch_fa_choice_sw").css({'background-color': '#999'});
 	});
 	
-	$("#poch_fa_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Pojedynkowicz";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_fa_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_fa_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wychuchana spluwa";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_fa_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// CZŁOWIEK PUSTYNI -------------------------------------------------------------------------
-	$("#poch_cp_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Towarzysz";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_cp_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_cp_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Jestem duchem pustyni";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_cp_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_cp_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Polegam tylko na sobie";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_cp_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// MIAMI -------------------------------------------------------------------------
-	$("#poch_mia_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Człowiek aligator";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mia_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_mia_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Ja już swoje odchorowałem";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mia_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_mia_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Walkabout";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mia_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// MISSISIPI -------------------------------------------------------------------------
-	$("#poch_mis_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Coś mi tu śmierdzi";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mis_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_mis_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Chodźmy, na pewno już utonął";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mis_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_mis_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Kwas w żyłach, chlor w płucach";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_mis_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// NEW YORK -------------------------------------------------------------------------
-	$("#poch_ny_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Zalety klasycznego wykształcenia";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_ny_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-		$("#skills_points_spec").html(y_spec = 45);
-	});
-	$("#poch_ny_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wizja";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_ny_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_ny_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Czas patriotów";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_ny_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// POŁUDZNIOWA HEGEMONIA -------------------------------------------------------------------------
 	$("#poch_ph_c1").click(function(){
 
 		bohater.pochodzenie_cecha = "Urodzony morderca";
@@ -502,560 +470,185 @@ $(function(){
 		
 		$("#poch_ph_choice_pt").css({'background-color': '#999'});
 	});
-	
-	$("#poch_ph_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wiesz, zjadłem własnego psa";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_ph_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_ph_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Zawzięty sukinkot";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_ph_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// POSTERUNEK -------------------------------------------------------------------------
-	$("#poch_po_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Na symulatorze to działało";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_po_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_po_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Hi-Tech";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_po_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_po_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Moloch? Coś o nim słyszałem";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_po_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// SALT LAKE CITY -------------------------------------------------------------------------
-	$("#poch_slc_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Cholerny kaznodzieja";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_slc_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_slc_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Wierzę";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_slc_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_slc_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Przed wojną wszystko było lepsze";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_slc_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	// TEXAS -------------------------------------------------------------------------
-	$("#poch_tex_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Człowiek zwany koniem";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_tex_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_tex_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Doktor Quinn";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_tex_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-		$("#karta_me1, #skill_value_me1").html(me[0] = 4);
-		$("#karta_me2, #skill_value_me2").html(me[1] = 4);
-		$("#karta_me3, #skill_value_me3").html(me[2] = 4);
-	});
-	$("#poch_tex_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Zdrowa okolica";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_tex_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-		$("#karta_choroba").html("Brak");
-		$("#karta_lek").html("Brak");
-	});
-	// VEGAS -------------------------------------------------------------------------
-	$("#poch_veg_c1").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Fart";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_veg_c1").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	$("#poch_veg_c2").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Hazardzista";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_veg_c2").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	
-	
-	$("#poch_veg_c3").click(function(){
-		um_reset();
-		bohater.pochodzenie_cecha = "Telepata";
-		$(".poch_cecha").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_default.jpg")'});
-		$("#poch_veg_c3").css({'background-image': 'url("style/img/poch_cechy/poch_cecha_clicked.jpg")'});
-	});
-	
 	// PROFESJA ---------------------------------------------------------------------------------------------
 	$("#prof_descrip").hide();
-	
-	function prof_reset(){ 
-		$("#prof_descrip").slideDown(); // shows box with cechy z profesji
-		$(".prof_descrip").hide(); //  hides all cechy z profesji
-		$(".prof_tile1").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // resets color of green tile
-		bohater.profesja_cecha = "Nie wybrano cechy z profesji";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-	};
-
-	$("#prof_chemik").click(function(){
-		bohater.profesja = "Chemik";	// sets value of profesja and inputs it into card
-		prof_reset(); // function above
-		$("#prof_chemik").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of chosen green tile
-		$("#prof_descrip_chemik").fadeIn(); // shows cechy z profesji for choosen profesja
-	});
-	$("#prof_ganger").click(function(){
-		prof_reset();
-		bohater.profesja = "Ganger";
-		$("#prof_ganger").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_ganger").fadeIn();
-	});
-	$("#prof_gladiator").click(function(){
-		prof_reset();
-		bohater.profesja = "Gladiator";
-		$("#prof_gladiator").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_gladiator").fadeIn();
-	});
-	$("#prof_handlarz").click(function(){
-		prof_reset();
-		bohater.profesja = "Handlarz";
-		$("#prof_handlarz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_handlarz").fadeIn();
-	});
-	$("#prof_kaznodzieja").click(function(){
-		prof_reset();
-		bohater.profesja = "Kaznodzieja Nowej Ery";
-		$("#prof_kaznodzieja").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_kaznodzieja").fadeIn();
-	});
-	$("#prof_kowboj").click(function(){
-		prof_reset();
-		bohater.profesja = "Kowboj";
-		$("#prof_kowboj").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_kowboj").fadeIn();
-	});
-	$("#prof_kurier").click(function(){
-		prof_reset();
-		bohater.profesja = "Kurier";
-		$("#prof_kurier").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_kurier").fadeIn();
-	});
-	$("#prof_lowca").click(function(){
-		prof_reset();
-		bohater.profesja = "Łowca";
-		$("#prof_lowca").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_lowca").fadeIn();
-	});
-	$("#prof_lowcamutantow").click(function(){
-		prof_reset();
-		bohater.profesja = "Łowca mutantów";
-		$("#prof_lowcamutantow").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_lowcamutantow").fadeIn();
-	});
-	$("#prof_mafiozo").click(function(){
-		prof_reset();
-		bohater.profesja = "Mafiozo";
-		$("#prof_mafiozo").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_mafiozo").fadeIn();
-	});
-	$("#prof_medyk").click(function(){
-		prof_reset();
-		bohater.profesja = "Medyk";
-		$("#prof_medyk").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_medyk").fadeIn();
-	});
-	$("#prof_monter").click(function(){
-		prof_reset();
-		bohater.profesja = "Monter";
-		$("#prof_monter").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_monter").fadeIn();
-	});
-	$("#prof_najemnik").click(function(){
-		prof_reset();
-		bohater.profesja = "Najemnik";
-		$("#prof_najemnik").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_najemnik").fadeIn();
-	});
-	$("#prof_ochroniarz").click(function(){
-		prof_reset();
-		bohater.profesja = "Ochroniarz";
-		$("#prof_ochroniarz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_ochroniarz").fadeIn();
-	});
-	$("#prof_sedzia").click(function(){
-		prof_reset();
-		bohater.profesja = "Sędzia";
-		$("#prof_sedzia").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_sedzia").fadeIn();
-	});
-	$("#prof_spec").click(function(){
-		prof_reset();
-		bohater.profesja = "Spec";
-		$("#prof_spec").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_spec").fadeIn();
-	});
-	$("#prof_szaman").click(function(){
-		prof_reset();
-		bohater.profesja = "Szaman";
-		$("#prof_szaman").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_szaman").fadeIn();
-	});
-	$("#prof_szczur").click(function(){
-		prof_reset();
-		bohater.profesja = "Szczur";
-		$("#prof_szczur").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_szczur").fadeIn();
-	});
-	$("#prof_treserbestii").click(function(){
-		prof_reset();
-		bohater.profesja = "Treser bestii";
-		$("#prof_treserbestii").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_treserbestii").fadeIn();
-	});
-	$("#prof_tropiciel").click(function(){
-		prof_reset();
-		bohater.profesja = "Tropiciel";
-		$("#prof_tropiciel").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_tropiciel").fadeIn();
-	});
-	$("#prof_wojownikautostrady").click(function(){
-		prof_reset();
-		bohater.profesja = "Wojownik autostrady";
-		$("#prof_wojownikautostrady").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_wojownikautostrady").fadeIn();
-	});
-	$("#prof_wojownikklanu").click(function(){
-		prof_reset();
-		bohater.profesja = "Wojownik klanu";
-		$("#prof_wojownikklanu").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_wojownikklanu").fadeIn();
-	});
-	$("#prof_zabojca").click(function(){
-		prof_reset();
-		bohater.profesja = "Zabójca";
-		$("#prof_zabojca").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_zabojca").fadeIn();
-	});
-	$("#prof_zabojcamaszyn").click(function(){
-		prof_reset();
-		bohater.profesja = "Zabójca maszyn";
-		$("#prof_zabojcamaszyn").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_zabojcamaszyn").fadeIn();
-	});
-	$("#prof_zlodziej").click(function(){
-		prof_reset();
-		bohater.profesja = "Złodziej";
-		$("#prof_zlodziej").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_zlodziej").fadeIn();
-	});
-	$("#prof_zolnierz").click(function(){
-		prof_reset();
-		bohater.profesja = "Żołnierz";
-		$("#prof_zolnierz").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
-		$("#prof_descrip_zolnierz").fadeIn();
-	});
+	function official_prof_nazwa(nazwa){
+		if (nazwa == "kaznodzieja")
+			return "Kaznodzieja Nowej Ery";
+		if (nazwa == "lowca")
+			return "Łowca";
+		if (nazwa == "lowcamutantow")
+			return "Łowca mutantów";
+		if (nazwa == "sedzia")
+			return "Sędzia";
+		if (nazwa == "lowca")
+			return "Łowca";
+		if (nazwa == "treserbestii")
+			return "Treser bestii";
+		if (nazwa == "wojownikautostrady")
+			return "Wojownik autostrady";
+		if (nazwa == "wojownikklanu")
+			return "Wojownik klanu";
+		if (nazwa == "zabojca")
+			return "Zabójca";
+		if (nazwa == "zabojcamaszyn")
+			return "Zabójca maszyn";
+		if (nazwa == "zlodziej")
+			return "Złodziej";
+		if (nazwa == "zolnierz")
+			return "Żołnierz";
+		return nazwa;
+		
+	}
+	function autoprofesja(nazwa){
+		$("#prof_" + nazwa).click(function(){
+			$("#prof_descrip").slideDown(); // shows box with cechy z profesji
+			$(".prof_descrip").hide(); //  hides all cechy z profesji
+			$(".prof_tile1").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // resets color of green tile
+			bohater.profesja_cecha = "Nie wybrano cechy z profesji"; // resets cechy z profesji
+			$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'}); // 
+			
+			$("#prof_" + nazwa).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
+			$("#prof_descrip_" + nazwa).fadeIn();
+			bohater.profesja = official_prof_nazwa(nazwa);
+		});
+	}
+	/* */
+	var prof_names = ["chemik","ganger","gladiator","handlarz","kaznodzieja","kowboj","kurier","lowca","lowcamutantow","mafiozo","medyk","monter","najemnik","ochroniarz","sedzia","spec","szaman","szczur","treserbestii","tropiciel","wojownikautostrady","wojownikklanu","zabojca","zabojcamaszyn","zlodziej","zolnierz"];
+	for (i in prof_names){
+		autoprofesja(prof_names[i]);
+	}
 	
 	// CECHA Z PROFESJI -------------------------------------------------------------------------------------
-	$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
+	//$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
 	
-	// CHEMIK -------------------------------------------------------------------------------------------
-	$("#prof_chemik_c1").click(function(){
-		bohater.profesja_cecha = "Smakuje jak arszenik";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_chemik_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_chemik_c2").click(function(){
-		bohater.profesja_cecha = "Farmaceuta";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_chemik_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// GANGER -------------------------------------------------------------------------------------------
-	$("#prof_ganger_c1").click(function(){
-		bohater.profesja_cecha = "Jeden z nich";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_ganger_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_ganger_c2").click(function(){
-		bohater.profesja_cecha = "Odważny czy głupi?";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_ganger_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// GLADIATOR ----------------------------------------------------------------------------------------
-	$("#prof_gladiator_c1").click(function(){
-		bohater.profesja_cecha = "Nie do zdarcia";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_gladiator_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_gladiator_c2").click(function(){
-		bohater.profesja_cecha = "Łyżeczka";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_gladiator_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// HANDLARZ ----------------------------------------------------------------------------------------
-	$("#prof_handlarz_c1").click(function(){
-		bohater.profesja_cecha = "Trakt handlowy";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_handlarz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_handlarz_c2").click(function(){
-		bohater.profesja_cecha = "Szklarz";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_handlarz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// KAZNODZIEJA NOWEJ ERY ---------------------------------------------------------------------------
-	$("#prof_kaznodzieja_c1").click(function(){
-		bohater.profesja_cecha = "Spójrz mi w oczy";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kaznodzieja_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_kaznodzieja_c2").click(function(){
-		bohater.profesja_cecha = "Amen";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kaznodzieja_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// KOWBOJ ------------------------------------------------------------------------------------------
-	$("#prof_kowboj_c1").click(function(){
-		bohater.profesja_cecha = "Rewolwerowiec";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kowboj_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_kowboj_c2").click(function(){
-		bohater.profesja_cecha = "Ostatnia kula";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kowboj_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// KURIER ------------------------------------------------------------------------------------------
-	$("#prof_kurier_c1").click(function(){
-		bohater.profesja_cecha = "Znajomości";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kurier_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_kurier_c2").click(function(){
-		bohater.profesja_cecha = "Skrytka";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_kurier_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ŁOWCA -------------------------------------------------------------------------------------------
-	$("#prof_lowca_c1").click(function(){
-		bohater.profesja_cecha = "Fotograficzna pamięć";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_lowca_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_lowca_c2").click(function(){
-		bohater.profesja_cecha = "Nieugięty";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_lowca_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ŁOWCA MUTANTÓW ----------------------------------------------------------------------------------
-	$("#prof_lowcamutantow_c1").click(function(){
-		bohater.profesja_cecha = "Bez tajemnic";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_lowcamutantow_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_lowcamutantow_c2").click(function(){
-		bohater.profesja_cecha = "Mutant na śniadanie";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_lowcamutantow_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// MAFIOZO -----------------------------------------------------------------------------------------
-	$("#prof_mafiozo_c1").click(function(){
-		bohater.profesja_cecha = "Bezlitosny";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_mafiozo_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_mafiozo_c2").click(function(){
-		bohater.profesja_cecha = "Klasa";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_mafiozo_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// MEDYK -------------------------------------------------------------------------------------------
-	$("#prof_medyk_c1").click(function(){
-		bohater.profesja_cecha = "Reputacja";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_medyk_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_medyk_c2").click(function(){
-		bohater.profesja_cecha = "Sanitariusz polowy";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_medyk_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// MONTER ------------------------------------------------------------------------------------------
-	$("#prof_monter_c1").click(function(){
-		bohater.profesja_cecha = "Zapałki i agrafka";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_monter_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_monter_c2").click(function(){
-		bohater.profesja_cecha = "Kłopotliwy nadmiar";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_monter_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// NAJEMNIK ----------------------------------------------------------------------------------------
-	$("#prof_najemnik_c1").click(function(){
-		bohater.profesja_cecha = "Reputacja";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_najemnik_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_najemnik_c2").click(function(){
-		bohater.profesja_cecha = "Maszyna do zabijania";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_najemnik_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// OCHRONIARZ --------------------------------------------------------------------------------------
-	$("#prof_ochroniarz_c1").click(function(){
-		bohater.profesja_cecha = "Wyciszenie";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_ochroniarz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_ochroniarz_c2").click(function(){
-		bohater.profesja_cecha = "Zanim on";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_ochroniarz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// SĘDZIA ------------------------------------------------------------------------------------------
-	$("#prof_sedzia_c1").click(function(){
-		bohater.profesja_cecha = "Mundur i odznaka";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_sedzia_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_sedzia_c2").click(function(){
-		bohater.profesja_cecha = "Jeden z nas";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_sedzia_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// SPEC --------------------------------------------------------------------------------------------
-	$("#prof_spec_c1").click(function(){
-		bohater.profesja_cecha = "Wykształcenie";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_spec_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_spec_c2").click(function(){
-		bohater.profesja_cecha = "Skupienie";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_spec_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// SZAMAN ------------------------------------------------------------------------------------------
-	$("#prof_szaman_c1").click(function(){
-		bohater.profesja_cecha = "Duchy przemówiły";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_szaman_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_szaman_c2").click(function(){
-		bohater.profesja_cecha = "Totem";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_szaman_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// SZCZUR ------------------------------------------------------------------------------------------
-	$("#prof_szczur_c1").click(function(){
-		bohater.profesja_cecha = "A co mi tam";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_szczur_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_szczur_c2").click(function(){
-		bohater.profesja_cecha = "Szary";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_szczur_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// TRESER BESTII -----------------------------------------------------------------------------------
-	$("#prof_treserbestii_c1").click(function(){
-		bohater.profesja_cecha = "Bestia";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_treserbestii_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_treserbestii_c2").click(function(){
-		bohater.profesja_cecha = "Wilczy kieł";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_treserbestii_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// TROPICIEL ---------------------------------------------------------------------------------------
-	$("#prof_tropiciel_c1").click(function(){
-		bohater.profesja_cecha = "Wyuczone zmysły";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_tropiciel_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_tropiciel_c2").click(function(){
-		bohater.profesja_cecha = "Rozpoznawanie stworzeń";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_tropiciel_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// WOJOWNIK AUTOSTRADY -----------------------------------------------------------------------------
-	$("#prof_wojownikautostrady_c1").click(function(){
-		bohater.profesja_cecha = "Drzwi w drzwi";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_wojownikautostrady_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_wojownikautostrady_c2").click(function(){
-		bohater.profesja_cecha = "Osłona samochodu";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_wojownikautostrady_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// WOJOWNIK KLANU ----------------------------------------------------------------------------------
-	$("#prof_wojownikklanu_c1").click(function(){
-		bohater.profesja_cecha = "My i oni";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_wojownikklanu_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_wojownikklanu_c2").click(function(){
-		bohater.profesja_cecha = "To mój dom";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_wojownikklanu_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ZABÓJCA ---------------------------------------------------------------------------------------
-	$("#prof_zabojca_c1").click(function(){
-		bohater.profesja_cecha = "Koniec zlecenia";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zabojca_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_zabojca_c2").click(function(){
-		bohater.profesja_cecha = "Jeden strzał";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zabojca_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ZABÓJCA MASZYN ----------------------------------------------------------------------------------
-	$("#prof_zabojcamaszyn_c1").click(function(){
-		bohater.profesja_cecha = "Słaby punkt";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zabojcamaszyn_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_zabojcamaszyn_c2").click(function(){
-		bohater.profesja_cecha = "Empiryk";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zabojcamaszyn_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ZŁODZIEJ ---------------------------------------------------------------------------------------
-	$("#prof_zlodziej_c1").click(function(){
-		bohater.profesja_cecha = "Elektronik";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zlodziej_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_zlodziej_c2").click(function(){
-		bohater.profesja_cecha = "Kot";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zlodziej_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	// ŻOŁNIERZ ---------------------------------------------------------------------------------------
-	$("#prof_zolnierz_c1").click(function(){
-		bohater.profesja_cecha = "Wyszkolenie";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zolnierz_c1").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
-	$("#prof_zolnierz_c2").click(function(){
-		bohater.profesja_cecha = "Rutyna";
-		$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-		$("#prof_zolnierz_c2").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
-	});
+	function official_prof_cecha_nazwa(nazwa,num){
+		if(num == 1){
+			if(nazwa == "chemik")
+				return "Smakuje jak arszenik";
+			if(nazwa == "ganger")
+				return "Jeden z nich";
+			if(nazwa == "gladiator")
+				return "Nie do zdarcia";
+			if(nazwa == "handlarz")
+				return "Trakt handlowy";
+			if(nazwa == "kaznodzieja")
+				return "Spójrz mi w oczy";
+			if(nazwa == "kowboj")
+				return "Rewolwerowiec";
+			if(nazwa == "kurier")
+				return "Znajomości";
+			if(nazwa == "lowca")
+				return "Fotograficzna pamięć";
+			if(nazwa == "lowcamutantow")
+				return "Bez tajemnic";
+			if(nazwa == "mafiozo")
+				return "Bezlitosny";
+			if(nazwa == "medyk")
+				return "Reputacja";
+			if(nazwa == "monter")
+				return "Zapałki i agrafka";
+			if(nazwa == "najemnik")
+				return "Reputacja";
+			if(nazwa == "ochroniarz")
+				return "Wyciszenie";
+			if(nazwa == "sedzia")
+				return "Mundur i odznaka";
+			if(nazwa == "spec")
+				return "Wykształcenie";
+			if(nazwa == "szaman")
+				return "Duchy przemówiły";
+			if(nazwa == "szczur")
+				return "A co mi tam";
+			if(nazwa == "treserbestii")
+				return "Bestia";
+			if(nazwa == "tropiciel")
+				return "Wyuczone zmysły";
+			if(nazwa == "wojownikautostrady")
+				return "Drzwi w drzwi";
+			if(nazwa == "wojownikklanu")
+				return "My i oni";
+			if(nazwa == "zabojca")
+				return "Koniec zlecenia";
+			if(nazwa == "zabojcamaszyn")
+				return "Słaby punkt";
+			if(nazwa == "zlodziej")
+				return "Elektronik";
+			if(nazwa == "zolnierz")
+				return "Wyszkolenie";
+			
+		}
+		if(num == 2){
+			if(nazwa == "chemik")
+				return "Farmaceuta";
+			if(nazwa == "ganger")
+				return "Odważny czy głupi?";
+			if(nazwa == "gladiator")
+				return "Łyżeczka";
+			if(nazwa == "handlarz")
+				return "Szklarz";
+			if(nazwa == "kaznodzieja")
+				return "Amen";
+			if(nazwa == "kowboj")
+				return "Ostatnia kula";
+			if(nazwa == "kurier")
+				return "Skrytka";
+			if(nazwa == "lowca")
+				return "Nieugięty";
+			if(nazwa == "lowcamutantow")
+				return "Mutant na śniadanie";
+			if(nazwa == "mafiozo")
+				return "Klasa";
+			if(nazwa == "medyk")
+				return "Sanitariusz polowy";
+			if(nazwa == "monter")
+				return "Kłopotliwy nadmiar";
+			if(nazwa == "najemnik")
+				return "Maszyna do zabijania";
+			if(nazwa == "ochroniarz")
+				return "Zanim on";
+			if(nazwa == "sedzia")
+				return "Jeden z nas";
+			if(nazwa == "spec")
+				return "Skupienie";
+			if(nazwa == "szaman")
+				return "Totem";
+			if(nazwa == "szczur")
+				return "Szary";
+			if(nazwa == "treserbestii")
+				return "Wilczy kieł";
+			if(nazwa == "tropiciel")
+				return "Rozpoznawanie stworzeń";
+			if(nazwa == "wojownikautostrady")
+				return "Osłona samochodu";
+			if(nazwa == "wojownikklanu")
+				return "To mój dom";
+			if(nazwa == "zabojca")
+				return "Jeden strzał";
+			if(nazwa == "zabojcamaszyn")
+				return "Empiryk";
+			if(nazwa == "zlodziej")
+				return "Kot";
+			if(nazwa == "zolnierz")
+				return "Rutyna";
+		}
+	}
+	
+	function auto_profesja_cecha(nazwa,num){
+		$("#prof_" + nazwa + "_c" + num).click(function(){
+			$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
+			$("#prof_" + nazwa + "_c" + num).css({'background-image': 'url("style/img/prof_cechy/prof_cecha_clicked.jpg")'});
+			bohater.profesja_cecha = official_prof_cecha_nazwa(nazwa,num);
+		});
+	}
+	
+	for (i in prof_names){
+		for (a = 1; a < 3; a++){
+			auto_profesja_cecha(prof_names[i],a)
+		}
+	}
+	
+	
 	
 	// SPECJALIZACJA ----------------------------------------------------------------------------------------
 	$("#spec_descrip").hide();
@@ -1831,159 +1424,22 @@ $(function(){
 	
 	$("#container").click(function(){ show_sztuczki(); });
 	
-	function sztuczka_reset(){ $(".sztuczki_exmpl").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); }; // resets color of green tile of sztuczki when changing a pick
+	var sztuczka_nazwa = ["bum","aramis","asekuracja","aspiryna","barbarka","berserker","bezoddechu","bezsprzetu","bezsznurków","bieg","bierzgo","boa","casanova","chlodnymokiem","ciszej","czlowiek","czterejpancerni","czuly","dalszy","dawid","dluzszystrzal","dobryizlyglina","dobywanie","domnaplecach","doswiadczony","dystans","dziswszystko","flash","garda","glaz","golareka","granienanerwach","gunfight","hokuspokus","immunitet","inspiracja","jestzajebiscie","kanaly","komandos","kopzobrotu","kot","kradziezwtlumie","lesnydiabel","ladowaniekuszy","lawnik","magazynek","meczbojowy","miotaczkul","mistrzopaskiuciskowej","mistrzwloczni","myslecjakmaszyna","napewnodzialal","naprawde","nauczyciel","niewrazliwosc","nostrzelaj","nozownik","obezwladnienie","odnajdowanie","odpornosc","odtrucie","odwrocenie","origami","osmiornica","otwieraniezamkowelektronicznych","padnij","pajak","panplaster","pewnareka","pierwotny","pitbull","plugplay","poschodach","podrasowanie","polozeniemotocykla","prowizorka","rappeling","rodeo","rozroba","roar","ruchomegniazdo","ruchomycel","rzutoka","samuraj","sherlock","sleklerezada","slup","skladamunicji","skok","sluchabsolutny","snajper","spacnawodzie","strzeleckieszonkowy","szachista","szostyzmysl","sztuczkikarciane","sztuka","szybkibill","szybkirzut","szybkiestrzelanie","srubobranie","taran","taranowanie","targowaniesie","tosierobitak","wmgnieniuoka","walkadwiemabronmi","wiatraki","wilkmorski","wlasciwatwarz","wracajacybumerang","wyczekanie","wyczucieemocjizwierzat","wyczuciepromieniowania","wyczuciezmianpogody","wyrabianiestrzalibeltow","wytrych","zagadanie","zaslona","zgranie","zielonybalonik","zly","zmylka","zelazneracje"];
 	
-	$("#s_bum").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bum"); });
-	$("#s_aramis").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Aramis"); });
-	$("#s_asekuracja").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Asekuracja"); });
-	$("#s_aspiryna").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Aspiryna"); });
-	$("#s_barbarka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Barbarka"); });
-	$("#s_berserker").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Berserker"); });
-	$("#s_bezoddechu").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bez oddechu"); });
-	$("#s_bezsprzetu").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bez sprzętu, bez zabezpieczenia"); });
-	$("#s_bezsznurków").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bez sznurków"); });
-	$("#s_bieg").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bieg w ciszy"); });
-	$("#s_bierzgo").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Bierz go!"); });
-	$("#s_boa").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Boa"); });
-	$("#s_casanova").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Casanova/Mata Hari"); });
-	$("#s_chlodnymokiem").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Chłodnym okiem"); });
-	$("#s_ciszej").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ciszej niż cień"); });
-	$("#s_czlowiek").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Człowiek, który kulom się nie kłaniał"); });
-	$("#s_czterejpancerni").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Czterej pancerni"); });
-	$("#s_czuly").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Czuły spust"); });
-	$("#s_dalszy").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dalszy zasięg"); });
-	$("#s_dawid").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dawid"); });
-	$("#s_dluzszystrzal").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dłuższy strzał"); });
-	$("#s_dobryizlyglina").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dobry i zły glina"); });
-	$("#s_dobywanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dobywanie"); });
-	$("#s_domnaplecach").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Doma na plecach"); });
-	$("#s_doswiadczony").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Doświadczony"); });
-	$("#s_dystans").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dystans"); });
-	$("#s_dziswszystko").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Dzis wszystko, jutro nic"); });
-	$("#s_flash").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Flash"); });
-	$("#s_garda").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Garda"); });
-	$("#s_glaz").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Głaz"); });
-	$("#s_golareka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Goła ręka"); });
-	$("#s_granienanerwach").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Granie na nerwach"); });
-	$("#s_gunfight").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Gun fight"); });
-	$("#s_hokuspokus").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Hokus Pokus"); });
-	$("#s_immunitet").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Immunitet"); });
-	$("#s_inspiracja").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Inspiracja"); });
-	$("#s_jestzajebiscie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Jest zajebiście"); });
-	$("#s_kanaly").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Kanały"); });
-	$("#s_komandos").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Komandos"); });
-	$("#s_kopzobrotu").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Kop z obrotu"); });
-	$("#s_kot").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Kot"); });
-	$("#s_kradziezwtlumie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Kradzież w tłumie"); });
-	$("#s_lesnydiabel").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Leśny diabeł"); });
-	$("#s_ladowaniekuszy").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ładowanie kuszy"); });
-	$("#s_lawnik").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ławnik"); });
-	$("#s_magazynek").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Magazynek"); });
-	$("#s_meczbojowy").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Mecz bojowy"); });
-	$("#s_miotaczkul").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Miotacz kul"); });
-	$("#s_mistrzopaskiuciskowej").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Mistrz opaski uciskowej"); });
-	$("#s_mistrzwloczni").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Mistrz włóczni"); });
-	$("#s_myslecjakmaszyna").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Myśleć jak maszyna"); });
-	$("#s_napewnodzialal").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Na pewno działał"); });
-	$("#s_naprawde").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Naprawdę, to nie moja wina"); });
-	$("#s_nauczyciel").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Nauczyciel"); });
-	$("#s_niewrazliwosc").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Niewrażliwość na lekkie rany"); });
-	$("#s_nostrzelaj").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "No strzelaj, złomie!"); });
-	$("#s_nozownik").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Nożownik"); });
-	$("#s_obezwladnienie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Obezwładnienie"); });
-	$("#s_odnajdowanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Odnajdowanie właściwej osoby"); });
-	$("#s_odpornosc").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Odporność na pogodę"); });
-	$("#s_odtrucie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Odtrucie żarcia"); });
-	$("#s_odwrocenie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Odwrócenie uwagi"); });
-	$("#s_origami").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Origami"); });
-	$("#s_osmiornica").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ośmiornica"); });
-	$("#s_otwieraniezamkowelektronicznych").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Otwieranie zamków elektronicznych"); });
-	$("#s_padnij").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Padnij/powstań"); });
-	$("#s_pajak").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Pająk"); });
-	$("#s_panplaster").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Pan plaster"); });
-	$("#s_pewnareka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Pewna ręka"); });
-	$("#s_pierwotny").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Pierwotny instykt"); });
-	$("#s_pitbull").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Pitbull"); });
-	$("#s_plugplay").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Plug and Play"); });
-	$("#s_poschodach").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Po schodach"); });
-	$("#s_podrasowanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Podrasowanie"); });
-	$("#s_polozeniemotocykla").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Położenie motocykla"); });
-	$("#s_prowizorka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Prowizorka"); });
-	$("#s_rappeling").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Rappeling"); });
-	$("#s_rodeo").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Rodeo"); });
-	$("#s_rozroba").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Rozróba"); });
-	$("#s_roar").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Rrrroooaaarrr"); });
-	$("#s_ruchomegniazdo").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ruchome gniazdo CKM"); });
-	$("#s_ruchomycel").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Ruchomy cel"); });
-	$("#s_rzutoka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Rzut oka"); });
-	$("#s_samuraj").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Samuraj"); });
-	$("#s_sherlock").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Sherlock Holmes"); });
-	$("#s_sleklerezada").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Sleklerezada"); });
-	$("#s_slup").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Slup dup"); });
-	$("#s_skladamunicji").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Skład amunicji"); });
-	$("#s_skok").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Skok"); });
-	$("#s_sluchabsolutny").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Słuch absolutny"); });
-	$("#s_snajper").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Snajper"); });
-	$("#s_spacnawodzie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Spać na wodzie"); });
-	$("#s_strzeleckieszonkowy").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Strzelec kieszonkowy"); });
-	$("#s_szachista").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Szachista"); });
-	$("#s_szostyzmysl").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Szósty zmysł"); });
-	$("#s_sztuczkikarciane").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Sztuczki karciane"); });
-	$("#s_sztuka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Sztuka jest sztuką"); });
-	$("#s_szybkibill").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Szybki Bill"); });
-	$("#s_szybkirzut").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Szybki rzut"); });
-	$("#s_szybkiestrzelanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Szybkie strzelanie"); });
-	$("#s_srubobranie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Śrutobranie"); });
-	$("#s_taran").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Taran"); });
-	$("#s_taranowanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Taranowanie"); });
-	$("#s_targowaniesie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Targowanie się"); });
-	$("#s_tosierobitak").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "To się robi tak"); });
-	$("#s_wmgnieniuoka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "W mgnieniu oka"); });
-	$("#s_walkadwiemabronmi").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Walka dwiema brońmi"); });
-	$("#s_wiatraki").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wiatraki"); });
-	$("#s_wilkmorski").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wilk morski"); });
-	$("#s_wlasciwatwarz").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Właściwa twarz"); });
-	$("#s_wracajacybumerang").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wracający bumerang"); });
-	$("#s_wyczekanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wyczekanie"); });
-	$("#s_wyczucieemocjizwierzat").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wyczucie emocji zwierząt"); });
-	$("#s_wyczuciepromieniowania").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wyczucie promieniowania"); });
-	$("#s_wyczuciezmianpogody").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wyczucie zmian pogody"); });
-	$("#s_wyrabianiestrzalibeltow").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wyrabianie strzał lub bełtów"); });
-	$("#s_wytrych").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Wytrych"); });
-	$("#s_zagadanie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zagadanie"); });
-	$("#s_zaslona").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zasłona"); });
-	$("#s_zgranie").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zgranie"); });
-	$("#s_zielonybalonik").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zielony balonik"); });
-	$("#s_zly").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zły"); });
-	$("#s_zmylka").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Zmyłka"); });
-	$("#s_zelazneracje").click(function(){ sztuczka_reset(); $(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); $("#karta_sztuczka_1").html(bohater.sztuczka = "Żelazne racje"); });
-		
-	/* * /	
-	$("#container").click(function(){ 
-		temp = bohater.zr;
-		x = 1;
-		if(bohater.pochodzenie_cecha == "Wszechstronność"){
-			if(temp < bohater.pc) {
-				x = 2;
-				temp = bohater.pc;
-			}
-			if(temp < bohater.ch) {
-				x = 3;
-				temp = bohater.ch;
-			}
-			if(temp < bohater.sp) {
-				x = 4;
-				temp = bohater.sp;
-			}
-			if(temp < bohater.bd){
-				x = 5;
-			}
-			if(x==1){
-				
-			}
-		}
-	});
-	/* */
+	var official_sztuczka_nazwa = ["Bum","Aramis","Asekuracja","Aspiryna","Barbarka","Berserker","Bez oddechu","Bez sprzętu, bez zabezpieczenia","Bez sznurków","Bieg w ciszy","Bierz go!","Boa","Casanova/Mata Hari","Chłodnym okiem","Ciszej niż cień","Człowiek, który kulom się nie kłaniał","Czterej pancerni","Czuły spust","Dalszy zasięg","Dawid","Dłuższy strzał","Dobry i zły glina","Dobywanie","Dom na plecach","Doświadczony","Dystans","Dzis wszystko, jutro nic","Flash","Garda","Głaz","Goła ręka","Granie na nerwach","Gun fight","Hokus Pokus","Immunitet","Inspiracja","Jest zajebiście","Kanały","Komandos","Kop z obrotu","Kot","Kradzież w tłumie","Leśny diabeł","Ładowanie kuszy","Ławnik","Magazynek","Mecz bojowy","Miotacz kul","Mistrz opaski uciskowej","Mistrz włóczni","Myśleć jak maszyna","Na pewno działał","Naprawdę, to nie moja wina","Nauczyciel","Niewrażliwość na lekkie rany","No strzelaj, złomie!","Nożownik","Obezwładnienie","Odnajdowanie właściwej osoby","Odporność na pogodę","Odtrucie żarcia","Odwrócenie uwagi","Origami","Ośmiornica","Otwieranie zamków elektronicznych","Padnij/powstań","Pająk","Pan plaster","Pewna ręka","Pierwotny instykt","Pitbull","Plug and Play","Po schodach","Podrasowanie","Położenie motocykla","Prowizorka","Rappeling","Rodeo","Rozróba","Rrrroooaaarrr","Ruchome gniazdo CKM","Ruchomy cel","Rzut oka","Samuraj","Sherlock Holmes","Sleklerezada","Slup dup","Skład amunicji","Skok","Słuch absolutny","Snajper","Spać na wodzie","Strzelec kieszonkowy","Szachista","Szósty zmysł","Sztuczki karciane","Sztuka jest sztuką","Szybki Bill","Szybki rzut","Szybkie strzelanie","Śrutobranie","Taran","Taranowanie","Targowanie się","To się robi tak","W mgnieniu oka","Walka dwiema brońmi","Wiatraki","Wilk morski","Właściwa twarz","Wracający bumerang","Wyczekanie","Wyczucie emocji zwierząt","Wyczucie promieniowania","Wyczucie zmian pogody","Wyrabianie strzał lub bełtów","Wytrych","Zagadanie","Zasłona","Zgranie","Zielony balonik","Zły","Zmyłka","Żelazne racje"];
+	
+	function auto_sztuczka(nazwa,i){
+		$("#s_" + nazwa).click(function(){
+			$(".sztuczki_exmpl").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'});
+			$(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); 
+			bohater.sztuczka = official_sztuczka_nazwa[i];
+			$("#karta_sztuczka_1").html(bohater.sztuczka);
+		});
+	}
+
+	for (i in sztuczka_nazwa)
+		auto_sztuczka(sztuczka_nazwa[i],i);
+	
 	// TWORZENIE KARTY --------------------------------------------------------------------------------------
 	general_test = true;
 	function before_generate_check(){
@@ -2052,7 +1508,7 @@ $(function(){
 			bohater.jd[i] = jd[i];
 		}
 	}
-	
+	$("#karta").show();
 	// ----------------------------- GENEROWANIE PLIKU PDF ------------------------------
 	function genPDF() {
 		$("#karta").show();
