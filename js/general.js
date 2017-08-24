@@ -6,10 +6,10 @@ $(function(){
 		specjalizacja:"Nie wybrano specjalizacji",
 		sztuczka:"Nie wybrano sztuczki",
 		choroba:"Nie wylosowano choroby", lek:"Nie wylosowano leku",
-		
+
 		zr:0, pc:0, ch:0, sp:0, bd:0,
 		d_zr:0, d_pc:0, d_ch:0, d_sp:0, d_bd:0,
-		
+
 		ww: [0,0,0],
 		bs: [0,0,0],
 		bd: [0,0,0],
@@ -51,102 +51,102 @@ $(function(){
 	$("#karta").hide();
 	var ph_choice = "none";
 	var fa_choice = "none";
-	
+
 	function only_um_reset(){
 		$("#karta_ww1, #skill_value_ww1").html(ww[0]=0);
 		$("#karta_ww2, #skill_value_ww2").html(ww[1]=0);
-		$("#karta_ww3, #skill_value_ww3").html(ww[2]=0);	
-			
+		$("#karta_ww3, #skill_value_ww3").html(ww[2]=0);
+
 		$("#karta_bs1, #skill_value_bs1").html(bs[0]=0);
 		$("#karta_bs2, #skill_value_bs2").html(bs[1]=0);
 		$("#karta_bs3, #skill_value_bs3").html(bs[2]=0);
-		
+
 		$("#karta_bd1, #skill_value_bd1").html(bd[0]=0);
 		$("#karta_bd2, #skill_value_bd2").html(bd[1]=0);
 		$("#karta_bd3, #skill_value_bd3").html(bd[2]=0);
-		
+
 		$("#karta_pp1, #skill_value_pp1").html(pp[0]=0);
 		$("#karta_pp2, #skill_value_pp2").html(pp[1]=0);
 		$("#karta_pp3, #skill_value_pp3").html(pp[2]=0);
-		
+
 		$("#karta_zm1, #skill_value_zm1").html(zm[0]=0);
 		$("#karta_zm2, #skill_value_zm2").html(zm[1]=0);
 		$("#karta_zm3, #skill_value_zm3").html(zm[2]=0);
-		
+
 		$("#karta_ot1, #skill_value_ot1").html(ot[0]=0);
 		$("#karta_ot2, #skill_value_ot2").html(ot[1]=0);
 		$("#karta_ot3, #skill_value_ot3").html(ot[2]=0);
-		
+
 		$("#karta_sg1, #skill_value_sg1").html(sg[0]=0);
 		$("#karta_sg2, #skill_value_sg2").html(sg[1]=0);
 		$("#karta_sg3, #skill_value_sg3").html(sg[2]=0);
-		
+
 		$("#karta_ka1, #skill_value_ka1").html(ka[0]=0);
 		$("#karta_ka2, #skill_value_ka2").html(ka[1]=0);
 		$("#karta_ka3, #skill_value_ka3").html(ka[2]=0);
-		
+
 		$("#karta_pr1, #skill_value_pr1").html(pr[0]=0);
 		$("#karta_pr2, #skill_value_pr2").html(pr[1]=0);
 		$("#karta_pr3, #skill_value_pr3").html(pr[2]=0);
-		
+
 		$("#karta_ng1, #skill_value_ng1").html(ng[0]=0);
 		$("#karta_ng2, #skill_value_ng2").html(ng[1]=0);
 		$("#karta_ng3, #skill_value_ng3").html(ng[2]=0);
-		
+
 		$("#karta_em1, #skill_value_em1").html(em[0]=0);
 		$("#karta_em2, #skill_value_em2").html(em[1]=0);
 		$("#karta_em3, #skill_value_em3").html(em[2]=0);
-		
+
 		$("#karta_sw1, #skill_value_sw1").html(sw[0]=0);
 		$("#karta_sw2, #skill_value_sw2").html(sw[1]=0);
 		$("#karta_sw3, #skill_value_sw3").html(sw[2]=0);
-		
+
 		$("#karta_me1, #skill_value_me1").html(me[0]=0);
 		$("#karta_me2, #skill_value_me2").html(me[1]=0);
 		$("#karta_me3, #skill_value_me3").html(me[2]=0);
-		
+
 		$("#karta_te1, #skill_value_te1").html(te[0]=0);
 		$("#karta_te2, #skill_value_te2").html(te[1]=0);
 		$("#karta_te3, #skill_value_te3").html(te[2]=0);
-		
+
 		$("#karta_wo1, #skill_value_wo1").html(wo[0]=0);
 		$("#karta_wo2, #skill_value_wo2").html(wo[1]=0);
 		$("#karta_wo3, #skill_value_wo3").html(wo[2]=0);
-		
+
 		$("#karta_sp1, #skill_value_sp1").html(sp[0]=0);
 		$("#karta_sp2, #skill_value_sp2").html(sp[1]=0);
 		$("#karta_sp3, #skill_value_sp3").html(sp[2]=0);
-		
+
 		$("#karta_pt1, #skill_value_pt1").html(pt[0]=0);
 		$("#karta_pt2, #skill_value_pt2").html(pt[1]=0);
 		$("#karta_pt3, #skill_value_pt3").html(pt[2]=0);
-		
+
 		$("#karta_sn1, #skill_value_sn1").html(sn[0]=0);
 		$("#karta_sn2, #skill_value_sn2").html(sn[1]=0);
 		$("#karta_sn3, #skill_value_sn3").html(sn[2]=0);
-		
+
 		$("#karta_jd1, #skill_value_jd1").html(jd[0]=0);
 		$("#karta_jd2, #skill_value_jd2").html(jd[1]=0);
 		$("#karta_jd3, #skill_value_jd3").html(jd[2]=0);
-		
+
 		$("#skills_points").html(y = 30);
 		$("#skills_points_spec").html(y_spec = 35);
 	}
-	
+
 	function um_reset(){
-		
+
 		only_um_reset();
-		
-		
+
+
 		$("#karta_choroba").html(bohater.choroba);
 		$("#karta_lek").html(bohater.lek);
-		
+
 		$("#poch_ph_choice").hide();
 		$("#poch_ph_text").show();
-		
+
 		$("#poch_fa_choice").hide();
 		$("#poch_fa_text").show();
-		
+
 		ph_choice = "none";
 		fa_choice = "none";
 		$(".poch_ph_choice_tile").css({'background-color': '#555'});
@@ -161,7 +161,7 @@ $(function(){
 	function reset_additional_stat(){
 		bohater.d_zr = 0; bohater.d_pc = 0; bohater.d_ch = 0; bohater.d_sp = 0; bohater.d_bd = 0;
 	}
-	function poch_reset(){ 
+	function poch_reset(){
 		//if(bohahter.pochodzenie == 'Nie wybrano pochodzenia')
 			$("#poch_descrip").slideDown(); // shows box with cechy z pochodzenia
 		$(".poch_descrip").hide(); // hides all cechy z pochodzenia
@@ -223,17 +223,17 @@ $(function(){
 	function auto_pochodzenie(nazwa){ // nazwa pochodzenia, współczynnik bohatera
 		$("#poch_" + nazwa).click(function(){
 			poch_reset();
-			$("#poch_" + nazwa).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of green tile to clicked 
+			$("#poch_" + nazwa).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); // changes color of green tile to clicked
 			$("#poch_" + nazwa + "_descrip").show(); // shows cechy z pochodzenia for given pochodzenie
 			bohater.pochodzenie = official_poch_nazwa(nazwa); // changes value of pochodzenie
 		});
 	}
 	var poch_names = ["no","det","fa","cp","mia","mis","ny","ph","po","slc","tex","veg"];
-		
+
 	for (i in poch_names){
 		auto_pochodzenie(poch_names[i]);
 	}
-	
+
 	/* */
 	// CECHA Z POCHODZENIA ------------------------------------------------------------------------------
 	function official_poch_cecha_nazwa(nazwa,num){
@@ -341,7 +341,7 @@ $(function(){
 				return "Telepata";
 		}
 	}
-	
+
 	function auto_pochodzenie_cecha(nazwa,num){
 		$("#poch_" + nazwa + "_c" + num).click(function(){
 			um_reset();
@@ -350,13 +350,13 @@ $(function(){
 			bohater.pochodzenie_cecha = official_poch_cecha_nazwa(nazwa,num);
 		});
 	}
-	
+
 	for (i in poch_names){
 		for (a = 1; a < 4; a++){
 			auto_pochodzenie_cecha(poch_names[i],a)
 		}
 	}
-	
+
 	$("#poch_no_stat_zr").click(function(){
 		reset_additional_stat();
 		bohater.d_zr++;
@@ -415,7 +415,7 @@ $(function(){
 		$(".poch_fa_choice_tile").css({'background-color': '#555'});
 		$("#poch_fa_choice_sw").css({'background-color': '#999'});
 	});
-	
+
 	$("#poch_ph_c1").click(function(){
 
 		bohater.pochodzenie_cecha = "Urodzony morderca";
@@ -424,7 +424,7 @@ $(function(){
 		$("#poch_ph_text").hide();
 		$("#poch_ph_choice").show();
 	});
-	
+
 	$("#poch_ph_choice_ww").click(function(){
 		um_reset();
 		ph_choice = "ww";
@@ -467,7 +467,7 @@ $(function(){
 		$("#karta_pt1, #skill_value_pt1").html(pt[0] = 2);
 		$("#karta_pt2, #skill_value_pt2").html(pt[1] = 2);
 		$("#karta_pt3, #skill_value_pt3").html(pt[2] = 2);
-		
+
 		$("#poch_ph_choice_pt").css({'background-color': '#999'});
 	});
 	// PROFESJA ---------------------------------------------------------------------------------------------
@@ -498,7 +498,7 @@ $(function(){
 		if (nazwa == "zolnierz")
 			return "Żołnierz";
 		return nazwa;
-		
+
 	}
 	function autoprofesja(nazwa){
 		$("#prof_" + nazwa).click(function(){
@@ -506,8 +506,8 @@ $(function(){
 			$(".prof_descrip").hide(); //  hides all cechy z profesji
 			$(".prof_tile1").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // resets color of green tile
 			bohater.profesja_cecha = "Nie wybrano cechy z profesji"; // resets cechy z profesji
-			$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'}); // 
-			
+			$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'}); //
+
 			$("#prof_" + nazwa).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 			$("#prof_descrip_" + nazwa).fadeIn();
 			bohater.profesja = official_prof_nazwa(nazwa);
@@ -518,10 +518,10 @@ $(function(){
 	for (i in prof_names){
 		autoprofesja(prof_names[i]);
 	}
-	
+
 	// CECHA Z PROFESJI -------------------------------------------------------------------------------------
 	//$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
-	
+
 	function official_prof_cecha_nazwa(nazwa,num){
 		if(num == 1){
 			if(nazwa == "chemik")
@@ -576,7 +576,7 @@ $(function(){
 				return "Elektronik";
 			if(nazwa == "zolnierz")
 				return "Wyszkolenie";
-			
+
 		}
 		if(num == 2){
 			if(nazwa == "chemik")
@@ -633,7 +633,7 @@ $(function(){
 				return "Rutyna";
 		}
 	}
-	
+
 	function auto_profesja_cecha(nazwa,num){
 		$("#prof_" + nazwa + "_c" + num).click(function(){
 			$(".subprof").css({'background-image': 'url("style/img/prof_cechy/prof_cecha_default.jpg")'});
@@ -641,72 +641,72 @@ $(function(){
 			bohater.profesja_cecha = official_prof_cecha_nazwa(nazwa,num);
 		});
 	}
-	
+
 	for (i in prof_names){
 		for (a = 1; a < 3; a++){
 			auto_profesja_cecha(prof_names[i],a)
 		}
 	}
-	
-	
-	
+
+
+
 	// SPECJALIZACJA ----------------------------------------------------------------------------------------
 	$("#spec_descrip").hide();
-	
+
 	$(".spectile").click(function(){
 			only_um_reset();
 			if(ph_choice == "ww"){
 				$("#karta_ww1, #skill_value_ww1").html(ww[0]=2);
 				$("#karta_ww2, #skill_value_ww2").html(ww[1]=2);
-				$("#karta_ww3, #skill_value_ww3").html(ww[2]=2);		
+				$("#karta_ww3, #skill_value_ww3").html(ww[2]=2);
 			}
 			if(ph_choice == "bs"){
 				$("#karta_bs1, #skill_value_bs1").html(bs[0]=2);
 				$("#karta_bs2, #skill_value_bs2").html(bs[1]=2);
-				$("#karta_bs3, #skill_value_bs3").html(bs[2]=2);		
+				$("#karta_bs3, #skill_value_bs3").html(bs[2]=2);
 			}
 			if(ph_choice == "bd"){
 				$("#karta_bd1, #skill_value_bd1").html(bd[0]=2);
 				$("#karta_bd2, #skill_value_bd2").html(bd[1]=2);
-				$("#karta_bd3, #skill_value_bd3").html(bd[2]=2);		
+				$("#karta_bd3, #skill_value_bd3").html(bd[2]=2);
 			}
 			if(ph_choice == "sw" || fa_choice == "sw"){
 				$("#karta_sw1, #skill_value_sw1").html(sw[0]=2);
 				$("#karta_sw2, #skill_value_sw2").html(sw[1]=2);
-				$("#karta_sw3, #skill_value_sw3").html(sw[2]=2);		
+				$("#karta_sw3, #skill_value_sw3").html(sw[2]=2);
 			}
 			if(ph_choice == "pt"){
 				$("#karta_pt1, #skill_value_pt1").html(pt[0]=2);
 				$("#karta_pt2, #skill_value_pt2").html(pt[1]=2);
-				$("#karta_pt3, #skill_value_pt3").html(pt[2]=2);		
+				$("#karta_pt3, #skill_value_pt3").html(pt[2]=2);
 			}
 			if(fa_choice == "ng"){
 				$("#karta_ng1, #skill_value_ng1").html(ng[0]=2);
 				$("#karta_ng2, #skill_value_ng2").html(ng[1]=2);
-				$("#karta_ng3, #skill_value_ng3").html(ng[2]=2);		
+				$("#karta_ng3, #skill_value_ng3").html(ng[2]=2);
 			}
 			if(fa_choice == "em"){
 				$("#karta_em1, #skill_value_em1").html(em[0]=2);
 				$("#karta_em2, #skill_value_em2").html(em[1]=2);
-				$("#karta_em3, #skill_value_em3").html(em[2]=2);		
+				$("#karta_em3, #skill_value_em3").html(em[2]=2);
 			}
 			if(bohater.pochodzenie_cecha == "Zalety klasycznego wykształcenia") $("#skills_points_spec").html(y_spec = 45);
 			if(bohater.pochodzenie_cecha == "Doktor Quinn") {
 				$("#karta_me1, #skill_value_me1").html(me[0] = 4);
 				$("#karta_me2, #skill_value_me2").html(me[1] = 4);
-				$("#karta_me3, #skill_value_me3").html(me[2] = 4);	
+				$("#karta_me3, #skill_value_me3").html(me[2] = 4);
 			}
-			
+
 		});
-	
-	function spec_reset(){ 
+
+	function spec_reset(){
 		$("#spec_descrip").slideDown(); // shows box for description of specjalizacja
 		$(".spec_pic").hide(); // hides all descriptions of specjalizacja
 		$(".spectile").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'}); // changes color of all green tiles to default
 		$(".skills_type").css({'background-color': '#333'}); // changes spec-skills background color to default
 	};
 	// each following 4 function is changing background color of skills based on choosen specjalizacja
-	function spec_woj_skill_pick() { 
+	function spec_woj_skill_pick() {
 		spec_reset(); // described above
 		$("#ww1").css({'background-color': '#888'});
 		$("#bs1").css({'background-color': '#888'});
@@ -741,7 +741,7 @@ $(function(){
 		$("#ng1").css({'background-color': '#888'});
 		$("#em1").css({'background-color': '#888'});
 	};
-	
+
 	$("#spec_tech").click(function(){
 		bohater.specjalizacja = "Technik"; // sets value of specjalizacja and inputs it into card
 		spec_tech_skill_pick(); // functions described above
@@ -766,23 +766,23 @@ $(function(){
 		$("#spec_cwa_descrip").fadeIn();
 		$("#spec_cwa").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 	});
-	
+
 	// ----------------------------------- WSPÓŁCZYNNIKI SPOSÓB --------------------------------
-	
+
 	var spl = 0, u_inp_test = false;
-	
-	$("#dice_random").hide(); 
-	$("#dice_distribution").hide(); 
-	$("#dice_userInput").hide(); 
-	
+
+	$("#dice_random").hide();
+	$("#dice_distribution").hide();
+	$("#dice_userInput").hide();
+
 	$("#dice_way_pick_random").click(function(){ $("#dice_way_pick").slideUp(); $("#dice_random").slideDown(); $("#r_final").slideDown(); });
 	$("#dice_way_pick_distribution").click(function(){ spl = 40; $("#dice_way_pick").slideUp(); $("#dice_distribution").slideDown(); bohater.zr = 4; bohater.pc = 4; bohater.ch = 4; bohater.sp = 4; bohater.bd = 4; });
 	$("#dice_way_pick_userInput").click(function(){ u_inp_test = true; $("#dice_way_pick").slideUp(); $("#dice_userInput").slideDown(); });
 
-	
-	
+
+
 // ----------------------------------- WSPÓŁCZYNNIKI RZUCONE --------------------------------
-	
+
 	function wsp_rzuc(){
 		bohater.zr = $("#userInput_zr").val();
 		bohater.pc = $("#userInput_pc").val();
@@ -792,92 +792,92 @@ $(function(){
 	}
 
 // ----------------------------------- WSPÓŁCZYNNIKI WYBRANE -------------------------------------
-	
+
 	$("#plus_zr").click(function(){ if (bohater.zr < 19 && spl > 0){ $("#dice_distribution_points_zr").html(++bohater.zr); $("#dice_distribution_points_left").html(--spl); } });
-	
+
 	$("#plus_pc").click(function(){ if (bohater.pc < 19 && spl > 0){ $("#dice_distribution_points_pc").html(++bohater.pc); $("#dice_distribution_points_left").html(--spl); } });
-	
+
 	$("#plus_ch").click(function(){ if (bohater.ch < 19 && spl > 0){ $("#dice_distribution_points_ch").html(++bohater.ch); $("#dice_distribution_points_left").html(--spl); } });
-	
+
 	$("#plus_sp").click(function(){ if (bohater.sp < 19 && spl > 0){ $("#dice_distribution_points_sp").html(++bohater.sp); $("#dice_distribution_points_left").html(--spl); } });
-	
+
 	$("#plus_bd").click(function(){ if (bohater.bd < 19 && spl > 0){ $("#dice_distribution_points_bd").html(++bohater.bd); $("#dice_distribution_points_left").html(--spl); } });
-	
+
 	$("#minus_zr").click(function(){ if (bohater.zr > 4){ $("#dice_distribution_points_zr").html(--bohater.zr); $("#dice_distribution_points_left").html(++spl); } });
-	
+
 	$("#minus_pc").click(function(){ if (bohater.pc > 4){ $("#dice_distribution_points_pc").html(--bohater.pc); $("#dice_distribution_points_left").html(++spl); } });
-	
+
 	$("#minus_ch").click(function(){ if (bohater.ch > 4){ $("#dice_distribution_points_ch").html(--bohater.ch); $("#dice_distribution_points_left").html(++spl); }; });
-	
+
 	$("#minus_sp").click(function(){ if (bohater.sp > 4){ $("#dice_distribution_points_sp").html(--bohater.sp); $("#dice_distribution_points_left").html(++spl); } });
-	
+
 	$("#minus_bd").click(function(){ if (bohater.bd > 4){ $("#dice_distribution_points_bd").html(--bohater.bd); $("#dice_distribution_points_left").html(++spl); } });
-	
-	
+
+
 	// ---------------------------------- WSPÓŁCZYNNIKI - WYLOSOWANE --------------------------------------------
 	$("#r_submit_but").hide();
 	$("#r_final").hide();
-	
+
 	var r_num = [0,0,0,0,0];
-	
+
 	while(true){
 		for (var i = 0; i<5; i++)
 			r_num[i] = Math.ceil(Math.random() * 14 + 6);
 		temp = (r_num[0] + r_num[1] + r_num[2] + r_num[3] + r_num[4])/5;
 		if(temp>=10 && temp<=16) break;
 	}
-	
+
 	$("#r_zr_1").html(r_num[0]);$("#r_pc_1").html(r_num[0]);$("#r_ch_1").html(r_num[0]);$("#r_sp_1").html(r_num[0]);$("#r_bd_1").html(r_num[0]);
 	$("#r_zr_2").html(r_num[1]);$("#r_pc_2").html(r_num[1]);$("#r_ch_2").html(r_num[1]);$("#r_sp_2").html(r_num[1]);$("#r_bd_2").html(r_num[1]);
 	$("#r_zr_3").html(r_num[2]);$("#r_pc_3").html(r_num[2]);$("#r_ch_3").html(r_num[2]);$("#r_sp_3").html(r_num[2]);$("#r_bd_3").html(r_num[2]);
 	$("#r_zr_4").html(r_num[3]);$("#r_pc_4").html(r_num[3]);$("#r_ch_4").html(r_num[3]);$("#r_sp_4").html(r_num[3]);$("#r_bd_4").html(r_num[3]);
 	$("#r_zr_5").html(r_num[4]);$("#r_pc_5").html(r_num[4]);$("#r_ch_5").html(r_num[4]);$("#r_sp_5").html(r_num[4]);$("#r_bd_5").html(r_num[4]);
-	
+
 	function r_reset_1(){ $("#r_zr_1").hide(); $("#r_pc_1").hide(); $("#r_ch_1").hide(); $("#r_sp_1").hide(); $("#r_bd_1").hide(); };
 	function r_reset_2(){ $("#r_zr_2").hide(); $("#r_pc_2").hide(); $("#r_ch_2").hide(); $("#r_sp_2").hide(); $("#r_bd_2").hide(); };
 	function r_reset_3(){ $("#r_zr_3").hide(); $("#r_pc_3").hide(); $("#r_ch_3").hide(); $("#r_sp_3").hide(); $("#r_bd_3").hide(); };
 	function r_reset_4(){ $("#r_zr_4").hide(); $("#r_pc_4").hide(); $("#r_ch_4").hide(); $("#r_sp_4").hide(); $("#r_bd_4").hide(); };
 	function r_reset_5(){ $("#r_zr_5").hide(); $("#r_pc_5").hide(); $("#r_ch_5").hide(); $("#r_sp_5").hide(); $("#r_bd_5").hide(); };
-	
+
 	function r_reset_zr(){ $("#r_zr_1").hide(); $("#r_zr_2").hide(); $("#r_zr_3").hide(); $("#r_zr_4").hide(); $("#r_zr_5").hide(); $("#r_cont_1").hide(); $("#r_cont_2").show(); };
 	function r_reset_pc(){ $("#r_pc_1").hide(); $("#r_pc_2").hide(); $("#r_pc_3").hide(); $("#r_pc_4").hide(); $("#r_pc_5").hide(); $("#r_cont_2").hide(); $("#r_cont_3").show(); };
 	function r_reset_ch(){ $("#r_ch_1").hide(); $("#r_ch_2").hide(); $("#r_ch_3").hide(); $("#r_ch_4").hide(); $("#r_ch_5").hide(); $("#r_cont_3").hide(); $("#r_cont_4").show(); };
 	function r_reset_sp(){ $("#r_sp_1").hide(); $("#r_sp_2").hide(); $("#r_sp_3").hide(); $("#r_sp_4").hide(); $("#r_sp_5").hide(); $("#r_cont_4").hide(); $("#r_cont_5").show(); };
 	function r_reset_bd(){ $("#r_bd_1").hide(); $("#r_bd_2").hide(); $("#r_bd_3").hide(); $("#r_bd_4").hide(); $("#r_bd_5").hide(); $("#r_cont_5").hide(); };
-	
+
 	$(".dice_random_stat_container").hide(); $("#r_cont_1").show();
-	
+
 	$("#r_zr_1").click(function(){ r_reset_1(); r_reset_zr(); $("#r_zr_1").show(); $("#r_zr_1").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.zr = r_num[0]; $("#r_final_zr").html(bohater.zr); });
 	$("#r_zr_2").click(function(){ r_reset_2(); r_reset_zr(); $("#r_zr_2").show(); $("#r_zr_2").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.zr = r_num[1]; $("#r_final_zr").html(bohater.zr); });
 	$("#r_zr_3").click(function(){ r_reset_3(); r_reset_zr(); $("#r_zr_3").show(); $("#r_zr_3").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.zr = r_num[2]; $("#r_final_zr").html(bohater.zr); });
 	$("#r_zr_4").click(function(){ r_reset_4(); r_reset_zr(); $("#r_zr_4").show(); $("#r_zr_4").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.zr = r_num[3]; $("#r_final_zr").html(bohater.zr); });
 	$("#r_zr_5").click(function(){ r_reset_5(); r_reset_zr(); $("#r_zr_5").show(); $("#r_zr_5").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.zr = r_num[4]; $("#r_final_zr").html(bohater.zr); });
-	
+
 	$("#r_pc_1").click(function(){ r_reset_1(); r_reset_pc(); $("#r_pc_1").show(); $("#r_pc_1").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.pc = r_num[0]; $("#r_final_pc").html(bohater.pc); });
 	$("#r_pc_2").click(function(){ r_reset_2(); r_reset_pc(); $("#r_pc_2").show(); $("#r_pc_2").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.pc = r_num[1]; $("#r_final_pc").html(bohater.pc); });
 	$("#r_pc_3").click(function(){ r_reset_3(); r_reset_pc(); $("#r_pc_3").show(); $("#r_pc_3").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.pc = r_num[2]; $("#r_final_pc").html(bohater.pc); });
 	$("#r_pc_4").click(function(){ r_reset_4(); r_reset_pc(); $("#r_pc_4").show(); $("#r_pc_4").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.pc = r_num[3]; $("#r_final_pc").html(bohater.pc); });
 	$("#r_pc_5").click(function(){ r_reset_5(); r_reset_pc(); $("#r_pc_5").show(); $("#r_pc_5").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.pc = r_num[4]; $("#r_final_pc").html(bohater.pc); });
-	
+
 	$("#r_ch_1").click(function(){ r_reset_1(); r_reset_ch(); $("#r_ch_1").show(); $("#r_ch_1").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.ch = r_num[0]; $("#r_final_ch").html(bohater.ch); });
 	$("#r_ch_2").click(function(){ r_reset_2(); r_reset_ch(); $("#r_ch_2").show(); $("#r_ch_2").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.ch = r_num[1]; $("#r_final_ch").html(bohater.ch); });
 	$("#r_ch_3").click(function(){ r_reset_3(); r_reset_ch(); $("#r_ch_3").show(); $("#r_ch_3").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.ch = r_num[2]; $("#r_final_ch").html(bohater.ch); });
 	$("#r_ch_4").click(function(){ r_reset_4(); r_reset_ch(); $("#r_ch_4").show(); $("#r_ch_4").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.ch = r_num[3]; $("#r_final_ch").html(bohater.ch); });
 	$("#r_ch_5").click(function(){ r_reset_5(); r_reset_ch(); $("#r_ch_5").show(); $("#r_ch_5").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.ch = r_num[4]; $("#r_final_ch").html(bohater.ch); });
-	
+
 	$("#r_sp_1").click(function(){ r_reset_1(); r_reset_sp(); $("#r_sp_1").show(); $("#r_sp_1").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.sp = r_num[0]; $("#r_final_sp").html(bohater.sp); });
 	$("#r_sp_2").click(function(){ r_reset_2(); r_reset_sp(); $("#r_sp_2").show(); $("#r_sp_2").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.sp = r_num[1]; $("#r_final_sp").html(bohater.sp); });
 	$("#r_sp_3").click(function(){ r_reset_3(); r_reset_sp(); $("#r_sp_3").show(); $("#r_sp_3").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.sp = r_num[2]; $("#r_final_sp").html(bohater.sp); });
 	$("#r_sp_4").click(function(){ r_reset_4(); r_reset_sp(); $("#r_sp_4").show(); $("#r_sp_4").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.sp = r_num[3]; $("#r_final_sp").html(bohater.sp); });
 	$("#r_sp_5").click(function(){ r_reset_5(); r_reset_sp(); $("#r_sp_5").show(); $("#r_sp_5").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.sp = r_num[4]; $("#r_final_sp").html(bohater.sp); });
-	
+
 	$("#r_bd_1").click(function(){ r_reset_1(); r_reset_bd(); $("#r_bd_1").show(); $("#r_bd_1").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.bd = r_num[0]; $("#r_final_bd").html(bohater.bd); });
 	$("#r_bd_2").click(function(){ r_reset_2(); r_reset_bd(); $("#r_bd_2").show(); $("#r_bd_2").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.bd = r_num[1]; $("#r_final_bd").html(bohater.bd); });
 	$("#r_bd_3").click(function(){ r_reset_3(); r_reset_bd(); $("#r_bd_3").show(); $("#r_bd_3").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.bd = r_num[2]; $("#r_final_bd").html(bohater.bd); });
 	$("#r_bd_4").click(function(){ r_reset_4(); r_reset_bd(); $("#r_bd_4").show(); $("#r_bd_4").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.bd = r_num[3]; $("#r_final_bd").html(bohater.bd); });
 	$("#r_bd_5").click(function(){ r_reset_5(); r_reset_bd(); $("#r_bd_5").show(); $("#r_bd_5").css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); bohater.bd = r_num[4]; $("#r_final_bd").html(bohater.bd); });
-	
-	$("#r_reset_but").click(function(){ 
+
+	$("#r_reset_but").click(function(){
 		$(".dice_tostat_pick").show();
 		$(".dice_tostat_pick").css({'background-image': 'url("style/img/tile1.png")'});
 		$(".dice_random_stat_container").hide();
@@ -885,108 +885,108 @@ $(function(){
 		$(".r_final_value").html("??");
 		bohater.zr = 0; bohater.pc = 0; bohater.ch = 0; bohater.sp = 0; bohater.bd = 0;
 	});
-	
+
 // CHOROBA - LOSOWANIE ----------------------------------------------------------
 	switch(Math.ceil(Math.random() * 20)){
 		case 1:
 		bohater.choroba = "Zwapnienie płuc";
 		bohater.lek = "-caloium";
 		break;
-		
+
 		case 2:
 		bohater.choroba = "Gorączka sobotniej nocy";
 		bohater.lek = "Valapren";
 		break;
-		
+
 		case 3:
 		bohater.choroba = "Przewlekła gorączka krwotoczna";
 		bohater.lek = "Ebokiller";
 		break;
-		
+
 		case 4:
 		bohater.choroba = "Mount Rushmore";
 		bohater.lek = "Tubokuraryna, ...";
 		break;
-		
+
 		case 5:
 		bohater.choroba = "Syndrom Obcego";
 		bohater.lek = "Pinto";
 		break;
-		
+
 		case 6:
 		bohater.choroba = "Chore nery";
 		bohater.lek = "Uregyt, kwas foliowy i preparaty żelaza";
 		break;
-		
+
 		case 7:
 		bohater.choroba = "Alergia";
 		bohater.lek = "Leki przeciwhistaminowe";
 		break;
-		
+
 		case 8:
 		bohater.choroba = "Szaleństwo bostońskie";
 		bohater.lek = "Alef, Bet i Gimel";
 		break;
-		
+
 		case 9:
 		bohater.choroba = "Syndrom Thurmana";
 		bohater.lek = "Reminex";
 		break;
-		
+
 		case 10:
 		bohater.choroba = "Drgawki";
 		bohater.lek = "Relanium";
 		break;
-		
+
 		case 11:
 		bohater.choroba = "Hemofilia";
 		bohater.lek = "Krioprecypitat";
 		break;
-		
+
 		case 12:
 		bohater.choroba = "Drętwota Hollywood";
 		bohater.lek = "Mallonix";
 		break;
-		
+
 		case 13:
 		bohater.choroba = "Osteoporoza";
 		bohater.lek = "Wapniak";
 		break;
-		
+
 		case 14:
 		bohater.choroba = "Zawroty głowy";
 		bohater.lek = "Actinix i Rephidal";
 		break;
-		
+
 		case 15:
 		bohater.choroba = "Niewydolność krążenia";
 		bohater.lek = "Aspiryna";
 		break;
-		
+
 		case 16:
 		bohater.choroba = "Anemia";
 		bohater.lek = "Preparaty krwiotwórcze";
 		break;
-		
+
 		case 17:
 		bohater.choroba = "Morbus Dexteri";
 		bohater.lek = "Memoral";
 		break;
-		
+
 		case 18:
 		bohater.choroba = "Syndrom Draculi";
 		bohater.lek = "Dracophen";
 		break;
-		
+
 		case 19:
 		bohater.choroba = "Zespół wirusowej choroby języka";
 		bohater.lek = "AVDTS";
 		break;
-		
+
 		case 20:
 		bohater.choroba = "Paranoja";
 		bohater.lek = "Psychotropy";
-		break;	
+		break;
 	}
 	$("#karta_choroba").html(bohater.choroba);
 	$("#karta_lek").html(bohater.lek);
@@ -1012,8 +1012,8 @@ $(function(){
 	var pt = [0,0,0,'Wojownik','Technik'];
 	var sn = [0,0,0,'Ranger'];
 	var jd = [0,0,0,'Ranger'];
-	
-	
+
+
 	var x1, x2, x3, x4, x5, pakiet_test = 0;
 	// Function checks state of points before adding/subtracting point in order to check later if packed was activated or deactivated
 	function pakiet_check1(x1,x2,x3){
@@ -1036,7 +1036,7 @@ $(function(){
 	function points_left_add(x) {
 		if (x==0) return y_temp-=3;
 		for(var i = 1; i<20; i++)
-			if (x==i) return y_temp-=i+1;              
+			if (x==i) return y_temp-=i+1;
 	}
 	// Function determines the amount of points needed to subtract point from skill based on actual value of skill
 	function points_left_subtract(x) {
@@ -1051,7 +1051,7 @@ $(function(){
 		pakiet_check1(x1,x2,x3); // checking if packet was activated/deactivated
 		x1++;
 		pakiet_check2(x1,x2,x3);
-		
+
 		if (bohater.specjalizacja == x4 || bohater.specjalizacja == x5) { // used when skill is from spec
 			temp = y + y_spec + y_temp; // calculating if we have enough points
 			if (temp < 0) return --x1; // we don't have enough points
@@ -1074,12 +1074,12 @@ $(function(){
 		pakiet_check1(x1,x2,x3); // checking if packet deactivated
 		x1--;
 		pakiet_check2(x1,x2,x3);
-		
+
 		if (bohater.specjalizacja == x4 || bohater.specjalizacja == x5) { // this part activates when skill is from spec
 			temp = y + y_spec + y_temp; // temp = amount of points - points needed to subtract point
 			if (temp < 0) return ++x1; // not enough points
-			
-			while (guos > 0 && y_temp > 0){ // guos - global used on spec - functions created to return points from spec skill to golobal pool when ealier it was used from global pool and not from skill pool 
+
+			while (guos > 0 && y_temp > 0){ // guos - global used on spec - functions created to return points from spec skill to golobal pool when ealier it was used from global pool and not from skill pool
 				guos--;
 				y_temp--;
 				y++;
@@ -1098,44 +1098,44 @@ $(function(){
 		y_temp = 0;
 		return x1;
 	}
-	
+
 	// ------------------ WALKA WRĘCZ ----------------------
 	$("#plus_ww1").click(function(){ $("#karta_ww1, #skill_value_ww1").html(ww[0] = add_point(ww[0],ww[1],ww[2],ww[3],ww[4])); });
-	$("#minus_ww1").click(function(){ 
+	$("#minus_ww1").click(function(){
 	if (ww[0] != 2 || ph_choice != "ww")
 		$("#karta_ww1, #skill_value_ww1").html(ww[0] = subtract_point(ww[0],ww[1],ww[2],ww[3],ww[4])); });
 	$("#plus_ww2").click(function(){ $("#karta_ww2, #skill_value_ww2").html(ww[1] = add_point(ww[1],ww[0],ww[2],ww[3],ww[4])); });
-	$("#minus_ww2").click(function(){ 
+	$("#minus_ww2").click(function(){
 	if (ww[1] != 2 || ph_choice != "ww")
 		$("#karta_ww2, #skill_value_ww2").html(ww[1] = subtract_point(ww[1],ww[0],ww[2],ww[3],ww[4])); });
 	$("#plus_ww3").click(function(){ $("#karta_ww3, #skill_value_ww3").html(ww[2] = add_point(ww[2],ww[0],ww[1],ww[3],ww[4])); });
-	$("#minus_ww3").click(function(){ 
+	$("#minus_ww3").click(function(){
 	if (ww[2] != 2 || ph_choice != "ww")
 		$("#karta_ww3, #skill_value_ww3").html(ww[2] = subtract_point(ww[2],ww[0],ww[1],ww[3],ww[4])); });
 	// ------------------ BROŃ STRZELECKA ----------------------
 	$("#plus_bs1").click(function(){ $("#karta_bs1, #skill_value_bs1").html(bs[0] = add_point(bs[0],bs[1],bs[2],bs[3],bs[4])); });
-	$("#minus_bs1").click(function(){ 
+	$("#minus_bs1").click(function(){
 	if (bs[0] != 2 || ph_choice != "bs")
 		$("#karta_bs1, #skill_value_bs1").html(bs[0] = subtract_point(bs[0],bs[1],bs[2],bs[3],bs[4])); });
 	$("#plus_bs2").click(function(){ $("#karta_bs2, #skill_value_bs2").html(bs[1] = add_point(bs[1],bs[0],bs[2],bs[3],bs[4])); });
-	$("#minus_bs2").click(function(){ 
+	$("#minus_bs2").click(function(){
 	if (bs[1] != 2 || ph_choice != "bs")
 		$("#karta_bs2, #skill_value_bs2").html(bs[1] = subtract_point(bs[1],bs[0],bs[2],bs[3],bs[4])); });
 	$("#plus_bs3").click(function(){ $("#karta_bs3, #skill_value_bs3").html(bs[2] = add_point(bs[2],bs[0],bs[1],bs[3],bs[4])); });
-	$("#minus_bs3").click(function(){ 
+	$("#minus_bs3").click(function(){
 	if (bs[2] != 2 || ph_choice != "bs")
 		$("#karta_bs3, #skill_value_bs3").html(bs[2] = subtract_point(bs[2],bs[0],bs[1],bs[3],bs[4])); });
 	// ------------------ BROŃ DYSTANSOWA ----------------------
 	$("#plus_bd1").click(function(){ $("#karta_bd1, #skill_value_bd1").html(bd[0] = add_point(bd[0],bd[1],bd[2],bd[3],bd[4])); });
-	$("#minus_bd1").click(function(){ 
+	$("#minus_bd1").click(function(){
 	if (bd[0] != 2 || ph_choice != "bd")
 		$("#karta_bd1, #skill_value_bd1").html(bd[0] = subtract_point(bd[0],bd[1],bd[2],bd[3],bd[4])); });
 	$("#plus_bd2").click(function(){ $("#karta_bd2, #skill_value_bd2").html(bd[1] = add_point(bd[1],bd[0],bd[2],bd[3],bd[4])); });
-	$("#minus_bd2").click(function(){ 
+	$("#minus_bd2").click(function(){
 	if (bd[1] != 2 || ph_choice != "bd")
 		$("#karta_bd2, #skill_value_bd2").html(bd[1] = subtract_point(bd[1],bd[0],bd[2],bd[3],bd[4])); });
 	$("#plus_bd3").click(function(){ $("#karta_bd3, #skill_value_bd3").html(bd[2] = add_point(bd[2],bd[0],bd[1],bd[3],bd[4])); });
-	$("#minus_bd3").click(function(){ 
+	$("#minus_bd3").click(function(){
 	if (bd[2] != 2 || ph_choice != "bd")
 		$("#karta_bd3, #skill_value_bd3").html(bd[2] = subtract_point(bd[2],bd[0],bd[1],bd[3],bd[4])); });
 	// ------------------ PROWADZENIE POJAZDÓW ----------------------
@@ -1147,15 +1147,15 @@ $(function(){
 	$("#minus_pp3").click(function(){ $("#karta_pp3, #skill_value_pp3").html(pp[2] = subtract_point(pp[2],pp[0],pp[1],pp[3],pp[4])); });
 	// ------------------ ZDOLNOŚCI MANUALNE ----------------------
 	$("#plus_zm1").click(function(){ $("#karta_zm1, #skill_value_zm1").html(zm[0] = add_point(zm[0],zm[1],zm[2],zm[3],zm[4])); });
-	$("#minus_zm1").click(function(){ 
+	$("#minus_zm1").click(function(){
 	if (zm[0] != 2 || bohater.pochodzenie_cecha != "Hazardzista")
 		$("#karta_zm1, #skill_value_zm1").html(zm[0] = subtract_point(zm[0],zm[1],zm[2],zm[3],zm[4])); });
 	$("#plus_zm2").click(function(){ $("#karta_zm2, #skill_value_zm2").html(zm[1] = add_point(zm[1],zm[0],zm[2],zm[3],zm[4])); });
-	$("#minus_zm2").click(function(){ 
+	$("#minus_zm2").click(function(){
 	if (zm[1] != 2 || bohater.pochodzenie_cecha != "Hazardzista")
 		$("#karta_zm2, #skill_value_zm2").html(zm[1] = subtract_point(zm[1],zm[0],zm[2],zm[3],zm[4])); });
 	$("#plus_zm3").click(function(){ $("#karta_zm3, #skill_value_zm3").html(zm[2] = add_point(zm[2],zm[0],zm[1],zm[3],zm[4])); });
-	$("#minus_zm3").click(function(){ 
+	$("#minus_zm3").click(function(){
 	if (zm[2] != 2 || bohater.pochodzenie_cecha != "Hazardzista")
 		$("#karta_zm3, #skill_value_zm3").html(zm[2] = subtract_point(zm[2],zm[0],zm[1],zm[3],zm[4])); });
 	// ------------------ ORINTACJA W TERENIE ----------------------
@@ -1188,60 +1188,60 @@ $(function(){
 	$("#minus_pr3").click(function(){ $("#karta_pr3, #skill_value_pr3").html(pr[2] = subtract_point(pr[2],pr[0],pr[1],pr[3],pr[4])); });
 	// ------------------ NEGOCJACJE ----------------------
 	$("#plus_ng1").click(function(){ $("#karta_ng1, #skill_value_ng1").html(ng[0] = add_point(ng[0],ng[1],ng[2],ng[3],ng[4])); });
-	$("#minus_ng1").click(function(){ 
+	$("#minus_ng1").click(function(){
 	if (ng[0] != 2 || fa_choice != "ng")
 		$("#karta_ng1, #skill_value_ng1").html(ng[0] = subtract_point(ng[0],ng[1],ng[2],ng[3],ng[4])); });
 	$("#plus_ng2").click(function(){ $("#karta_ng2, #skill_value_ng2").html(ng[1] = add_point(ng[1],ng[0],ng[2],ng[3],ng[4])); });
-	$("#minus_ng2").click(function(){ 
+	$("#minus_ng2").click(function(){
 	if (ng[1] != 2 || fa_choice != "ng")
 		$("#karta_ng2, #skill_value_ng2").html(ng[1] = subtract_point(ng[1],ng[0],ng[2],ng[3],ng[4])); });
 	$("#plus_ng3").click(function(){ $("#karta_ng3, #skill_value_ng3").html(ng[2] = add_point(ng[2],ng[0],ng[1],ng[3],ng[4])); });
-	$("#minus_ng3").click(function(){ 
+	$("#minus_ng3").click(function(){
 	if (ng[2] != 2 || fa_choice != "ng")
 		$("#karta_ng3, #skill_value_ng3").html(ng[2] = subtract_point(ng[2],ng[0],ng[1],ng[3],ng[4])); });
 	// ------------------ EMPATIA ----------------------
 	$("#plus_em1").click(function(){ $("#karta_em1, #skill_value_em1").html(em[0] = add_point(em[0],em[1],em[2],em[3],em[4])); });
-	$("#minus_em1").click(function(){ 
+	$("#minus_em1").click(function(){
 	if (em[0] != 2 || fa_choice != "em")
 		$("#karta_em1, #skill_value_em1").html(em[0] = subtract_point(em[0],em[1],em[2],em[3],em[4])); });
 	$("#plus_em2").click(function(){ $("#karta_em2, #skill_value_em2").html(em[1] = add_point(em[1],em[0],em[2],em[3],em[4])); });
-	$("#minus_em2").click(function(){ 
+	$("#minus_em2").click(function(){
 	if (em[1] != 2 || fa_choice != "em")
 		$("#karta_em2, #skill_value_em2").html(em[1] = subtract_point(em[1],em[0],em[2],em[3],em[4])); });
 	$("#plus_em3").click(function(){ $("#karta_em3, #skill_value_em3").html(em[2] = add_point(em[2],em[0],em[1],em[3],em[4])); });
-	$("#minus_em3").click(function(){ 
+	$("#minus_em3").click(function(){
 	if (em[2] != 2 || fa_choice != "em")
 		$("#karta_em3, #skill_value_em3").html(em[2] = subtract_point(em[2],em[0],em[1],em[3],em[4])); });
 	// ------------------ SIŁA WOLI ----------------------
 	$("#plus_sw1").click(function(){ $("#karta_sw1, #skill_value_sw1").html(sw[0] = add_point(sw[0],sw[1],sw[2],sw[3],sw[4])); });
-	$("#minus_sw1").click(function(){ 
+	$("#minus_sw1").click(function(){
 	if (sw[0] != 2 || ph_choice != "sw")
-		$("#karta_sw1, #skill_value_sw1").html(sw[0] = subtract_point(sw[0],sw[1],sw[2],sw[3],sw[4])); 
+		$("#karta_sw1, #skill_value_sw1").html(sw[0] = subtract_point(sw[0],sw[1],sw[2],sw[3],sw[4]));
 	else if (sw[0] != 2 || fa_choice != "sw")
 		$("#karta_sw3, #skill_value_sw3").html(sw[0] = subtract_point(sw[2],sw[0],sw[1],sw[3],sw[4])); });
 	$("#plus_sw2").click(function(){ $("#karta_sw2, #skill_value_sw2").html(sw[1] = add_point(sw[1],sw[0],sw[2],sw[3],sw[4])); });
-	$("#minus_sw2").click(function(){ 
+	$("#minus_sw2").click(function(){
 	if (sw[1] != 2 || ph_choice != "sw")
-		$("#karta_sw2, #skill_value_sw2").html(sw[1] = subtract_point(sw[1],sw[0],sw[2],sw[3],sw[4])); 
+		$("#karta_sw2, #skill_value_sw2").html(sw[1] = subtract_point(sw[1],sw[0],sw[2],sw[3],sw[4]));
 	else if (sw[1] != 2 || fa_choice != "sw")
 		$("#karta_sw3, #skill_value_sw3").html(sw[1] = subtract_point(sw[2],sw[0],sw[1],sw[3],sw[4])); });
 	$("#plus_sw3").click(function(){ $("#karta_sw3, #skill_value_sw3").html(sw[2] = add_point(sw[2],sw[0],sw[1],sw[3],sw[4])); });
-	$("#minus_sw3").click(function(){ 
+	$("#minus_sw3").click(function(){
 	if (sw[2] != 2 || ph_choice != "sw")
-		$("#karta_sw3, #skill_value_sw3").html(sw[2] = subtract_point(sw[2],sw[0],sw[1],sw[3],sw[4])); 
+		$("#karta_sw3, #skill_value_sw3").html(sw[2] = subtract_point(sw[2],sw[0],sw[1],sw[3],sw[4]));
 	else if (sw[2] != 2 || fa_choice != "sw")
 		$("#karta_sw3, #skill_value_sw3").html(sw[2] = subtract_point(sw[2],sw[0],sw[1],sw[3],sw[4])); });
 	// ------------------ MEDYCYNA ----------------------
 	$("#plus_me1").click(function(){ $("#karta_me1, #skill_value_me1").html(me[0] = add_point(me[0],me[1],me[2],me[3],me[4])); });
-	$("#minus_me1").click(function(){ 
+	$("#minus_me1").click(function(){
 	if (me[0] != 4 || bohater.pochodzenie_cecha != "Doktor Quinn")
 		$("#karta_me1, #skill_value_me1").html(me[0] = subtract_point(me[0],me[1],me[2],me[3],me[4])); });
 	$("#plus_me2").click(function(){ $("#karta_me2, #skill_value_me2").html(me[1] = add_point(me[1],me[0],me[2],me[3],me[4])); });
-	$("#minus_me2").click(function(){ 
+	$("#minus_me2").click(function(){
 	if (me[1] != 4 || bohater.pochodzenie_cecha != "Doktor Quinn")
 		$("#karta_me2, #skill_value_me2").html(me[1] = subtract_point(me[1],me[0],me[2],me[3],me[4])); });
 	$("#plus_me3").click(function(){ $("#karta_me3, #skill_value_me3").html(me[2] = add_point(me[2],me[0],me[1],me[3],me[4])); });
-	$("#minus_me3").click(function(){ 
+	$("#minus_me3").click(function(){
 	if (me[2] != 4 || bohater.pochodzenie_cecha != "Doktor Quinn")
 		$("#karta_me3, #skill_value_me3").html(me[2] = subtract_point(me[2],me[0],me[1],me[3],me[4])); });
 	// ------------------ TECHNIKA ----------------------
@@ -1254,7 +1254,7 @@ $(function(){
 	// ------------------ WIEDZA OGÓLNA ----------------------
 	$("#plus_wo1").click(function(){ $("#karta_wo1, #skill_value_wo1").html(wo[0] = add_point(wo[0],wo[1],wo[2],wo[3],wo[4])); });
 	$("#minus_wo1").click(function(){ $("#karta_wo1, #skill_value_wo1").html(wo[0] = subtract_point(wo[0],wo[1],wo[2],wo[3],wo[4])); });
-	$("#plus_wo2").click(function(){ $("#karta_wo2, #_wo2").html(wo[1] = add_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
+	$("#plus_wo2").click(function(){ $("#karta_wo2, #skill_value_wo2").html(wo[1] = add_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
 	$("#minus_wo2").click(function(){ $("#karta_wo2, #skill_value_wo2").html(wo[1] = subtract_point(wo[1],wo[0],wo[2],wo[3],wo[4])); });
 	$("#plus_wo3").click(function(){ $("#karta_wo3, #skill_value_wo3").html(wo[2] = add_point(wo[2],wo[0],wo[1],wo[3],wo[4])); });
 	$("#minus_wo3").click(function(){ $("#karta_wo3, #skill_value_wo3").html(wo[2] = subtract_point(wo[2],wo[0],wo[1],wo[3],wo[4])); });
@@ -1267,15 +1267,15 @@ $(function(){
 	$("#minus_sp3").click(function(){ $("#karta_sp3, #skill_value_sp3").html(sp[2] = subtract_point(sp[2],sp[0],sp[1],sp[3],sp[4])); });
 	// ------------------ PIROTECHNIKA ----------------------
 	$("#plus_pt1").click(function(){ $("#karta_pt1, #skill_value_pt1").html(pt[0] = add_point(pt[0],pt[1],pt[2],pt[3],pt[4])); });
-	$("#minus_pt1").click(function(){ 
+	$("#minus_pt1").click(function(){
 	if (pt[0] != 2 || ph_choice != "pt")
 		$("#karta_pt1, #skill_value_pt1").html(pt[0] = subtract_point(pt[0],pt[1],pt[2],pt[3],pt[4])); });
 	$("#plus_pt2").click(function(){ $("#karta_pt2, #skill_value_pt2").html(pt[1] = add_point(pt[1],pt[0],pt[2],pt[3],pt[4])); });
-	$("#minus_pt2").click(function(){ 
+	$("#minus_pt2").click(function(){
 	f (pt[1] != 2 || ph_choice != "pt")
 		$("#karta_pt2, #skill_value_pt2").html(pt[1] = subtract_point(pt[1],pt[0],pt[2],pt[3],pt[4])); });
 	$("#plus_pt3").click(function(){ $("#karta_pt3, #skill_value_pt3").html(pt[2] = add_point(pt[2],pt[0],pt[1],pt[3],pt[4])); });
-	$("#minus_pt3").click(function(){ 
+	$("#minus_pt3").click(function(){
 	f (pt[2] != 2 || ph_choice != "pt")
 		$("#karta_pt3, #skill_value_pt3").html(pt[2] = subtract_point(pt[2],pt[0],pt[1],pt[3],pt[4])); });
 	// ------------------ SPRAWNOŚĆ ----------------------
@@ -1292,7 +1292,7 @@ $(function(){
 	$("#minus_jd2").click(function(){ $("#karta_jd2, #skill_value_jd2").html(jd[1] = subtract_point(jd[1],jd[0],jd[2],jd[3],jd[4])); });
 	$("#plus_jd3").click(function(){ $("#karta_jd3, #skill_value_jd3").html(jd[2] = add_point(jd[2],jd[0],jd[1],jd[3],jd[4])); });
 	$("#minus_jd3").click(function(){ $("#karta_jd3, #skill_value_jd3").html(jd[2] = subtract_point(jd[2],jd[0],jd[1],jd[3],jd[4])); });
-	
+
 	// SZTUCZKI --------------------------------------------------------------------------------------
 	function show_sztuczki() { // function shows all avaliable sztuczki for picking at given moment
 		$(".sztuczki_exmpl").hide();
@@ -1421,17 +1421,17 @@ $(function(){
 		if ((ww[0] > 4 || ww[1] > 4) && bohater.sp+bohater.d_sp > 11) { $("#s_zmylka").show(); };
 		if (pr[0] > 1) { $("#s_zelazneracje").show(); };
 	}	show_sztuczki();
-	
+
 	$("#container").click(function(){ show_sztuczki(); });
-	
+
 	var sztuczka_nazwa = ["bum","aramis","asekuracja","aspiryna","barbarka","berserker","bezoddechu","bezsprzetu","bezsznurków","bieg","bierzgo","boa","casanova","chlodnymokiem","ciszej","czlowiek","czterejpancerni","czuly","dalszy","dawid","dluzszystrzal","dobryizlyglina","dobywanie","domnaplecach","doswiadczony","dystans","dziswszystko","flash","garda","glaz","golareka","granienanerwach","gunfight","hokuspokus","immunitet","inspiracja","jestzajebiscie","kanaly","komandos","kopzobrotu","kot","kradziezwtlumie","lesnydiabel","ladowaniekuszy","lawnik","magazynek","meczbojowy","miotaczkul","mistrzopaskiuciskowej","mistrzwloczni","myslecjakmaszyna","napewnodzialal","naprawde","nauczyciel","niewrazliwosc","nostrzelaj","nozownik","obezwladnienie","odnajdowanie","odpornosc","odtrucie","odwrocenie","origami","osmiornica","otwieraniezamkowelektronicznych","padnij","pajak","panplaster","pewnareka","pierwotny","pitbull","plugplay","poschodach","podrasowanie","polozeniemotocykla","prowizorka","rappeling","rodeo","rozroba","roar","ruchomegniazdo","ruchomycel","rzutoka","samuraj","sherlock","sleklerezada","slup","skladamunicji","skok","sluchabsolutny","snajper","spacnawodzie","strzeleckieszonkowy","szachista","szostyzmysl","sztuczkikarciane","sztuka","szybkibill","szybkirzut","szybkiestrzelanie","srubobranie","taran","taranowanie","targowaniesie","tosierobitak","wmgnieniuoka","walkadwiemabronmi","wiatraki","wilkmorski","wlasciwatwarz","wracajacybumerang","wyczekanie","wyczucieemocjizwierzat","wyczuciepromieniowania","wyczuciezmianpogody","wyrabianiestrzalibeltow","wytrych","zagadanie","zaslona","zgranie","zielonybalonik","zly","zmylka","zelazneracje"];
-	
+
 	var official_sztuczka_nazwa = ["Bum","Aramis","Asekuracja","Aspiryna","Barbarka","Berserker","Bez oddechu","Bez sprzętu, bez zabezpieczenia","Bez sznurków","Bieg w ciszy","Bierz go!","Boa","Casanova/Mata Hari","Chłodnym okiem","Ciszej niż cień","Człowiek, który kulom się nie kłaniał","Czterej pancerni","Czuły spust","Dalszy zasięg","Dawid","Dłuższy strzał","Dobry i zły glina","Dobywanie","Dom na plecach","Doświadczony","Dystans","Dzis wszystko, jutro nic","Flash","Garda","Głaz","Goła ręka","Granie na nerwach","Gun fight","Hokus Pokus","Immunitet","Inspiracja","Jest zajebiście","Kanały","Komandos","Kop z obrotu","Kot","Kradzież w tłumie","Leśny diabeł","Ładowanie kuszy","Ławnik","Magazynek","Mecz bojowy","Miotacz kul","Mistrz opaski uciskowej","Mistrz włóczni","Myśleć jak maszyna","Na pewno działał","Naprawdę, to nie moja wina","Nauczyciel","Niewrażliwość na lekkie rany","No strzelaj, złomie!","Nożownik","Obezwładnienie","Odnajdowanie właściwej osoby","Odporność na pogodę","Odtrucie żarcia","Odwrócenie uwagi","Origami","Ośmiornica","Otwieranie zamków elektronicznych","Padnij/powstań","Pająk","Pan plaster","Pewna ręka","Pierwotny instykt","Pitbull","Plug and Play","Po schodach","Podrasowanie","Położenie motocykla","Prowizorka","Rappeling","Rodeo","Rozróba","Rrrroooaaarrr","Ruchome gniazdo CKM","Ruchomy cel","Rzut oka","Samuraj","Sherlock Holmes","Sleklerezada","Slup dup","Skład amunicji","Skok","Słuch absolutny","Snajper","Spać na wodzie","Strzelec kieszonkowy","Szachista","Szósty zmysł","Sztuczki karciane","Sztuka jest sztuką","Szybki Bill","Szybki rzut","Szybkie strzelanie","Śrutobranie","Taran","Taranowanie","Targowanie się","To się robi tak","W mgnieniu oka","Walka dwiema brońmi","Wiatraki","Wilk morski","Właściwa twarz","Wracający bumerang","Wyczekanie","Wyczucie emocji zwierząt","Wyczucie promieniowania","Wyczucie zmian pogody","Wyrabianie strzał lub bełtów","Wytrych","Zagadanie","Zasłona","Zgranie","Zielony balonik","Zły","Zmyłka","Żelazne racje"];
-	
+
 	function auto_sztuczka(nazwa,i){
 		$("#s_" + nazwa).click(function(){
 			$(".sztuczki_exmpl").css({'background-image': 'url("style/img/tile1.png")', 'color': '#0E7'});
-			$(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'}); 
+			$(this).css({'background-image': 'url("style/img/tile1clicked.png")', 'color': 'white'});
 			bohater.sztuczka = official_sztuczka_nazwa[i];
 			$("#karta_sztuczka_1").html(bohater.sztuczka);
 		});
@@ -1439,7 +1439,7 @@ $(function(){
 
 	for (i in sztuczka_nazwa)
 		auto_sztuczka(sztuczka_nazwa[i],i);
-	
+
 	// TWORZENIE KARTY --------------------------------------------------------------------------------------
 	general_test = true;
 	function before_generate_check(){
@@ -1457,16 +1457,16 @@ $(function(){
 		}
 		if( bohater.zr == 0 || bohater.pc == 0 || bohater.ch == 0 || bohater.sp == 0 || bohater.bd == 0 ) general_test = false;
 	}
-	
+
 	// ----------------------------------- UZUPEŁNIANIE STATYSTYK ----------------------------
 	function stat_check(x){ if (x<0) return 0; else return x; };
-	
+
 	function fill_zr(x){ $("#karta_staty1").html(x); $("#karta_staty1l").html(x-(-2)); $("#karta_staty1p").html(x-2); $("#karta_staty1t").html(stat_check(x-5)); $("#karta_staty1b").html(stat_check(x-8)); $("#karta_staty1c").html(stat_check(x-11)); $("#karta_staty1f").html(stat_check(x-15)); }
 	function fill_pc(x){ $("#karta_staty2").html(x); $("#karta_staty2l").html(x-(-2)); $("#karta_staty2p").html(x-2); $("#karta_staty2t").html(stat_check(x-5)); $("#karta_staty2b").html(stat_check(x-8)); $("#karta_staty2c").html(stat_check(x-11)); $("#karta_staty2f").html(stat_check(x-15)); }
 	function fill_ch(x){ $("#karta_staty3").html(x); $("#karta_staty3l").html(x-(-2)); $("#karta_staty3p").html(x-2); $("#karta_staty3t").html(stat_check(x-5)); $("#karta_staty3b").html(stat_check(x-8)); $("#karta_staty3c").html(stat_check(x-11)); $("#karta_staty3f").html(stat_check(x-15)); }
 	function fill_sp(x){ $("#karta_staty4").html(x); $("#karta_staty4l").html(x-(-2)); $("#karta_staty4p").html(x-2); $("#karta_staty4t").html(stat_check(x-5)); $("#karta_staty4b").html(stat_check(x-8)); $("#karta_staty4c").html(stat_check(x-11)); $("#karta_staty4f").html(stat_check(x-15)); }
 	function fill_bd(x){ $("#karta_staty5").html(x); $("#karta_staty5l").html(x-(-2)); $("#karta_staty5p").html(x-2); $("#karta_staty5t").html(stat_check(x-5)); $("#karta_staty5b").html(stat_check(x-8)); $("#karta_staty5c").html(stat_check(x-11));  $("#karta_staty5f").html(stat_check(x-15)); }
-	
+
 	function fill_all_stats(){
 		fill_zr(bohater.zr*1 + bohater.d_zr*1);
 		fill_pc(bohater.pc*1 + bohater.d_pc*1);
@@ -1474,9 +1474,9 @@ $(function(){
 		fill_sp(bohater.sp*1 + bohater.d_sp*1);
 		fill_bd(bohater.bd*1 + bohater.d_bd*1);
 	}
-	
+
 	function fill_card(){
-		
+
 		if (u_inp_test) wsp_rzuc();
 		fill_all_stats();
 		$("#karta_poch").html(bohater.pochodzenie);
@@ -1485,7 +1485,7 @@ $(function(){
 		$("#karta_prof_cecha").html(bohater.profesja_cecha);
 		$("#karta_spec").html(bohater.specjalizacja);
 		$("#karta_sztuczka_1").html(bohater.sztuczka);
-		
+
 		for (i = 0; i < 3; i++){
 			bohater.ww[i] = ww[i];
 			bohater.bs[i] = bs[i];
@@ -1514,7 +1514,7 @@ $(function(){
 		$("#karta").show();
 		fill_card();
 		before_generate_check();
-		
+
 		if(general_test){
 			html2canvas(document.getElementById("karta"),{
 				onrendered: function (canvas){
@@ -1523,13 +1523,13 @@ $(function(){
 					doc.addImage(img, "PNG",0,0,210, 297);
 					doc.save("karta_postaci.pdf");
 				}
-			});	
+			});
 			general_test = false;
 			setTimeout(function(){ $("#karta").hide(); }, 2000);
 		}
 		else { alert("Error general check."); $("#karta").hide(); }
 	}
 	$("#create_button").click(function(){ genPDF(); });
-	
+
 	$("#container").click(function(){ if(general_test) $("#karta").hide(); });
 });

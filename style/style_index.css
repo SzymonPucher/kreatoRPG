@@ -1,7 +1,7 @@
 body
 {
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 	text-align: center;
 	font-family: 'Karla', sans-serif;
 	background-image: url("img/triangles.png"); /* Background pattern from subtlepatterns.com */
@@ -24,47 +24,26 @@ body
 	font-family: 'Mirza', cursive;
 	margin-bottom: 20px;
 }
-#description
-{
-	width: 930px;
-	padding: 20px;
-	background-color: #111;
-	color: white;
-	margin: 10px;
-	border-color: #888;
-	border-style: ridge;
-	border-width: 5px;
-	font-family: 'Mirza', cursive;
+#description {
+    width: 930px;
+    padding: 20px;
+    background: rgba(0,0,0,0.1);
+    color: white;
+    margin: 10px;
+    border-color: #888;
+    border-width: 5px;
+    font-family: 'Mirza', cursive;
+    border-radius: 50px;
 }
-a { text-decoration: none; }
-.system
-{ 
-	font-size: 55px;
-	margin: 10px;
-	height: 160px;
-	width: 950px;
-	padding: 10px;
-	background-color: #666;
-	letter-spacing: 10px;
-	border-width: 5px;
-	border-color: #888;
-	border-style: solid;
-	color: white;
-	font-family: 'Raleway', sans-serif;
-	
-}
-.system:hover
-{
-	background-color: #888;
-	color: black;
-	border-color: #444;
-	cursor:pointer; 
-}
-#neuro
-{
-	background-image: url("img_index/neuro.jpg");
-}
-#neuro:hover
-{
-	background-image: url("img_index/neuro_hover.jpg");
+a { text-decoration: none; color: white; }
+
+#kp_neuroshima {
+    padding: 10px;
+    display: table;
+    margin: 0 auto;
+    border-width: 3px;
+    border-color: white;
+    border: ridge;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }

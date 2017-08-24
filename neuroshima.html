@@ -7,26 +7,26 @@
 	<title> Neuroshima 1.5 - KPG</title>
 	<meta name="description" content="Character sheet creator for TableTop RPG" />
 	<meta name="keywords" content="RPG, TableTop, Creator, Character, Hero, Kreator, Postaci, Gracza, Neuroshima" />
-	
+
 	<link rel="stylesheet" href="style/neuroshima.css" type="text/css" />
 	<link rel="stylesheet" href="style/neuroshima_karta.css" type="text/css" />
-	
+
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	
+
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="js/general.js"></script>
 	<script type="text/javascript" src="js/jspdf.min.js"></script>
 	<script type="text/javascript" src="js/html2canvas.js"></script>
-	
-	
-	
+
+
+
 </head>
 <body>
-<div id="container"> 
+<div id="container">
 	<div id="title">
 	Kreator Postaci Gracza <br /> Neuroshima 1.5 <div style="font-size: 20px; height: 30px; letter-spacing: 3px;">( alpha version )</div>
 	</div>
-	
+
 	<div class="subtitle">POCHODZENIE</div>
 	<div id="pochmenu">
 		<button id="poch_no" class="poch_tile1">Nie twój zasrany interes</button>
@@ -188,168 +188,273 @@
 		<button id="prof_zlodziej" class="prof_tile1">Złodziej</button>
 		<button id="prof_zolnierz" class="prof_tile1">Żołnierz</button>
 		<div class="clear:both;"></div>
-		
-		
+
+
 	</div>
 	<div id="prof_descrip">
 		<div class="prof_descrip" id="prof_descrip_chemik">
 			<div style="height: 52px;"></div>
-			<div id="prof_chemik_c1" class="subprof"><h2>Smakuje jak arszenik</h2>Tutaj będzie text opisujący całą cechę w kilku słowach. Ciągnący się przez kilka linijek i wycentrowany w kafelce.</div>
-			<div id="prof_chemik_c2" class="subprof"><h2>Farmaceuta</h2></div>
+			<div id="prof_chemik_c1" class="subprof"><h2>Smakuje jak arszenik</h2>
+				Przez lata kontaktu z toksynami stałeś się bardziej odporny na radiację i skażenia.
+			</div>
+			<div id="prof_chemik_c2" class="subprof"><h2>Farmaceuta</h2>
+				Mając kilka godzin, odpowiednie narzędzia i składniki jesteś w stanie produkować środki błyskawicznego leczenia:
+				<br />Painkillery, Medpaki i Deadline'y.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_ganger">
 			<div style="height: 52px;"></div>
-			<div id="prof_ganger_c1" class="subprof"><h2>Jeden z nich</h2></div>
-			<div id="prof_ganger_c2" class="subprof"><h2>Odważny czy głupi</h2></div>
+			<div id="prof_ganger_c1" class="subprof"><h2>Jeden z nich</h2>
+				Należysz do siejącego grozę gangu, a twój widoczny symbol przynależności odstrasza ludzi, lecz może Ci też przysporzyć problemów. Posiadasz więcej znajomości w Gangach.
+			</div>
+			<div id="prof_ganger_c2" class="subprof"><h2>Odważny czy głupi</h2>
+				Niełatwo cię zastraszyć, tak naprawdę nie przyjmujesz do wiadomości, że ktokolwiek odważyłby Ci się podskoczyć.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_gladiator">
 			<div style="height: 52px;"></div>
-			<div id="prof_gladiator_c1" class="subprof"><h2>Nie do zdarcia</h2></div>
-			<div id="prof_gladiator_c2" class="subprof"><h2>Łyżeczka</h2></div>
+			<div id="prof_gladiator_c1" class="subprof"><h2>Nie do zdarcia</h2>
+				Naprawdę trudno cię powalić, a co dopiero zabić w walce wręcz. Odporny z Ciebie skurczybyk.
+			</div>
+			<div id="prof_gladiator_c2" class="subprof"><h2>Łyżeczka</h2>
+				Broń impowizowana to twoja bajka, cokolwiek wpadnie Ci w ręce, pręt, rura, cegła, nawet łyżeczka, walczysz tym równie śmiertelnie co nożem.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_handlarz">
 			<div style="height: 52px;"></div>
-			<div id="prof_handlarz_c1" class="subprof"><h2>Trakt handlowy</h2></div>
-			<div id="prof_handlarz_c2" class="subprof"><h2>Szklarz</h2></div>
+			<div id="prof_handlarz_c1" class="subprof"><h2>Trakt handlowy</h2>
+				Nie każdy ma odwagę, by być wędrownym sprzedawcą, gdy na trakcie jest tyle zagrożeń. Poznałeś kawał świata i masz wielu znajomych ... pomocnych znajomych
+			</div>
+			<div id="prof_handlarz_c2" class="subprof"><h2>Szklarz</h2>
+				Dlaczego szklarz? Swietnie wciskasz kit. Kupujesz tanio, sprzedajesz drogo, sprytny z Ciebie handlarzyna.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_kaznodzieja">
 			<div style="height: 52px;"></div>
-			<div id="prof_kaznodzieja_c1" class="subprof"><h2>Spójrz mi w oczy</h2></div>
-			<div id="prof_kaznodzieja_c2" class="subprof"><h2>Amen</h2></div>
+			<div id="prof_kaznodzieja_c1" class="subprof"><h2>Spójrz mi w oczy</h2>
+				Rozmówca ucieka wzrokiem, kropla potu spływa mu po skroni. Trudno cię oszukać. Ty już wiesz, że on kłamie. Jak to wykorzystasz?
+			</div>
+			<div id="prof_kaznodzieja_c2" class="subprof"><h2>Amen</h2>
+				Czujesz, że dobrze Ci idzie? Tak się składa, że nawet sobie nie wyobrażasz jak dobrze może Ci pójść ... 3 razy na sesję. Wchodzisz w to?
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_kowboj">
 			<div style="height: 52px;"></div>
-			<div id="prof_kowboj_c1" class="subprof"><h2>Rewolwerowiec</h2></div>
-			<div id="prof_kowboj_c2" class="subprof"><h2>Ostatnia kula</h2></div>
+			<div id="prof_kowboj_c1" class="subprof"><h2>Rewolwerowiec</h2>
+				Trzymasz pistolet w kaburze, ale jesteś w stanie strzelić z niego równie szybko jakbyś już z niego mierzył.
+			</div>
+			<div id="prof_kowboj_c2" class="subprof"><h2>Ostatnia kula</h2>
+				Jedna kula w rewolwerze, czujesz tą adrenalinę? Lubisz ten moment, jeden strzał, zawsze celny ... prawie zawsze.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_kurier">
 			<div style="height: 52px;"></div>
-			<div id="prof_kurier_c1" class="subprof"><h2>Znajomości</h2></div>
-			<div id="prof_kurier_c2" class="subprof"><h2>Skrytka</h2></div>
+			<div id="prof_kurier_c1" class="subprof"><h2>Znajomości</h2>
+				Teren gangów? Niebezpieczne miasto? Dla ciebie to nie problem. Ty masz znajomości.
+			</div>
+			<div id="prof_kurier_c2" class="subprof"><h2>Skrytka</h2>
+				Znajdujesz bryke, chwile przy niej grzebiesz i masz już swoją skrytkę, którą bardzo trudno odkryć podczas przeszukiwania.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_lowca">
 			<div style="height: 52px;"></div>
-			<div id="prof_lowca_c1" class="subprof"><h2>Fotograficzna pamięć</h2></div>
-			<div id="prof_lowca_c2" class="subprof"><h2>Nieugięty</h2></div>
+			<div id="prof_lowca_c1" class="subprof"><h2>Fotograficzna pamięć</h2>
+				Pamiętasz jak dwa lata temu byliśmy w tym opuszczonym bunkrze. Co tam było napisane na ścianie? Nie patrz się tak, wiem że pamiętasz (albo mistrz gdy pamięta i musi Ci opowiedzieć).
+			</div>
+			<div id="prof_lowca_c2" class="subprof"><h2>Nieugięty</h2>
+				Kiedy masz konkretncy cel, trudniej Cię zatrzymać. Przesz do przodu jak czołg, nie zwracając uwagi na rany czy zmęczenie.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_lowcamutantow">
 			<div style="height: 52px;"></div>
-			<div id="prof_lowcamutantow_c1" class="subprof"><h2>Bez tajemnic</h2></div>
-			<div id="prof_lowcamutantow_c2" class="subprof"><h2>Mutant na śniadanie</h2></div>
+			<div id="prof_lowcamutantow_c1" class="subprof"><h2>Bez tajemnic</h2>
+				Widziałeś tyle mutantów, walczyłeś przeciwko wielu, znasz słabe punkty praktycznie każdego mutanta (a czasem nawet niektóre współczynniki).
+			</div>
+			<div id="prof_lowcamutantow_c2" class="subprof"><h2>Mutant na śniadanie</h2>
+				Załatwiłeś już tyle mutantów i ciągle Ci mało. Doświadczenie w walkach z mutantami sprawia, że tam gdzie inni by polegli, ty wychodzisz zwyciesko z potyczki.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_mafiozo">
 			<div style="height: 52px;"></div>
-			<div id="prof_mafiozo_c1" class="subprof"><h2>Bezlitosny</h2></div>
-			<div id="prof_mafiozo_c2" class="subprof"><h2>Klasa</h2></div>
+			<div id="prof_mafiozo_c1" class="subprof"><h2>Bezlitosny</h2>
+				Zła sława podąża za tobą, gdziekolwiek się udasz. Historie o twoich martwych wrogach krąża po świecie, a żywych wrogów nie masz. Taka sława może przynieść Ci dużo przywilejów.
+			</div>
+			<div id="prof_mafiozo_c2" class="subprof"><h2>Klasa</h2>
+				Trzeba trzymać poziom, szanować ludzi, trudno Ci nie uwierzyć. Dlatego jak czegoś chcesz, dużo prościej ludzi do tego przekonać.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_medyk">
 			<div style="height: 52px;"></div>
-			<div id="prof_medyk_c1" class="subprof"><h2>Reputacja</h2></div>
-			<div id="prof_medyk_c2" class="subprof"><h2>Sanitariusz polowy</h2></div>
+			<div id="prof_medyk_c1" class="subprof"><h2>Reputacja</h2>
+				Nie ma już służb zdrowia, lekarzy rodzinnych. Ogólnie jest was mniej. Jak pojawiasz się w wiosce, nagle stajesz się najważniejszą osobą. Ludzie zrobią wszystko, byś rzucił okiem na ich choroby.
+			</div>
+			<div id="prof_medyk_c2" class="subprof"><h2>Sanitariusz polowy</h2>
+				Strzelanina. Leczysz kumpla za osłoną. Kule świstają Ci nad głową, ale ty nic sobie z tego nie robisz. Zupełnie jakbyś pracował u siebie w gabinecie.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_monter">
 			<div style="height: 52px;"></div>
-			<div id="prof_monter_c1" class="subprof"><h2>Zapałki i agrafka</h2></div>
-			<div id="prof_monter_c2" class="subprof"><h2>Kłopotliwy nadmiar</h2></div>
+			<div id="prof_monter_c1" class="subprof"><h2>Zapałki i agrafka</h2>
+				Jedni widzą toster, stary telewizor i suszarkę, ty widzisz, że można z tego złożyć prowizoryczną wyrzutnię rakiet. Potrafisz przerobić różne urządzenia w jeden mechanizm.
+			</div>
+			<div id="prof_monter_c2" class="subprof"><h2>Kłopotliwy nadmiar</h2>
+				Naprawiasz wóz, rozbierasz, składasz i zostaje Ci kilka części. Co lepsze wóz działa, a ty możesz użyć tych części do czegokolwiek innego.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_najemnik">
 			<div style="height: 52px;"></div>
-			<div id="prof_najemnik_c1" class="subprof"><h2>Reputacja</h2></div>
-			<div id="prof_najemnik_c2" class="subprof"><h2>Maszyna do zabijania</h2></div>
+			<div id="prof_najemnik_c1" class="subprof"><h2>Reputacja</h2>
+				Masz renome, wykonane zlecenia mówią same za siebie, nie wycofujesz się, nie nawalasz. Reputacja na mieście oznacza większe stawki i uznanie w branży.
+			</div>
+			<div id="prof_najemnik_c2" class="subprof"><h2>Maszyna do zabijania</h2>
+				Walka trwa, ale ty wiesz, że możesz z siebie wycisknąć więcej. Wystarczy skupić się na walce. Tylko później nie narzekaj, że jesteś zmęczony.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_ochroniarz">
 			<div style="height: 52px;"></div>
-			<div id="prof_ochroniarz_c1" class="subprof"><h2>Wyciszenie</h2></div>
-			<div id="prof_ochroniarz_c2" class="subprof"><h2>Zanim on</h2></div>
+			<div id="prof_ochroniarz_c1" class="subprof"><h2>Wyciszenie</h2>
+				Masz jeden cel, ochronić klienta. Nie ważny jest hałas, zamieszanie, błysk fleszów, półmrok. Jesteś tarczą pomiędzy wrogiem, a klientem. Nic innego się nie liczy.
+			</div>
+			<div id="prof_ochroniarz_c2" class="subprof"><h2>Zanim on</h2>
+				Ochraniasz klienta. Jesteś czujny, czujesz, że ktoś się zbliża. Wiesz, że bedziesz pierwszy, zawsze jesteś, napastnik nie ma szans.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_sedzia">
 			<div style="height: 52px;"></div>
-			<div id="prof_sedzia_c1" class="subprof"><h2>Mundur i odznaka</h2></div>
-			<div id="prof_sedzia_c2" class="subprof"><h2>Jeden z nas</h2></div>
+			<div id="prof_sedzia_c1" class="subprof"><h2>Mundur i odznaka</h2>
+				Prawilny glina z ciebie, ludzie respektują cię, oprychy trochę się Ciebie boją, ale uważaj przy mutkach i gangsterach, nie odpuszczą okazji by Ci zaszkodzić.
+			</div>
+			<div id="prof_sedzia_c2" class="subprof"><h2>Jeden z nas</h2>
+				Zabiłeś w wiosce opryszka, nie musisz przekonywać innych, że to było konieczne. W końcu masz odznakę.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_spec">
 			<div style="height: 52px;"></div>
-			<div id="prof_spec_c1" class="subprof"><h2>Wykształcenie</h2></div>
-			<div id="prof_spec_c2" class="subprof"><h2>Skupienie</h2></div>
+			<div id="prof_spec_c1" class="subprof"><h2>Wykształcenie</h2>
+				Przeczytałeś sporo książek, trochę się z nich nauczyłeś, krzyżówki nie są dla Ciebie przeszkodą, masz sporą wiedzę podstawową na większość tematów.
+			</div>
+			<div id="prof_spec_c2" class="subprof"><h2>Skupienie</h2>
+				Zaczynasz swoje zadanie, jesteś w stanie się odciąć i skupić na czynności którą wykonujesz. Nie dość, że czynniki zewnętrzne na Ciebie nie wpływają to jeszcze działasz szybciej.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_szaman">
 			<div style="height: 52px;"></div>
-			<div id="prof_szaman_c1" class="subprof"><h2>Duchy przemówkiły</h2></div>
-			<div id="prof_szaman_c2" class="subprof"><h2>Totem</h2></div>
+			<div id="prof_szaman_c1" class="subprof"><h2>Duchy przemówkiły</h2>
+				Bierzesz jakieś grzybki. Zapadasz w trans i nagle wiesz więcej o wybranej osobie lub miejscu. Oczywiście mogą pojawić się skutki uboczne.
+			</div>
+			<div id="prof_szaman_c2" class="subprof"><h2>Totem</h2>
+				Szamani mają totemy. Ty wierzysz, że w twoich pięciu mieszkają duchy. Te duchy Cię wzmacniają. Jeden na raz, kosztem innych, na pewien czas.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_szczur">
 			<div style="height: 52px;"></div>
-			<div id="prof_szczur_c1" class="subprof"><h2>A co mi tam</h2></div>
-			<div id="prof_szczur_c2" class="subprof"><h2>Szary</h2></div>
+			<div id="prof_szczur_c1" class="subprof"><h2>A co mi tam</h2>
+				Fakt, że nie umarłeś mieszkając w kanałach postapokaliptycznych miast sprawiło, że trucizny, chorby i radiacja nie robią na tobie wrażenia.
+			</div>
+			<div id="prof_szczur_c2" class="subprof"><h2>Szary</h2>
+				Nikt na Ciebie nie zwraca uwagi, jesteś wręcz niewidzialny w otoczeniu pasującym do szczura.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_treserbestii">
 			<div style="height: 52px;"></div>
-			<div id="prof_treserbestii_c1" class="subprof"><h2>Bestia</h2></div>
-			<div id="prof_treserbestii_c2" class="subprof"><h2>Wilczy kieł</h2></div>
+			<div id="prof_treserbestii_c1" class="subprof"><h2>Bestia</h2>
+				Posiadasz wytresowaną bestię, a do tego potrafisz oswajać i tresować dziekie zwierzęta.
+			</div>
+			<div id="prof_treserbestii_c2" class="subprof"><h2>Wilczy kieł</h2>
+				Podczas walki wręcz gryziesz i drapiesz jak zwierzę. Co daje Ci znaczną przewagę nad rywalem.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_tropiciel">
 			<div style="height: 52px;"></div>
-			<div id="prof_tropiciel_c1" class="subprof"><h2>Wyczulone zmysły</h2></div>
-			<div id="prof_tropiciel_c2" class="subprof"><h2>Rozpoznawanie stworzeń</h2></div>
+			<div id="prof_tropiciel_c1" class="subprof"><h2>Wyczulone zmysły</h2>
+				Masz doskonały wzrok, węch i słuch. Na otwartym terenie widzisz i słyszysz znacznie więcej niż inni.
+			</div>
+			<div id="prof_tropiciel_c2" class="subprof"><h2>Rozpoznawanie stworzeń</h2>
+				Wiesz co można zabić, a przed czym spiepszać. Jesteś w stanie rozpoznawać zwierzęta z dużych odległości.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_wojownikautostrady">
 			<div style="height: 52px;"></div>
-			<div id="prof_wojownikautostrady_c1" class="subprof"><h2>Dzwi w dzwi</h2></div>
-			<div id="prof_wojownikautostrady_c2" class="subprof"><h2>Osłona samochodu</h2></div>
+			<div id="prof_wojownikautostrady_c1" class="subprof"><h2>Dzwi w dzwi</h2>
+				Podczas starcia w trakcie jazdy, masz duże plusy do prowadzenia samochodów.
+			</div>
+			<div id="prof_wojownikautostrady_c2" class="subprof"><h2>Osłona samochodu</h2>
+				Manewrowanie samochodem, gdy lecą w Ciebie kule to dla Ciebie kolejny dzień z życia. Pod ostrzałem prowadzisz tak, że znacznie trudniej trafić Ciebie i pasażerów.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_wojownikklanu">
 			<div style="height: 52px;"></div>
-			<div id="prof_wojownikklanu_c1" class="subprof"><h2>My i oni</h2></div>
-			<div id="prof_wojownikklanu_c2" class="subprof"><h2>To mój dom</h2></div>
+			<div id="prof_wojownikklanu_c1" class="subprof"><h2>My i oni</h2>
+				Gdzie inni widzą faceta z dzidą, ty widzisz członka klanu, a on wie kim ty jesteś. Dogadujesz się z takimi typami, czerwonoskórymi i ludźmi pustyni.
+			</div>
+			<div id="prof_wojownikklanu_c2" class="subprof"><h2>To mój dom</h2>
+				Jesteś członkiem klanu, zawsze masz gdzie wrócić, masz również wielu znajomych z twojego i przyjaznych klanów. Nigdy nie wiesz kiedy będziesz ich potrzebował.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_zabojca">
 			<div style="height: 52px;"></div>
-			<div id="prof_zabojca_c1" class="subprof"><h2>Koniec zlecenia</h2></div>
-			<div id="prof_zabojca_c2" class="subprof"><h2>Jeden strzał</h2></div>
+			<div id="prof_zabojca_c1" class="subprof"><h2>Koniec zlecenia</h2>
+				Gdy masz zlecenie na gościa, który jest w zasięgu wzroku, wszystko co robisz, by go dopaść przychodzi Ci znacznie prościej. Cel jest praktycznie skazany na śmierć.
+			</div>
+			<div id="prof_zabojca_c2" class="subprof"><h2>Jeden strzał</h2>
+				Gdy cel niespodziewa się ataku, a ty masz czas się przygotować, twój pierwszy strzał ma większe szanse na trafienie i ma zwiększone obrażenia.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_zabojcamaszyn">
 			<div style="height: 52px;"></div>
-			<div id="prof_zabojcamaszyn_c1" class="subprof"><h2>Słaby punkt</h2></div>
-			<div id="prof_zabojcamaszyn_c2" class="subprof"><h2>Empiryk</h2></div>
+			<div id="prof_zabojcamaszyn_c1" class="subprof"><h2>Słaby punkt</h2>
+				Widzisz tą maszynę? A łączenie tych dwóch elementów. To jest jej słaby punkt, a ty jesteś w stanie dostrzeć go w mgnieniu oka.
+			</div>
+			<div id="prof_zabojcamaszyn_c2" class="subprof"><h2>Empiryk</h2>
+				Miałeś doczynienia z tyloma maszynami, że gdy z nimi walczysz, jesteś w stanie przewidzieć jej ruchy, walczyć efektywniej i unikać ataków.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_zlodziej">
 			<div style="height: 52px;"></div>
-			<div id="prof_zlodziej_c1" class="subprof"><h2>Elektronik</h2></div>
-			<div id="prof_zlodziej_c2" class="subprof"><h2>Kot</h2></div>
+			<div id="prof_zlodziej_c1" class="subprof"><h2>Elektronik</h2>
+				Zabawa z elektroniką, rozbrajanie zabezpieczeń i hackowanie komputerów to dla Ciebie bułka z masłem.
+			</div>
+			<div id="prof_zlodziej_c2" class="subprof"><h2>Kot</h2>
+				Jesteś cichy niczym ... kot. Gdy chcesz, poruszasz się praktycznie bezszelestnie, wtapiasz w otoczenie. Jak to wykorzystasz to już twoja decyzja.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 		<div class="prof_descrip" id="prof_descrip_zolnierz">
 			<div style="height: 52px;"></div>
-			<div id="prof_zolnierz_c1" class="subprof"><h2>Wyszkolenie</h2></div>
-			<div id="prof_zolnierz_c2" class="subprof"><h2>Rutyna</h2></div>
+			<div id="prof_zolnierz_c1" class="subprof"><h2>Wyszkolenie</h2>
+				Szkolony żołnierz potrafi posługiwać się bronią strzelecką i ładunkami wybuchowymi. Ty nie jesteś wyjątkiem.
+			</div>
+			<div id="prof_zolnierz_c2" class="subprof"><h2>Rutyna</h2>
+				Nie boisz się walki, widząc przeciwnika nie zastanawiasz się, nie przeraża Cię szarżujący na ciebie mutant. Z zimną krwią strzelasz mu prosto w głowę.
+			</div>
 			<div class="clear:both;"></div>
 		</div>
 	</div>
-	
+
 	<div class="subtitle">SPECJALIZACJA</div>
 	<div class="specmenu">
 		<button class="spectile" id="spec_tech">Technik</button>
@@ -364,16 +469,16 @@
 		<div id="spec_rang_descrip" class="spec_pic">Łowca - Tropiciel - Samowystarczalny</div>
 		<div id="spec_cwa_descrip" class="spec_pic">Dyplomata - Złodziej - Kanciarz</div>
 	</div>
-	
-	<div class="subtitle">RZUĆ KOŚĆMI</div>	
-	
+
+	<div class="subtitle">RZUĆ KOŚĆMI</div>
+
 	<div id="dice_way_pick">
 		<div id="dice_way_pick_random" class="dice_way_pick_tile">losuj statystyki</div>
 		<div id="dice_way_pick_distribution" class="dice_way_pick_tile">rozdaj punkty do statystyk</div>
 		<div id="dice_way_pick_userInput" class="dice_way_pick_tile">rzuć własnymi kośćmi</div>
 		<div class="clear:both;"></div>
 	</div>
-	
+
 	<div id="r_final">
 		<div class="r_final_stat">
 			<div class="r_final_name">Zręczność</div>
@@ -397,7 +502,7 @@
 		</div>
 		<div class="clear:both;"></div>
 	</div>
-	
+
 	<div id="dice_random">
 		<div></div>
 		<div class="dice_random_stat_container" id="r_cont_1">
@@ -447,8 +552,8 @@
 		</div>
 		<div id="r_reset_but">RESET</div>
 	</div>
-		
-	
+
+
 	<div id="dice_distribution">
 		<div id="dice_distribution_description">Rozdaj punkty współczynników. Współczynnik może posiadać od 4 do 19 punktów. Po kliknięciu na nazwę współczynnika pokaże Ci się jego opis.<br />Pozostało <p id="dice_distribution_points_left">40</p> punktów.</div>
 		<div class="dice_distribution_stat_container">
@@ -482,9 +587,9 @@
 			<button class="dice_distribution_button" id="plus_bd">+</button>
 		</div>
 		<div class="clear:both;"></div>
-	
+
 	</div>
-	
+
 	<div id="dice_userInput">
 		<div id="dice_userInput_description"> Wybrałeś opcję rzucenia statystyk samodzielnie. Weź kość k20 (najlepiej 3 sztuki) i postępuje zgodnie z instrukcjami: 1. Rzuć trzema kośćmi k20, policz średnią wyników, zapisz na kartce/wpisz w programie. 2. Powtórz krok 1 sześć razy i najmniejszy wynik odrzuć. 3. Przyporządkuj otrzymane wyniki do statystyk według własnych preferencji.
 		</div>
@@ -509,7 +614,7 @@
 			<input type="number" id="userInput_bd" min="6" max="20"/>
 		</div>
 	</div>
-	
+
 	<div class="subtitle">UMIEJĘTNOŚCI</div>
 	<div class="skills">
 		<div class="skills_type" id="ww1">
@@ -559,7 +664,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bs3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="bd1">
 			Broń dystansowa<br />
 			<div class="skills_tile">
@@ -583,7 +688,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_bd3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="pp1">
 			Prow. pojazdów<br />
 			<div class="skills_tile">
@@ -607,7 +712,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pp3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="zm1">
 			Zdol. manualne<br />
 			<div class="skills_tile">
@@ -631,7 +736,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_zm3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="ot1">
 			Orient. w terenie<br />
 			<div class="skills_tile">
@@ -655,7 +760,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ot3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="sg1">
 			Spostrzegawczość<br />
 			<div class="skills_tile">
@@ -679,7 +784,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sg3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="ka1">
 			Kamuflaż<br />
 			<div class="skills_tile">
@@ -703,7 +808,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_ka3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="pr1">
 			Przetrwanie<br />
 			<div class="skills_tile">
@@ -727,7 +832,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pr3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="ng1">
 			Negocjacje<br />
 			<div class="skills_tile">
@@ -775,7 +880,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_em3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="sw1">
 			Siła woli<br />
 			<div class="skills_tile">
@@ -799,12 +904,12 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sw3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		 
+		</div>
 		<div id="skills_inner_container">
 			<div class="skills_inner_container_text"> ALL </div>
 			<div id="skills_points" class="skills_inner_container_number">30</div>
 			<div class="clear:both;"></div>
-			<div class="skills_inner_container_text" id="skills_inner_container_text_spec"> SPEC </div> 
+			<div class="skills_inner_container_text" id="skills_inner_container_text_spec"> SPEC </div>
 			<div id="skills_points_spec" class="skills_inner_container_number">35</div>
 			<div class="clear:both;"></div>
 		</div>
@@ -831,7 +936,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_me3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="te1">
 			Technika<br />
 			<div class="skills_tile">
@@ -855,7 +960,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_te3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="wo1">
 			Wiedza ogólna<br />
 			<div class="skills_tile">
@@ -879,7 +984,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_wo3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="sp1">
 			Sprzęt<br />
 			<div class="skills_tile">
@@ -903,7 +1008,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sp3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="pt1">
 			Pirotechnika<br />
 			<div class="skills_tile">
@@ -927,7 +1032,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_pt3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="sn1">
 			Sprawność<br />
 			<div class="skills_tile">
@@ -951,7 +1056,7 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_sn3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
+		</div>
 		<div class="skills_type" id="jd1">
 			Jeździectwo<br />
 			<div class="skills_tile">
@@ -975,10 +1080,10 @@
 				<div class="float_for_buttons"><button class="skills_button_plus" id="plus_jd3">+</button></div>
 				<div class="clear:both;"></div>
 			</div>
-		</div>		
-		
-	</div>	
-	
+		</div>
+
+	</div>
+
 	<div class="subtitle">SZTUCZKI</div>
 	<div class="sztuczki">
 		<button id="s_bum" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Bum</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
@@ -1107,7 +1212,7 @@
 		<button id="s_zelazneracje" class="sztuczki_exmpl"><div class="sztuczki_name"><b>Żelazne racje</b></div> <div class="sztuczki_descrip">(Sztuczki narazie nie działają)</div></button>
 		<div class="clear:both;"></div>
 	</div>
-	
+
 	<div class="UserInp">
 	<form>
 		<div class="inptile">
@@ -1124,33 +1229,33 @@
 		</div>
 		<div class="clear:both;"></div>
 	</form>
-	</div>	
+	</div>
 	<div id="create_button">STWÓRZ KARTĘ POSTACI</div>
 	<br />
 	<div id="footer">
 		Created by Szymon Pucher
 	</div>
-	
-	
+
+
 </div>
 
 <div id="karta">
 	<div style="height: 100px;"></div>
-	
+
 	<div id="karta_imie" class="karta_text1">Nie wybrano imienia</div>
 	<div id="karta_ksywa" class="karta_text1">Nie wybrano ksywy</div>
 	<div id="karta_nazwisko" class="karta_text1">Nie wybrano nazwiska</div>
 	<div class="clear:both;"></div>
-	
+
 	<div id="karta_poch" class="karta_text1">Nie wybrano pochodzenia</div>
 	<div id="karta_prof" class="karta_text1">Nie wybrano profesji</div>
 	<div id="karta_spec" class="karta_text1">Nie wybrano specjalizacji</div>
 	<div class="clear:both;"></div>
-	
+
 	<div id="karta_podzial1">
 		<div id="karta_poch_cecha" class="karta_text1">Nie wybrano cechy z pochodzenia</div>
 		<div id="karta_prof_cecha" class="karta_text1">Nie wybrano cechy z profesji</div>
-		
+
 		<div id="karta_choroba" class="karta_text1"></div>
 		<div id="karta_lek" class="karta_text1"></div>
 		<div id="karta_podzial_staty">
@@ -1203,7 +1308,7 @@
 				<div class="karta_staty" id="karta_staty4f">?</div>
 				<div class="karta_staty" id="karta_staty5f">?</div>
 			</div>
-			
+
 		</div>
 	</div>
 	<div id="karta_sztuczki">
@@ -1218,16 +1323,16 @@
 		<div class="karta_sztuczki_elem"></div>
 		<div class="karta_sztuczki_elem"></div>
 		<div class="karta_sztuczki_elem"></div>
-		
+
 	</div>
 	<div class="clear:both;"></div>
 	<div style="float: left; width: 205px; height: 1850px;;"></div>
 	<div id="karta_skills">
 		<div style="height: 106px;"></div>
 		 <div class="karta_skill" id="karta_ww1">0</div><div class="karta_skill" id="karta_ww2">0</div><div class="karta_skill" id="karta_ww3">0</div><div class="karta_skill" id="karta_bs1">0</div><div class="karta_skill" id="karta_bs2">0</div><div class="karta_skill" id="karta_bs3">0</div><div class="karta_skill" id="karta_bd1">0</div><div class="karta_skill" id="karta_bd2">0</div><div class="karta_skill" id="karta_bd3">0</div><div class="karta_skill" id="karta_pp1">0</div><div class="karta_skill" id="karta_pp2">0</div><div class="karta_skill" id="karta_pp3">0</div><div class="karta_skill" id="karta_zm1">0</div><div class="karta_skill" id="karta_zm2">0</div><div class="karta_skill" id="karta_zm3">0</div><div class="karta_skill" id="karta_ot1">0</div><div class="karta_skill" id="karta_ot2">0</div><div class="karta_skill" id="karta_ot3">0</div><div class="karta_skill" id="karta_sg1">0</div><div class="karta_skill" id="karta_sg2">0</div><div class="karta_skill" id="karta_sg3">0</div><div class="karta_skill" id="karta_ka1">0</div><div class="karta_skill" id="karta_ka2">0</div><div class="karta_skill" id="karta_ka3">0</div><div class="karta_skill" id="karta_pr1">0</div><div class="karta_skill" id="karta_pr2">0</div><div class="karta_skill" id="karta_pr3">0</div><div class="karta_skill" id="karta_ng1">0</div><div class="karta_skill" id="karta_ng2">0</div><div class="karta_skill" id="karta_ng3">0</div><div class="karta_skill" id="karta_em1">0</div><div class="karta_skill" id="karta_em2">0</div><div class="karta_skill" id="karta_em3">0</div><div class="karta_skill" id="karta_sw1">0</div><div class="karta_skill" id="karta_sw2">0</div><div class="karta_skill" id="karta_sw3">0</div><div class="karta_skill" id="karta_me1">0</div><div class="karta_skill" id="karta_me2">0</div><div class="karta_skill" id="karta_me3">0</div><div class="karta_skill" id="karta_te1">0</div><div class="karta_skill" id="karta_te2">0</div><div class="karta_skill" id="karta_te3">0</div><div class="karta_skill" id="karta_wo1">0</div><div class="karta_skill" id="karta_wo2">0</div><div class="karta_skill" id="karta_wo3">0</div><div class="karta_skill" id="karta_sp1">0</div><div class="karta_skill" id="karta_sp2">0</div><div class="karta_skill" id="karta_sp3">0</div><div class="karta_skill" id="karta_pt1">0</div><div class="karta_skill" id="karta_pt2">0</div><div class="karta_skill" id="karta_pt3">0</div><div class="karta_skill" id="karta_sn1">0</div><div class="karta_skill" id="karta_sn2">0</div><div class="karta_skill" id="karta_sn3">0</div><div class="karta_skill" id="karta_jd1">0</div><div class="karta_skill" id="karta_jd2">0</div><div class="karta_skill" id="karta_jd3">0</div>
-		
+
 	</div>
-	
+
 </div>
 </body>
 </html>

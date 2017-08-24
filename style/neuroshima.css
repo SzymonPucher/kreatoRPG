@@ -29,7 +29,7 @@ h2
 }
 #title
 {
-	font-size: 38px;	
+	font-size: 38px;
 	padding: 10px;
 	background-image: url("img/test2.jpg");
 	height: 120px;
@@ -70,7 +70,7 @@ h2
 	height: 140px;
 	/*background-color: #222222;*/
 	text-align: center;
-	
+
 }
 #poch_descrip
 {
@@ -113,7 +113,11 @@ h2
 	padding-top: 5px;
 	background-image: url("img/poch_cechy/poch_cecha_default.jpg");
 }
+.poch_cecha_clicked
+{
+	background-image: url("style/img/tile1clicked.jpg");
 
+}
 #poch_no_stat
 {
 	width: 260px;
@@ -136,14 +140,6 @@ h2
 	background-color: #888;
 	color: black;
 }
-
-#poch_no_descrip { background-image: url("img/poch/no.jpg"); }
-#poch_det_descrip { background-image: url("img/poch/det.jpg"); }
-#poch_cp_descrip { background-image: url("img/poch/cp.jpg"); }
-#poch_fa_descrip { background-image: url("img/poch/fa.jpg"); }
-#poch_mia_descrip { background-image: url("img/poch/mia.jpg"); }
-#poch_mis_descrip { background-image: url("img/poch/mis.jpg"); }
-#poch_ny_descrip { background-image: url("img/poch/ny.jpg"); }
 
 #poch_no_c1 { margin-left:18px; }
 #poch_det_c1 { margin-left:18px; }
@@ -190,7 +186,7 @@ h2
 	width: 960px;
 	height: 350px;
 	text-align: center;
-	
+
 }
 #prof_descrip
 {
@@ -428,7 +424,7 @@ h2
 .tile2
 {
 	float: left;
-	
+
 	width: 100px;
 	height: 55px;
 	margin: 5px;
@@ -714,7 +710,7 @@ h2
 	text-align: justify;
 	font-size: 20px;
 	padding: 15px 32px;
-	
+
 }
 input[type=text]
 {
@@ -729,7 +725,7 @@ input[type=text]
 	outline: none;
 	margin-top: 2px;
 	text-align: center;
-	
+
 }
 input[type=number]
 {
