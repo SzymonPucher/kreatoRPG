@@ -1508,7 +1508,7 @@ $(function(){
 			bohater.jd[i] = jd[i];
 		}
 	}
-	$("#karta").show();
+	$("#karta").hide();
 	// ----------------------------- GENEROWANIE PLIKU PDF ------------------------------
 	function genPDF() {
 		$("#karta").show();
