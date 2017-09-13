@@ -1441,21 +1441,45 @@ $(function(){
 		auto_sztuczka(sztuczka_nazwa[i],i);
 
 	// TWORZENIE KARTY --------------------------------------------------------------------------------------
-	general_test = true;
+
 	function before_generate_check(){
-		general_test = true;
-		if(bohater.pochodzenie == "Nie wybrano pochodzenia") general_test = false;
-		if(bohater.profesja == "Nie wybrano profesji") general_test = false;
-		if(bohater.sztuczka == "Nie wybrano sztuczki") general_test = false;
-		if(bohater.pochodzenie_cecha == "Nie wybrano cechy z pochodzenia") general_test = false;
-		if(bohater.profesja_cecha == "Nie wybrano cechy z profesji") general_test = false;
-		if(bohater.imie == "" || bohater.ksywa == "" || bohater.nazwisko == "") general_test = false;
-		else {
-			$("#karta_imie").html(bohater.imie = $("#inp_imie").val());
-			$("#karta_nazwisko").html(bohater.nazwisko = $("#inp_nazwisko").val());
-			$("#karta_ksywa").html(bohater.ksywa = $("#inp_ksywa").val());
+		var general_test = true;
+		var msg = "";
+		if(bohater.pochodzenie == "Nie wybrano pochodzenia"){
+			msg += "Nie wybrano pochodzenia. ";
+			general_test = false;
 		}
-		if( bohater.zr == 0 || bohater.pc == 0 || bohater.ch == 0 || bohater.sp == 0 || bohater.bd == 0 ) general_test = false;
+		if(bohater.profesja == "Nie wybrano profesji"){
+			msg += "Nie wybrano profesji. ";
+			general_test = false;
+		}
+		if(bohater.sztuczka == "Nie wybrano sztuczki"){
+			msg += "Nie wybrano sztuczki. ";
+			general_test = false;
+		}
+		if(bohater.pochodzenie_cecha == "Nie wybrano cechy z pochodzenia"){
+			msg += "Nie wybrano cechy z pochodzenia. ";
+			general_test = false;
+		}
+		if(bohater.profesja_cecha == "Nie wybrano cechy z profesji"){
+			msg += "Nie wybrano cechy z profesji. ";
+			general_test = false;
+		}
+		if( bohater.zr == 0 || bohater.pc == 0 || bohater.ch == 0 || bohater.sp == 0 || bohater.bd == 0 ){
+			msg += "Nie wybrano statystyk. ";
+			general_test = false;
+		}
+		$("#karta_imie").html(bohater.imie = $("#inp_imie").val());
+		$("#karta_nazwisko").html(bohater.nazwisko = $("#inp_nazwisko").val());
+		$("#karta_ksywa").html(bohater.ksywa = $("#inp_ksywa").val());
+		if(bohater.imie == "" || bohater.ksywa == "" || bohater.nazwisko == ""){
+			msg += "Nie wybrano nazw. ";
+			general_test = false;
+		}
+		if(y != 0 || y_spec != 0) msg += "Nie rozdano wszystkich punktów umiejętności. ";
+
+		if(msg != "") alert(msg);
+		return general_test;
 	}
 
 	// ----------------------------------- UZUPEŁNIANIE STATYSTYK ----------------------------
@@ -1513,9 +1537,7 @@ $(function(){
 	function genPDF() {
 		$("#karta").show();
 		fill_card();
-		before_generate_check();
-
-		if(general_test){
+		if(before_generate_check()){
 			html2canvas(document.getElementById("karta"),{
 				onrendered: function (canvas){
 					var img = canvas.toDataURL("image/png");
@@ -1527,7 +1549,7 @@ $(function(){
 			general_test = false;
 			setTimeout(function(){ $("#karta").hide(); }, 2000);
 		}
-		else { alert("Error general check."); $("#karta").hide(); }
+		else { $("#karta").hide(); }
 	}
 	$("#create_button").click(function(){ genPDF(); });
 
